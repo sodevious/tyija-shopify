@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Screen_Shot_2021-03-04_at_12.11.42_PM.png",
+        "headline": "404",
+        "subheadline": "The page you are looking for does not exist"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

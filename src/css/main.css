@@ -1,0 +1,419 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "fonts";
+
+@layer base {
+    :root {
+        --layout-header: 3.75rem;
+        --layout-footer: 8rem;
+    }
+    
+    @media screen(md) {
+        :root {
+            --layout-header: 5.25rem;
+        }
+    }
+
+    body {
+        @apply antialiased;
+
+        &.nav-open,
+        &.footer-open {
+            @apply overflow-hidden;
+            @apply md:overflow-y-auto;
+        }
+    }
+
+    hr {
+        @apply mb-12;
+    }
+
+    form .errors {
+        @apply text-red;
+        @apply mb-4;
+    }
+
+    .button {
+        @apply px-[1.15rem];
+        @apply py-2;
+        @apply inline-block;
+        @apply rounded-full;
+        @apply text-center;
+        @apply leading-none;
+        @apply normal-case;
+        @apply bg-white;
+        @apply text-black;
+        @apply light:bg-black;
+        @apply light:text-white;
+        @apply light:mix-blend-darken;
+    }
+
+    .button.button-sm {
+        @apply px-3;
+        @apply py-2;
+        @apply text-md;
+    }
+
+
+}
+
+@layer components {
+    select,
+    input[type='email'],
+    input[type='password'],
+    input[type='tel'],
+    input[type='text'] {
+        @apply bg-transparent;
+        @apply text-currentColor;
+        @apply my-2; 
+        @apply px-1;
+        @apply py-1;
+        @apply border-b;
+        @apply placeholder-currentColor;
+        @apply focus:outline-none;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@layer utilities {
+    .text-h1 {
+        @apply uppercase;
+        @apply leading-90;
+        @apply md:text-[8.75rem];
+        @apply md:leading-100;
+    }
+
+    .text-h2 {
+        @apply uppercase;
+        @apply md:text-[4rem];
+        @apply md:leading-100;
+    }
+
+    .text-h3 a {
+        @apply font-serif;
+    }
+
+    .text-h5 {
+        @apply md:text-[0.625rem];
+    }
+
+    .h-header {
+        height: var(--layout-header);
+    }
+}
+
+/* 
+ * HOME
+*/
+
+.tyija-home {
+    grid-template-rows: var(--layout-header) auto;
+    @apply grid; 
+    @apply z-30;
+
+}
+
+/*
+ * LAYOUT
+*/
+
+.tyija-layout {
+    @apply md:min-h-screen;
+    @apply bg-black;
+    @apply text-white;
+    @apply light:bg-white;
+    @apply light:text-black;
+    @apply items-start;
+    @apply grid; 
+
+    @apply grid-cols-1;
+    
+    transition: background-color 0.20s ease-in-out;
+    grid-template-rows: var(--layout-header) auto; 
+    grid-template-areas: "logo" "content";
+
+    @media screen(md) {
+        grid-template-columns: minmax(12rem, 16%) 1fr 1fr 1fr 1fr 1fr; 
+        grid-template-areas: "logo content content content content content"
+                            "sidebar content content content content content";
+    }
+}
+
+
+/*
+ * HEADER
+ */
+
+.tyija-header {
+    grid-area: header;
+
+    @apply flex;
+    @apply px-4;
+    @apply py-5;
+    @apply border-b;
+    @apply border-white;
+    @apply light:border-black;
+    @apply md:px-10;
+    @apply md:py-8;
+}
+
+.tyija-logo {
+    grid-area: logo;
+    height: var(--layout-header);
+
+    @apply flex;
+    @apply justify-center;
+    @apply items-center;
+    @apply border-b;
+    @apply md:border-none;
+}
+
+.tyija-actions {
+    @apply top-4;
+    @apply z-40;
+    @apply right-4;
+    @apply absolute;
+    @apply md:fixed;
+    @apply md:right-8;
+    @apply md:top-7;
+    /* @apply flex justify-between items-center */
+}
+/* .tyija-actions__item {
+    @apply mr-2 last:mr-0
+} */
+
+/*
+ * SEARCH
+ */
+
+ .tyija-search {
+    @apply fixed;
+    @apply w-full;
+    @apply top-0;
+    @apply left-0;
+    @apply md:top-4;
+    @apply md:left-auto;
+    @apply md:absolute;
+    @apply md:w-[360px];
+    @apply md:right-[100%];
+ }
+
+
+
+/*
+ * CONTENT
+ */
+
+.tyija-content {
+    grid-area: content;
+
+    @apply md:overscroll-y-auto;
+    @apply md:min-h-screen;
+}
+
+.tyija-sidebar {
+    @apply top-0;
+    @apply flex-col;
+    @apply justify-center;
+    @apply items-stretch;    
+    @apply md:min-h-screen;
+    @apply md:sticky;
+    @apply md:flex;
+    @apply md:border-r;
+
+}
+
+
+/* 
+ * CONTENT
+ */
+
+.richtext p +  p {
+    @apply mt-6;
+}
+
+@layer components {
+  
+.page-title {
+    @apply block;
+    @apply uppercase;
+    @apply text-center;
+    @apply py-1;
+    @apply px-8;
+    @apply border-b;
+    @apply mb-4;
+    @apply md:text-left;
+    @apply md:text-h2;
+    @apply md:py-6;
+    @apply md:pr-52;
+}
+}
+
+/*
+ * NAV
+ */
+
+@layer components {
+    .nav-vertical-wrapper {
+        @apply flex-1;
+        @apply flex;
+        @apply items-center;
+        @apply justify-center;
+        @apply flex-col;
+        @apply border-b;
+        @apply p-4;
+
+        &:last-child {
+            border: 0;
+        }
+/* 
+        .accordion-item {
+            @apply hidden;
+            @apply no-js:block;
+        }
+
+        .accordion-item.is-open {
+            @apply block;
+        } */
+    }
+}
+
+.tyija-nav {
+    /* min-height: calc(100vh - var(--layout-header)); */
+
+    /* @apply hidden; */
+    @apply flex;
+    @apply flex-1;
+    @apply flex-col;
+    @apply justify-center;
+    @apply border-t;
+}
+ 
+.tyija-overlay {
+    @apply overflow-y-scroll;
+    @apply backdrop-blur-sm;
+    @apply bg-black/75;
+    @apply text-white;
+    @apply fixed;
+    @apply bottom-0;
+    @apply right-0;
+    @apply top-0;
+    @apply left-0;
+    
+    @apply md:top-auto;
+    @apply md:bg-transparent;
+    @apply md:overflow-auto;
+    @apply md:backdrop-blur-none;
+    @apply md:top-auto;
+}
+
+/*
+ * PRODUCT DETAIL
+ */
+
+.product-description p {
+    @apply mb-6;
+}
+
+.product-media {
+    @apply zoomed:md:fixed;
+    @apply zoomed:md:overflow-y-scroll;
+    @apply zoomed:md:h-full;
+    @apply z-0;
+    @apply top-0;
+    @apply bottom-0;
+    @apply right-0;
+    @apply left-0;
+    @apply hidden;
+    @apply md:block;
+
+    img {
+        @apply w-full;
+        @apply h-full;
+        @apply zoomed:h-auto;
+    }
+}
+
+/*
+ * PRODUCT CARD
+ */
+
+.product-card {
+    @apply relative;
+}
+
+.product-card:hover {
+   @apply pt-4;
+
+    .product-like {
+        @apply z-50;
+    }
+
+    img  {
+        border-radius: 50%;
+        @apply overflow-hidden; 
+    }
+}
+
+
+/*
+ * DESIGNER COLLECTION
+ */
+
+.designer-collection {
+    @apply overflow-x-visible;
+    @apply relative;
+    @apply bottom-3;
+    @apply md:bottom-6;
+    @apply flex;
+    @apply overflow-hidden;
+}
+
+.designer-collection-product {
+    @apply pr-4;
+    @apply aspect-3/4;
+    @apply h-full;
+    @apply inline-block;
+    @apply w-24;
+    transition: width 0.2s ease-in-out;
+}
+
+@layer component {
+    .designer-carousel {
+        @apply ml-4;
+        @apply md:ml-8;        
+        @apply cursor-pointer;
+    }
+}
+
+/*
+  * FOOTER
+  */
+
+.tyija-footer {
+    @apply z-40;
+    @apply bg-repeat-x;
+    @apply bg-bottom;
+    @apply bg-contain;
+    @apply light:text-black;
+    background-size: 7rem;
+
+    /* for animation */
+    @apply invisible;
+    @apply opacity-0;
+    @apply translate-y-8;
+    @apply transition-all;
+
+    &.is-open {
+        @apply visible;
+        @apply opacity-100;
+        @apply translate-y-0;
+        @apply md:flex;
+    }
+}
+

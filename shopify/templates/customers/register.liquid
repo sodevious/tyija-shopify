@@ -1,0 +1,115 @@
+<h2 class="page-title">
+  {{ 'customer.account.title' | t }}
+</h2>
+
+{% if settings.account_about %}
+  <div class="uppercase border-b p-4 mb-8 richtext  md:text-h3 md:p-8">
+    {{ settings.account_about | richtext }}
+  </div>
+{% endif %}
+
+<div class="p-4 md:p-8 max-w-4xl">
+  <h3 class="text-h3 uppercase mb-20">
+    {{ 'customer.register.title' | t }}
+  </h3>
+  
+  {% form 'create_customer', return_to: routes.account_url %}
+    <input type="hidden" name="customer[tags]" value="locale={{ request.locale.iso_code }}">
+
+    {% if form.errors %}
+      {{ form.errors | default_errors }}
+    {% endif %}
+
+    <div class="grid md:grid-cols-2 gap-8 mb-8">
+      <div class="mb-4 sm:mb-6">
+        <label
+          for="FirstName"
+          class="block"
+        >
+          {{ 'customer.register.first_name' | t }}
+        </label>
+
+        <input
+          type="text"
+          id="FirstName"
+          name="customer[first_name]"
+          {% if form.first_name %}
+            value="{{ form.first_name }}"
+          {% endif %}
+          class="w-full"
+          required
+        >
+      </div>
+
+      <div class="mb-4 sm:mb-6">
+        <label
+          for="LastName"
+          class="block"
+        >
+          {{ 'customer.register.last_name' | t }}
+        </label>
+
+        <input
+          type="text"
+          id="LastName"
+          name="customer[last_name]"
+          {% if form.last_name %}
+            value="{{ form.last_name }}"
+          {% endif %}
+          class="w-full"
+          required
+        >
+      </div>
+
+      <div class="mb-4 sm:mb-6">
+        <label
+          for="CustomerEmail"
+          class="block"
+        >
+          {{ 'customer.register.email' | t }}
+        </label>
+
+        <input
+          type="email"
+          id="CustomerEmail"
+          name="customer[email]"
+          value="{% if form.email %}{{ form.email }}{% endif %}"
+          class="w-full"
+          required
+        >
+      </div>
+
+      <div class="mb-4 sm:mb-10">
+        <label
+          for="CreatePassword"
+          class="block"
+        >
+          {{ 'form.password' | t }}
+        </label>
+
+        <input
+          type="password"
+          id="CreatePassword"
+          name="customer[password]"
+          class="w-full"
+          required
+        >
+      </div>
+    </div>
+
+    {% if settings.account_tos %}
+      <div class="mb-12 richtext">
+        {{ settings.account_tos | richtext }}
+      </div>
+    {% endif %}
+
+    <div class="flex flex-wrap gap-4 sm:gap-6">
+      <button
+        type="submit"
+        class="button button-sm"
+      >
+        {{ 'customer.register.submit' | t }}
+      </button>
+    </div>
+  {% endform %}
+</div>

@@ -1,0 +1,25 @@
+<h3 class="page-title">
+  {%- if search.performed -%}
+    {{ search.results_count }}
+    Results for "{{ search.terms | escape }}"
+  {%- else -%}
+    {{ 'action.search' | t }}
+  {%- endif -%}
+</h3>
+
+<div class="container p-8">
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-x-8 gap-y-16">
+    {% paginate search.results by 24 %}
+      {%- for item in search.results -%}
+        {%- case item.object_type -%}
+          {%- when 'product' -%}
+            {% render 'product-card', product: item, class: "product-card" %}
+          {%- when 'article' -%}
+            Article: {{ item.title }}
+          {%- when 'page' -%}
+            Page: {{ item.title }}
+        {%- endcase -%}
+      {%- endfor -%}
+    {% endpaginate %}
+  </div>
+</div>

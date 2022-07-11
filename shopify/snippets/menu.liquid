@@ -1,0 +1,43 @@
+<!-- See NavItem.vue -->
+{% for link in linklists.menu.links %}
+  <nav-item class="nav-vertical-wrapper" link="{{ link.url }}" child-context="{{ link.child_current }}" menu-context="{{ link.levels }}" :nav-context="navContext">
+    <template v-slot="nav"> 
+      <a
+        @click="nav.handleClick($event, '{{ link.url }}')"
+        href="{{ link.url }}"
+        class="flex justify-center items-center uppercase text-h2 md:text-h4 py-5 md:py-1"
+        :class="{ 'italic': isCurrent }"
+        {% if link.url == '/account' %}
+          data-barba-prevent
+        {% endif %}
+      >
+        {{ link.title }}
+      </a>
+    </template>
+
+    {% if link.levels > 0 %}
+      <template #child>
+        <ul class="block text-center accordion-item">
+          {% for child_link in link.links %}
+            <li class="text-h4 md:text-h5 uppercase my-4">
+              <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </template>
+    {% endif %}
+
+    {% if link.url contains 'blogs' %}
+      <template #child>
+        <ul class="block text-center accordion-item">
+
+        {% for article in blogs.editorial.articles %}
+          <li class="text-h4 md:text-h5 uppercase my-4">
+            <a href="{{ article.url }}">{{ article.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+      </template>
+    {% endif %}
+  </nav-item>
+{% endfor %}

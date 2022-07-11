@@ -1,0 +1,18 @@
+{% assign buttonClass = 'uppercase text-h5 button-sm  md:button' %}
+
+{% if customer.id == null %}
+  {% if request.page_type contains 'customer' %}
+    <a href="{{ routes.account_login_url }}#login_form" class="{{ buttonClass }}" data-barba-prevent>{{- 'action.sign_in' | t -}}</a>
+  {% endif %}
+{% else %}
+  <a href="{{ routes.account_logout_url }}" class="{{ buttonClass }}" data-barba-prevent>{{- 'action.sign_out' | t -}}</a>
+{% endif %}
+
+{% if request.page_type != 'index' %}
+  {% render 'search', buttonClass: buttonClass %}
+{% endif %}
+
+<a href="{{ routes.cart_url }}" class="{{ buttonClass }} ml-7 nav-open:hidden"
+   @click.prevent.stop="$store.dispatch('overlays/toggleCart')">
+  {{ 'action.cart' | t }}
+<a>

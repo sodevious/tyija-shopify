@@ -1,0 +1,95 @@
+{% if request.page_type != 'search' %}
+  {%- capture designers -%}
+    {%- for collection in collections -%}
+      {%- if collection.metafields.tyija.is_designer == true -%}
+        {{ collection.handle }};
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endcapture %}
+{% endif %}
+
+
+<!-- Renderless Component- See SearchDropdown.vue -->
+<search-dropdown designers="{{ designers }}">
+  <template v-slot="search">
+    <div class="tyija-search">
+      <div class="bg-black text-white px-4  py-8 md:py-2 top-[-1rem] w-full md:absolute light:bg-white light:text-black" 
+        v-if="$store.state['overlays'].isSearchOpen">
+
+        <button @click="$store.dispatch('overlays/toggleSearch')" class="md:hidden w-full text-right mb-8">
+          <svg class="w-4 h-4 float-right">
+              <use xlink:href="#close_info"></use>
+          </svg>
+      </button>
+
+        <form action="{{ routes.search_url }}">
+          <input 
+            type="text"
+            @input="search.setInputValue($event.target.value)" 
+            class="border bg-transparent w-full text-base focus:bg-transparent"
+            placeholder="Type to start searching..." 
+            ref="input"
+            {% if search.performed %}value="{{ search.terms | escape }}"{% else %}:value="search.inputValue"{% endif %}
+            name="q">
+          <input type="submit" value="Search" class="sr-only">
+        </form>
+
+        <template v-if="search.collectionResults.length > 0">
+          <h4 class="text-h5 uppercase my-7">Designers</h4>
+
+          <ul>
+            <li v-for="result in search.collectionResults" class=" block mb-4" :key="result.handle">
+              <a :href="result.url" class="text-h4 uppercase">
+                {% raw %}{{ result.title }}{% endraw %}
+              </a>
+            </li>
+          </ul>
+
+          <hr class="my-7" />
+
+        </template>
+
+        <template v-if="search.productResults.length > 0">
+          <h4 class="text-h5 uppercase my-7">Products</h4>
+
+          <ul>
+            <li v-for="product in search.productResults" class=" block mb-4" :key="product.handle">
+              <a :href="product.url" class="text-h4 uppercase">
+                {% raw %}{{ product.title }}{% endraw %}
+                <span class="text-red inline-block pl-2" v-text="product.type"></span>
+              </a>
+            </li>
+          </ul>
+
+          <hr class="my-7" />
+        </template>
+
+        <ul class="flex justify-between mt-4 no-js:hidden">
+          {% for link in linklists.search-menu.links %}
+            <li>
+              <a
+                href="{{ link.url }}"
+                class="text-h5 text-red uppercase"
+              >
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <a :href="search.searchHref" v-if="search.inputValue" class="block text-h5 uppercase mt-8">
+          {% raw %}Search "{{ search.inputValue }}"{% endraw %}
+          <svg class="w-2 h-2 inline ml-1">
+            <use xlink:href="#arrow"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <button 
+      class="uppercase text-h5 button-sm md:button hidden md:inline-block ml-8" 
+      @click="search.handleToggle">
+      {{ 'action.search' | t }}
+    </button>
+  </template>
+</search-dropdown>

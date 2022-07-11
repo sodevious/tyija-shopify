@@ -1,0 +1,31 @@
+<div class="flex flex-col justify-center text-center h-screen">
+  <h1 class="text-h1">
+    {{ '404.title' | t }}
+  </h1>
+
+  <p class="text-h3 md:text-h2 uppercase p-8">
+    {{ '404.text' | t }}
+  </p>
+</div>
+
+{%- style -%}
+  body {
+      background-image: url('{{ section.settings.image | image_url: width: 1000 }}');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+  }
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "404",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,41 @@
+{% assign pagination_link = 'p-4 text-h4 uppercase flex justify-center items-center' %}
+{% assign pagination_disabled = 'opacity-50 cursor-not-allowed' %}
+
+{% if paginate.pages > 1 %}
+  <nav class="flex justify-center select-none space-x-2 mt-16">
+    <a
+      href="{{ paginate.previous.url }}"
+      class="{{ pagination_link }} {% if paginate.previous == null %}{{ pagination_disabled }}{% endif %}"
+    >
+      Back
+    </a>
+
+    {% for part in paginate.parts %}
+      {% if part.is_link %}
+        <a
+          href="{{ part.url }}"
+          class="{{ pagination_link }}"
+        >
+          {{ part.title }}
+        </a>
+      {% else %}
+        {% if part.title == paginate.current_page %}
+          <div class="{{ pagination_link }} bg-black text-white">
+            {{ part.title }}
+          </div>
+        {% else %}
+          <div class="{{ pagination_link }}">
+            {{ part.title }}
+          </div>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    <a
+      href="{{ paginate.next.url }}"
+      class="{{ pagination_link }} {% if paginate.next == null %}{{ pagination_disabled }}{% endif %}"
+    >
+      Forward
+    </a>
+  </nav>
+{% endif %}

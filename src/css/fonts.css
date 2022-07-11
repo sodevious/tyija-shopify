@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'WT Kormelink SemLt';
+    src: url('fonts/WTKormelink-Roman.woff2') format('woff2'),
+        url('fonts/WTKormelink-Roman.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NeueHaasGroteskDisp W02';
+    src: url('fonts/NHaasGroteskDSW02-55Rg.woff2') format('woff2'),
+        url('fonts/NHaasGroteskDSW02-55Rg.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'WT Kormelink SemLt';
+    src: url('fonts/WTKormelink-Italic.woff2') format('woff2'),
+        url('fonts/WTKormelink-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+

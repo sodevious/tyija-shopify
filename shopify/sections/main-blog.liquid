@@ -1,0 +1,38 @@
+<h2 class="page-title mb-0">
+  {{ blog.title }}
+</h2>
+
+<div class="container" vue>
+
+  {% comment %} {% raw %}{{ $store.state['content'].activeBlog }}{% endraw %} {% endcomment %}
+  
+  {% paginate blog.articles by 8 %}
+    {% for article in blog.articles %}
+      <a href="{{ article.url }}" class="w-full block relative border-b p-4 md:p-8" @click.prevent.stop.once="$store.dispatch('content/setBlog', '{{ article.handle }}')">
+        {% if article.title %}
+          <h3 class="block uppercase text-h2 md:text-h1 relative z-30">
+              {{ article.title }}
+          </h3>
+        {% endif %}
+
+        <div class="text-gray-600 mt-4 md:mt-8" v-if="$store.state['content'].activeBlog == '{{ article.handle }}'">
+          <h3 class="text-h3 md:text-h2 uppercase relative z-30">
+            {%- if article.excerpt.size > 0 -%}
+              "{{- article.excerpt -}}"
+            {%- else -%}
+              "{{- article.content | strip_html | truncate: 60 -}}"
+            {%- endif -%}
+          </h3>
+
+          {% if article.image %}
+          <div class="aspect-square right-0 bottom-8 top-8 absolute m-8 z-0 hidden md:block">
+            {{ article.image | image_url: width: 400 | image_tag: class: 'h-full w-full rounded-full object-cover border' }}
+            </div>
+          {% endif %}
+        </div>
+      </a>
+    {% endfor %}
+
+    {% render 'pagination', paginate: paginate %}
+  {% endpaginate %}
+</div>

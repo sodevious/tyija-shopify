@@ -1,0 +1,56 @@
+
+
+
+<header class="flex  items-center px-8  relative border-b border-white light:border-black   ">
+  <a
+    href="{{ routes.root_url }}"
+    class="flex mx-auto w-full justify-center   left-0 right-0 md:mx-0 md:justify-start"
+    data-barba-prevent
+  >
+    <svg class="w-16 h-6 md:w-20">
+      <use xlink:href="#logo"></use>
+    </svg>
+  </a>
+
+
+  <!-- Independent button to toggle cart. See Main.cart component & cart.js store module -->
+  <div vue>
+    <button
+      class="uppercase text-h5 button-sm md:button hidden md:inline-block ml-8"
+      @click="$store.commit('overlays/TOGGLE_CART')"
+    >
+      {{ 'action.cart' | t }}
+    <button>
+  </div>
+</header>
+
+  {% comment %} <div class="fixed right-4 md:right-8 flex justify-end">
+    {% if request.page_type contains 'customer' %}
+      <a
+        href="{{ routes.account_login_url }}"
+        class="{{ buttonClass }}"
+        >{{ 'action.sign_in' | t }}</a>
+
+      {% endif %}
+
+
+  <button @click="$store.dispatch('overlays/toggleCart')" class="uppercase text-h5 right-8 button-sm absolute md:button ml-7">
+    {{- 'action.cart' | t -}}
+  </button>
+</header>
+
+ 
+
+
+  
+
+  {% if shop.customer_accounts_enabled %}
+    {% if customer %}
+      <a href="{{ routes.account_url }}">{{ 'action.account' | t }}</a>
+      {{ 'action.log_out' | t | customer_logout_link }}
+    {% else %}
+      {{ 'action.sign_in' | t | customer_login_link }}
+      {{ 'action.register' | t | customer_register_link }}
+    {% endif %}
+  {% endif %}
+{% endcomment %}

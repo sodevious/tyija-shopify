@@ -1,0 +1,10 @@
+<div class="{{ class | default: '' }}" style="{{ style | default: '' }}">
+  <a href="{{ product.url | within: collection }}" class="block relative product-card-link z-20">
+    <img
+      src="{{ product.featured_image.src | img_url: '200x' }}"
+      alt="{{ product.featured_image.alt | escape }}"
+      loading="lazy"
+      class="w-full object-cover object-center"
+    >
+  </a>
+</div>

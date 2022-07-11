@@ -1,0 +1,54 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "TYiJA",
+    "theme_version": "1.0.0",
+    "theme_author": "THEME_AUTHOR",
+    "theme_documentation_url": "https://THEME_DOCUMENTATION_URL.com",
+    "theme_support_url": "https://THEME_SUPPORT_URL.com"
+  },
+
+  {
+    "name": "Account",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Registration Content"
+      },
+      {
+        "type": "richtext",
+        "id": "account_about",
+        "label": "About Text",
+        "default": "<p>We are a tech-driven retailer focused on crafting smarter shopping experiences. Our split concept comprises both ecommerce and branded content platforms that work in unison to select & connect our handpicked community of private clients, luxury brands and contemporary art partners.</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "account_tos",
+        "label": "Registration TOS Copy",
+        "default": "<p>Your information etc.</p>"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "footer_bg",
+        "label": "Background Image"
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.favicon.name",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "t:settings_schema.favicon.settings.label",
+        "info": "t:settings_schema.favicon.settings.info"
+      }
+    ]
+  }
+
+]

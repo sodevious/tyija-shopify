@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="preload" href="{{ 'bundle.css' | asset_url }}" as="style">
+    <link rel="preload" href="{{ 'bundle.js' | asset_url }}" as="script">
+
+    {% if settings.favicon %}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+    {% endif %}
+
+    <title>{{ page_title | escape }}</title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {{ 'bundle.css' | asset_url | stylesheet_tag }}
+
+    <!-- Shopify scripts -->
+    {{ content_for_header }}
+  </head>
+
+  <body class="{{ request.page_type }} tyija-layout" data-barba="wrapper">
+    <main
+      class="tyija-content"
+      data-barba="container"
+      data-barba-namespace="{{ request.page_type }}"
+    >
+      {{ content_for_layout }}
+    </main>
+
+    <div class="tyija-sidebar" vue>
+      <h1 class="tyija-logo">
+        <a
+          href="{{ routes.root_url }}"
+          data-barba-prevent
+        >
+          <svg class="w-16 h-6  md:w-20">
+            <use xlink:href="#logo"></use>
+          </svg>
+        </a>
+      </h1>
+
+      <nav class="tyija-nav">
+        <menu-wrapper v-slot="{ navContext }">
+          {% render 'menu' %}
+        </menu-wrapper>
+
+        <div class="nav-vertical-wrapper flex-row hidden md:flex">
+          <theme-switcher></theme-switcher>
+
+          <svg class="w-12 h-10 lg:h-12 mx-4">
+            <use xlink:href="#liked"></use>
+          </svg>
+        </div>
+
+        <div class="nav-vertical-wrapper hidden md:flex" :class="{ 'footer-open': $store.state['overlays'].isFooterOpen }">
+          {% comment %} <svg class="w-14 h-16 opacity-100 transition-opacity -scale-x-100 footer-open:opacity-0">
+            <use xlink:href="#menu_wing_button"></use>
+          </svg> {% endcomment %}
+        </div>
+      </nav>
+    </div>
+
+    <div vue class="no-js:hidden">
+      <div class="tyija-actions">
+        {% render 'actions' %}
+      </div> 
+      
+      {% render 'footer' %}
+
+       <shopping-cart></shopping-cart>
+    </div>
+
+    <div class="hidden">
+      {% render 'icon-sprite' %}
+    </div>
+
+    <script src="{{ 'bundle.js' | asset_url }}?33" defer="defer"></script>
+  </body>
+</html>

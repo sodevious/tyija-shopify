@@ -1,0 +1,15 @@
+{
+  "layout": "homepage",
+  "sections": {
+    "main": {
+      "type": "index",
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/TYiJA_Magbul22_web.jpg",
+        "decorative_element": "shopify:\/\/shop_images\/home_flower.png"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

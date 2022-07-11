@@ -1,0 +1,38 @@
+<div class="{{ class | default: '' }}" style="{{ style | default: '' }}">
+  <a href="{{ product.url | within: collection }}" class="block relative aspect-3/4 z-20">
+    <img
+      sizes="
+        (min-width: 768px) 450px,
+        630px
+      "
+      srcset="
+        {{ product.featured_image.src | img_url: '450x' }} 450w,
+        {{ product.featured_image.src | img_url: '630x' }} 630w
+      "
+      src="{{ product.featured_image.src | img_url: '630x' }}"
+      alt="{{ product.featured_image.alt | escape }}"
+      loading="lazy"
+      class="w-full h-full object-cover object-center"
+    >
+  </a>
+
+  {% if show_title %}
+    <div class="mt-4 px-4">
+      {% if product.title %}
+        <a href="{{ product.url | within: collection }}" class="text-h4 uppercase block text-center px-4 py-1">
+          <span class="block">{{ product.vendor }}</span>
+          
+          {{ product.title }}
+        </a>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% if enable_likes %}
+    <button class="product-like absolute top-0 z-10 hover:text-red">
+      <svg class="w-8 h-8">
+        <use xlink:href="#heart"></use>
+      </svg>
+    </button>
+  {% endif %}
+</div>

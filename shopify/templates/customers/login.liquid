@@ -1,0 +1,32 @@
+<h2 class="page-title">
+  {{ 'customer.account.title' | t }}
+</h2>
+
+{% if settings.account_about %}
+  <div class="uppercase md:text-h3 border-b p-4 pb-8 md:p-8 mb-8 leading-150 richtext">
+    {{ settings.account_about | richtext }}
+  </div>
+{% endif %}
+
+<div vue id="login_form">
+  <account-login
+    v-slot="{ active, show }"
+    initial="login"
+  >
+    <transition-group name="slide-from-left">
+      <div
+        v-show="active === 'login'"
+        key="login"
+      >
+        {% render 'account-login' %}
+      </div>
+
+      <div
+        v-show="active === 'forgot-password'"
+        key="forgot-password"
+      >
+        {% render 'account-forgot-password' %}
+      </div>
+    </transition-group>
+  </account-login>
+</div>

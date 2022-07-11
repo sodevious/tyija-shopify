@@ -1,0 +1,25 @@
+<h2 class="page-title">
+  {{ page.title }}
+</h2>
+
+<div class="pb-16 richtext no-js:hidden" vue>
+  <frequently-asked-questions v-slot="{ faqCategory, openFaq }">
+    <section 
+      v-for="category in faqCategory" 
+      class="px-8 py-4 mb-4 border-b cursor-pointer" 
+      :id="category.slug.current" 
+      :key="category.slug.current" 
+      @click="openFaq.value = category.slug.current">
+
+      <h3 v-text="category.title" class="uppercase text-h3 mb-4"></h3>
+
+      <div class="mt-4" v-if="openFaq.value == category.slug.current" v-for="faq in category.questions">
+       <h4 v-text="faq.question" class="uppercase text-h4 mb-4"></h4>
+        <p v-text="faq.answer" class="mb-4 md:mb-8"></p>
+      </div>
+    </section>
+  </frequently-asked-questions>
+</div>
+
+<!-- Fallback -->
+<div class="hidden no-js:block">{{ page.content }}</div>

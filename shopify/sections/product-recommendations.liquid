@@ -1,0 +1,13 @@
+{%- if recommendations.performed -%}
+  {%- if recommendations.products_count > 0 -%}
+    <h4 class="uppercase text-h4 my-12 text-center  md:my-8 md:mt-16 md:text-left">
+      See Also
+    </h4>
+    
+    <div class="grid grid-cols-1 gap-12  md:gap-8 sm:grid-cols-2 xl:grid-cols-2">
+      {%- for product in recommendations.products -%}
+        {% render 'product-card', product: product, class: "product-card-mini" %}
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+{%- endif -%}

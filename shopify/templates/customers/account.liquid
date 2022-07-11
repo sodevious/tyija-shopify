@@ -1,0 +1,52 @@
+<h2 class="page-title">
+  {{ 'customer.account.title' | t }}
+</h2>
+
+{% if settings.account_about %}
+<div class="uppercase md:text-h3 border-b p-4 pb-8 md:p-8 mb-8 leading-150
+  richtext">
+  {{ settings.account_about | richtext }}
+</div>
+{% endif %}
+
+<div class="flex justify-between items-center p-4 md:p-8">
+  <h3 class="text-h3 uppercase">
+    {{ 'customer.account.details' | t }}
+  </h2>
+
+  <a href="{{ routes.account_addresses_url }}" class="text-h5 text-right  uppercase">
+    Edit
+  </a>
+</div>
+
+<div class="p-4 md:p-8 max-w-lg">
+    {% if customer.name %}
+      <p class="uppercase my-4">{{ customer.name }}
+    {% endif %}
+
+    {% if customer.email %}
+    <div class="my-4">
+
+      Email: <br />
+      {{ customer.email }}
+    </div>
+    {% endif %}
+
+    {% if customer.phone %}
+    <div class="my-4">
+
+      Phone: <br />
+      {{ customer.phone }}
+    </div>
+
+    {% endif %}
+
+    {% if customer.default_address %}
+    <div class="my-4">
+      Shipping Address:
+      {{ customer.default_address | format_address }}
+    </div>
+    {% endif %}
+
+
+  </div>
