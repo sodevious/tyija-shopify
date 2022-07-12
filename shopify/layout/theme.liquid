@@ -54,9 +54,11 @@
         <div class="nav-vertical-wrapper flex-row hidden md:flex">
           <theme-switcher></theme-switcher>
 
-          <svg class="w-12 h-10 lg:h-12 mx-4">
-            <use xlink:href="#liked"></use>
-          </svg>
+          <a href="#swym-wishlist" class="swym-wishlist">
+            <svg class="w-12 h-10 lg:h-12 mx-4">
+              <use xlink:href="#liked"></use>
+            </svg>
+          </a>
         </div>
 
         <div class="nav-vertical-wrapper hidden md:flex" :class="{ 'footer-open': $store.state['overlays'].isFooterOpen }">
@@ -82,5 +84,7 @@
     </div>
 
     <script src="{{ 'bundle.js' | asset_url }}?33" defer="defer"></script>
+
+    {% include 'swymSnippet' %}
   </body>
 </html>
