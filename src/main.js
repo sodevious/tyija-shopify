@@ -181,34 +181,34 @@ const barbaTransitions = [{
   }
 }]
 
-// if (body.hasAttribute('data-barba')) {
-//   // barba.use(barbaPrefetch);
+if (body.hasAttribute('data-barba')) {
+  barba.use(barbaPrefetch);
   
-//   barba.init({
-//     timeout: 5000,
-//     debug: true,
-//     cacheIgnore: ['/account/'],
-//     prefetchIgnore: '/account/',
-//     transitions: barbaTransitions
+  barba.init({
+    timeout: 5000,
+    debug: true,
+    cacheIgnore: ['/account/'],
+    prefetchIgnore: '/account/',
+    transitions: barbaTransitions,
 
+    views: [{
+      namespace: 'customers/account',
+      beforeEnter() {
+        // update the menu based on user navigation
+        console.log('destroying ?')
+        barba.destroy();
+      },
+    }]
+  });
 
-//     // views: [{
-//     //   namespace: 'customers/account',
-//     //   beforeEnter() {
-//     //     // update the menu based on user navigation
-//     //     barba.destroy();
-//     //   },
-//     // }]
-//   });
+  barba.hooks.after((data) => {
+    console.log(data.next.namespace);
+    const vueElements = document.querySelectorAll('.tyija-content [vue]')
 
-//   barba.hooks.after((data) => {
-//     console.log(data.next.namespace);
-//     const vueElements = document.querySelectorAll('.tyija-content [vue]')
+    if (vueElements) {
+      vueElements.forEach(el => createVueApp().mount(el))
+    }
+  });
 
-//     if (vueElements) {
-//       vueElements.forEach(el => createVueApp().mount(el))
-//     }
-//   });
-
-//   // console.log(barba.cache)
-// }
+  // console.log(barba.cache)
+}
