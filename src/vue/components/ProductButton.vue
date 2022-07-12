@@ -18,14 +18,22 @@ export default {
     variantId: {
       type: Number,
       required: true
-    }
+    },
+    addToCart: {
+      type: String,
+      default: 'add tO bag'
+    },
+    inCart: {
+      type: String,
+      default: 'in bAg'
+    },
   },
   computed: {
     isInBag () {
       return this.$store.state.cart.items.find(item => item.variant_id === this.variantId)
     },
     text () {
-      return this.isInBag ? 'in bAg' : 'add tO bag' 
+      return this.isInBag ? this.inCart : this.addToCart 
     }
   }
 }
