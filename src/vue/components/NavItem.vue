@@ -33,13 +33,10 @@ export default {
       return this.currentLink.includes("blogs") && window.location.pathname.includes("blogs");
     },
   },
-  mounted() {
-    console.log(this)
-  },
   methods: {
     handleClick(event, url) {
+      this.$store.dispatch("overlays/setCurrentLink", url);
       if (this.navContext == "mobile") {
-        this.$store.dispatch("overlays/setCurrentLink", url);
         event.preventDefault();
       }
     },
