@@ -86,10 +86,6 @@ export default {
 
 <style>
 .designer-carousel .carousel__slide {
-  height: 100%;
-}
-
-.designer-carousel .carousel__slide {
   width: 40%;
 }
 </style>
