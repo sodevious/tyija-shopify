@@ -29,10 +29,12 @@
   {% endif %}
 
   {% if enable_likes %}
-    <button class="product-like absolute top-0 z-10 hover:text-red">
-      <svg class="w-8 h-8">
-        <use xlink:href="#heart"></use>
-      </svg>
-    </button>
+    <div vue class="product-like absolute top-0 z-10 ">
+      <!-- See WishListButton.vue component -->
+      <wishlist-button
+        raw-product-data='{{ product | json | escape }}'
+        product-link="{{ shop.secure_url }}{{ product.url | within: collection | escape }}"
+      ></wishlist-button>
+    </div>
   {% endif %}
 </div>
