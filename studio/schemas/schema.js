@@ -26,6 +26,10 @@ import settings from './singletons/settings'
 // Block content
 import body from './blocks/body'
 import faq from './documents/faq'
+// import * as modules from './modules'
+import imageFull from './modules/imageFull'
+import articleParagraph from './modules/paragraph'
+// export { default as imageFull } from './imageFull'
 
 // Object types
 import collectionRule from './objects/collectionRule'
@@ -54,6 +58,7 @@ import seoHome from './objects/seo/home'
 import seoPage from './objects/seo/page'
 import seoShopify from './objects/seo/shopify'
 import shopifyCollection from './objects/shopifyCollection'
+import customerSizes from './objects/customerSizes'
 import shopifyProduct from './objects/shopifyProduct'
 import shopifyProductVariant from './objects/shopifyProductVariant'
 
@@ -83,8 +88,12 @@ export default createSchema({
     article,
     body,
     faqCategory,
+    // Modules
+    imageFull,
+    articleParagraph,
     // Objects
     collectionRule,
+    customerSizes,
     colorTheme,
     customProductOptionColor,
     customProductOptionSize,

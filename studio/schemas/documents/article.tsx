@@ -8,26 +8,63 @@ export default {
       {
         name: 'title',
         type: 'string',
-        title: 'Post Title'
+        title: 'Article Title'
       },
       {
         name: 'handle',
         type: 'slug',
+        title: 'URL Slug',
+        description: '(required)',
+
         options: {source: 'title'},
         validation: validateSlug,
       },
       {
         name: 'summary_html',
         type: 'string',
-        title: 'Post Summary/Subtitle'
+        title: 'Article Summary/Subtitle'
       },
       {
-        name: 'body',
-        title: 'Body',
-        type: 'body',
-        // group: 'editorial',
+        title: 'Article Modules',
+        name: 'modules',
+        type: 'array',
+        of: [
+          { type: 'article.imageFull' },
+          { type: 'article.paragraph' },
+          // { type: 'linkInternal' },
+          // { type: 'module.products' },
+          // { type: 'module.product' },
+          // { type: 'module.instagram' },
+          // { type: 'text' },
+//           // { type: 'url' },
+//           { type: 'text' ,
+//           title: 'Full Width Image',
+  
+// },
+          // { type: 'shortFormText' },
+          // { type: 'singleImage' },
+          // { type: 'horizontalRule' },
+          // { type: 'headline' },
+          // { type: 'mediaObject' },
+          // { type: 'marqueeStrip' },
+          // { type: 'spacer' },
+          // { type: 'codeInject' },
+          // { type: 'videoComponent' },
+          // { type: 'blockInlineProduct'},
+          // { type: 'audioObject' },
+          // { type: 'newsletterModule' },
+          // { type: 'mediaCarousel' },
+          // { type: 'mediaSlideshow' },
+          // { type: 'mediaGallery' },
+        ]
       },
-    ]
+    ],
+    preview: {
+      select: {
+        title: 'title',
+        slug: 'slug'
+      }
+    }
   }
 
   
