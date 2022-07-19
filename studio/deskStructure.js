@@ -25,6 +25,7 @@ import {faq} from './desk/faq'
 import {home} from './desk/home'
 import {pages} from './desk/pages'
 import {articles} from './desk/articles'
+import {customers} from './desk/customers'
 // import {products} from './desk/products'
 import {settings} from './desk/settings'
 
@@ -38,6 +39,7 @@ const DOCUMENT_TYPES_IN_STRUCTURE = [
   'home',
   'media.tag',
   'page',
+  'customer',
   'product',
   'productVariant',
   'settings',
@@ -52,6 +54,7 @@ export default () => {
         articles,
         S.divider(),
         faq,
+        customers,
         S.divider(),
         home,
         settings,

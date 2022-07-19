@@ -16,6 +16,7 @@ import colorTheme from './documents/colorTheme'
 import page from './documents/page'
 import product from './documents/product'
 import productVariant from './documents/productVariant'
+import customer from './documents/customer'
 import faqCategory from './documents/faqCategory'
 
 // Singleton document types
@@ -78,6 +79,7 @@ export default createSchema({
     home,
     settings,
     // Block content
+    customer,
     article,
     body,
     faqCategory,
