@@ -14,7 +14,8 @@ export default {
   name: 'WishlistButton',
   props: {
     rawProductData: Object,
-    productLink: String
+    productLink: String,
+    swymProductData: Object
   },
   data() {
     return {
@@ -23,18 +24,30 @@ export default {
   },
   computed: {
     getProductData() {
-      let data = JSON.parse(this.rawProductData)
 
-      return {
-        'epi': data.variants[0].id,
-        'empi': data.id,
-        'du': this.productLink,
-        'iu': data.featured_image,
-        'pr': data.price / 100,
-        'cprops': {
-          'productPath': this.productLink,
-          'productTitle': data.title,
-          'productVendor': data.vendor
+      if (this.swymProductData) {
+        return {
+          'epi': this.swymProductData.epi,
+          'empi': this.swymProductData.empi,
+          'du': this.swymProductData.du,
+          'iu': this.swymProductData.iu,
+          'pr': this.swymProductData.pr
+        }
+      } else {
+
+        let data = JSON.parse(this.rawProductData)
+
+        return {
+          'epi': data.variants[0].id,
+          'empi': data.id,
+          'du': this.productLink,
+          'iu': data.featured_image,
+          'pr': data.price / 100,
+          'cprops': {
+            'productPath': this.productLink,
+            'productTitle': data.title,
+            'productVendor': data.vendor
+          }
         }
       }
     }

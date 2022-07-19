@@ -326,7 +326,7 @@
 }
 
 .product-card:hover {
-   @apply pt-4;
+   @apply pt-6;
 
     .product-like {
         @apply z-50;
