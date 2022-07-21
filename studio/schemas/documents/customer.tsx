@@ -16,9 +16,14 @@ export default {
             readOnly: true
         },
         {
+            name: 'location',
+            type: 'string',
+            title: 'City',
+        },
+        {
             name: 'sizes',
             type: 'string',
-            title: 'Customer Sizes',
+            title: 'My Sizes',
             options: {
                 list: [
                     { title: 'Extra Small', value: 'xs' },
@@ -27,6 +32,30 @@ export default {
                     { title: 'Large', value: 'lg' }
                 ],
                 layout: 'radio'
+            }
+        },
+        {
+            title: 'Designers',
+            name: 'designers',
+            type: 'array',
+            of: [{ type: 'string' }]
+        },
+
+        {
+            title: 'Identifying as',
+            name: 'gender',
+            type: 'array',
+            of: [{ type: 'string' }],
+            options: {
+                list: [
+                    { title: 'Male', value: 'male' },
+                    { title: 'Female', value: 'female' },
+                    { title: 'Non-Binary', value: 'nonbinary' },
+                    { title: 'Genderqueer', value: 'genderqueer' },
+                    { title: 'Gender Fluid', value: 'genderfluid' },
+                    { title: 'Other', value: 'other' },
+                    { title: 'Prefer Not To Answer', value: 'no_answer' }
+                ]
             }
         }
     ]

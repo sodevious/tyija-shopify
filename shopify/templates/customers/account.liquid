@@ -3,21 +3,21 @@
 </h2>
 
 {% if settings.account_about %}
-<div class="uppercase md:text-h3 border-b p-4 pb-8 md:p-8 mb-8 leading-150
-  richtext">
-  {{ settings.account_about | richtext }}
-</div>
+  <div class="
+      uppercase md:text-h3 border-b p-4 pb-8 md:p-8  leading-150
+      richtext
+    ">
+    {{ settings.account_about | richtext }}
+  </div>
 {% endif %}
 
-<section class="border-b">
+{% comment %} <section class="border-b">
   <div class="flex justify-between items-center p-4 md:p-8">
     <h3 class="text-h3 uppercase">
       {{ 'customer.account.details' | t }}
     </h3>
 
-    <a href="{{ routes.account_addresses_url }}" class="text-h5 text-right uppercase">
-      Edit
-    </a>
+    <a href="{{ routes.account_addresses_url }}" class="text-h5 text-right uppercase"> Edit </a>
   </div>
 
   <div class="p-4 md:p-8 max-w-lg">
@@ -26,60 +26,28 @@
     {% endif %}
 
     {% if customer.email %}
-    <div class="my-4">
-
-      Email: <br />
-      {{ customer.email }}
-    </div>
+      <div class="my-4">
+        Email: <br>
+        {{ customer.email }}
+      </div>
     {% endif %}
 
     {% if customer.phone %}
-    <div class="my-4">
-
-      Phone: <br />
-      {{ customer.phone }}
-    </div>
-
+      <div class="my-4">
+        Phone: <br>
+        {{ customer.phone }}
+      </div>
     {% endif %}
 
     {% if customer.default_address %}
-    <div class="my-4">
-      Shipping Address:
-      {{ customer.default_address | format_address }}
-    </div>
+      <div class="my-4">
+        Shipping Address:
+        {{ customer.default_address | format_address }}
+      </div>
     {% endif %}
   </div>
-</section>
+</section> {% endcomment %}
 
-
-<div vue>
-  <account-section section="sizes">
-    <template #title>
-      My Sizes
-    </template>
-
-    <template #content>
-        <account-sizes name="{{ customer.name }}" email="{{ customer.email }}"></account-sizes>
-    </template>
-  </account-section>
-
-  <account-section section="sizes2">
-    <template #title>
-      Designers
-    </template>
-
-    <template #content>
-      WE ARE A TECH-DRIVEN RETAILER FOCUSED ON CRAFTING SMARTER SHOPPING EXPERIENCES. OUR SPLIT CONCEPT COMPRISES BOTH ECOMMERCE AND BRANDED CONTENT PLATFORMS THAT WORK IN UNISON TO SELECT & CONNECT OUR HANDPICKED COMMUNITY OF PRIVATE CLIENTS, LUXURY BRANDS AND CONTEMPORARY ART PARTNERS.
-    </template>
-  </account-section>
-
-  <account-section section="sizes3">
-    <template #title>
-      Publications
-    </template>
-
-    <template #content>
-      WE ARE A TECH-DRIVEN RETAILER FOCUSED ON CRAFTING SMARTER SHOPPING EXPERIENCES. OUR SPLIT CONCEPT COMPRISES BOTH ECOMMERCE AND BRANDED CONTENT PLATFORMS THAT WORK IN UNISON TO SELECT & CONNECT OUR HANDPICKED COMMUNITY OF PRIVATE CLIENTS, LUXURY BRANDS AND CONTEMPORARY ART PARTNERS.
-    </template>
-  </account-section>
+<div vue class="no-js:hidden">
+  <sanity-customer name="{{ customer.name }}" email="{{ customer.email }}"></sanity-customer>
 </div>
