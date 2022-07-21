@@ -30,7 +30,7 @@ export default {
 
         <slot nav-context="mobile" />
     </div>
-    <div v-else class="hidden md:flex justify-center border-b flex-col flex-1">
+    <div v-else class="hidden md:flex justify-center flex-col flex-1">
         <slot />
     </div>
 </template>

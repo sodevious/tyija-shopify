@@ -82,6 +82,7 @@ const createVueApp = () => {
 
   // Enable JS in markup
   document.documentElement.classList.remove('no-js');
+  document.documentElement.classList.add('js');
 
   return app
 }

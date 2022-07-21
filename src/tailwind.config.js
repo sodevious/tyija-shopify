@@ -70,6 +70,9 @@ module.exports = {
       addVariant('no-js', `.no-js &`)
     }),
     plugin(function ({ addVariant }) {
+      addVariant('js', `.js &`)
+    }),
+    plugin(function ({ addVariant }) {
       addVariant('index', `.index &`)
     }),
     plugin(function ({ addVariant }) {
