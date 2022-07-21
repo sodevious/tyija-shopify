@@ -21,11 +21,23 @@ export default {
         type: 'string',
         title: 'Post Summary/Subtitle'
       },
+      // {
+      //   name: 'body',
+      //   title: 'Body',
+      //   type: 'body',
+      //   // group: 'editorial',
+      // },
+
       {
-        name: 'body',
-        title: 'Body',
-        type: 'body',
-        // group: 'editorial',
+        title: 'Article Modules',
+        name: 'modules1',
+        type: 'array',
+        of: [
+          { type: 'module.products' },
+          { type: 'body' },
+          // { type: 'imageGallery' },
+          // { type: 'longFormText' },
+        ],
       },
     ]
   }

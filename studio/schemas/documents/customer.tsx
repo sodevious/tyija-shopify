@@ -40,7 +40,6 @@ export default {
             type: 'array',
             of: [{ type: 'string' }]
         },
-
         {
             title: 'Identifying as',
             name: 'gender',
