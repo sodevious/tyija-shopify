@@ -29,18 +29,12 @@
       </div>
 
       <div class="flex justify-between flex-col">
-        <p>
+        <p class="uppercase" v-if="product.vendor">
           {{ product.vendor }}
-          {{ product.title }}
         </p>
 
-        <p
-          v-for="option in $store.getters['cart/itemOptionsWithValues'](product)"
-          :key="option.name"
-          class="uppercase"
-        >
-          <!-- Update if needed when product options will be available  -->
-          {{ option.value }}
+        <p>
+          {{ product.title }}
         </p>
 
         <p>
@@ -61,11 +55,11 @@
     </div>
 
     <h5 class="py-6 text-h5 uppercase w-3/5">
-      Shipping/Taxes Calculated at Checkout
+      {{ shopifyTranslations.checkout_disclaimer || "SHIPPING/TAXES CALCULATED AT CHECKOUT" }}
     </h5>
 
     <div class="flex uppercase justify-between">
-      <p>Subtotal</p>
+      <p>{{ shopifyTranslations.subtotal || "Subtotal" }}</p>
       <p>${{ $store.getters['cart/formattedPrice']($store.state.cart.subtotalPrice) }}</p>
     </div>
 
@@ -73,7 +67,7 @@
       class="button block text-center text-h3 py-1 my-6 w-full"
       @click="$store.dispatch('cart/goToCheckout')"
     >
-      checKout
+      {{ shopifyTranslations.checkout || "checKout" }}
     </button>
   </div>
 </template>
@@ -81,10 +75,19 @@
 <script>
 export default {
   name: 'ShoppingCart',
+  props: ['translatedStrings'],
   async mounted() {
     // Initial cart load
     await this.$store.dispatch('cart/loadCart')
+  },
+  computed: {
+    shopifyTranslations() {
+      const parseTranslations = JSON.parse(this.translatedStrings)
+
+      return parseTranslations[0]
+    }
   }
+
 }
 </script>
 

@@ -78,7 +78,12 @@
       
       {% render 'footer' %}
 
-       <shopping-cart></shopping-cart>
+      <shopping-cart translated-strings='[{
+        "checkout_disclaimer": "{{ 'cart.checkout_disclaimer' | t }}",
+        "empty_cart": "{{ 'cart.empty_cart' | t }}",
+        "checkout": "{{ 'action.checkout' | t }}",
+        "subtotal": "{{ 'cart.subtotal' | t }}"
+      }]'></shopping-cart>
     </div>
 
     <div class="hidden">
