@@ -6,7 +6,7 @@
     <div class="product-media">
       {% if product.images.size > 1 %}
         {% for image in product.images %}
-          {{ image  | image_url: width: 2000 | image_tag}}
+          {{ image  | image_url: width: 2000 | image_tag }}
         {% endfor %}
       {% else %}
         {{ featured_image | image_url: width: 2000 | image_tag, preload: true }}

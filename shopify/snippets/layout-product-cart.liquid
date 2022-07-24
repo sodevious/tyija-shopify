@@ -1,7 +1,7 @@
 <div class="{{ class | default: '' }}" style="{{ style | default: '' }}">
   <div class="md:grid grid-cols-8 gap-4">
-    <div class="col-span-5 flex flex-wrap gap-2 md:gap-6 mb-4 md:mb-0">
-      <a href="{{ product.url | within: collections.all }}" class="block w-full md:w-32 h-64 md:h-32">
+    <div class="flex flex-wrap gap-2 md:gap-6 mb-4 md:mb-0">
+      <a href="{{ product.url | within: collections.all }}" class="block w-full ">
         <img
           sizes="
             (min-width: 768px) 275px,
@@ -17,28 +17,30 @@
           class="w-full h-full object-cover object-center"
         >
       </a>
-
-      <div class="flex flex-col py-2">
-        {% if product.title %}
-          <a href="{{ product.url | within: collection }}" class="text-lg font-bold mb-2">
-            {{ product.vendor }} {{ product.title }}
-          </a>
-        {% endif %}
-
-        {% if deleteUrl %}
-          <a href="{{ deleteUrl }}" class="text-sm underline mt-2 md:mt-auto">
-            {{ 'action.remove' | t }}
-          </a>
-        {% endif %}
-      </div>
     </div>
 
+    <div class="col-span-4 flex flex-col px-4 justify-center">
+      {% if product.title %}
+        <a href="{{ product.url | within: collection }}" class="text-h4 uppercase">
+          {{ product.vendor }}<br /> {{ product.title }}
+        </a>
+      {% endif %}
+
+      {% if deleteUrl %}
+        <a href="{{ deleteUrl }}" class="text-h5 text-red uppercase mt-2">
+          {{ 'action.remove' | t }}
+        </a>
+      {% endif %}
+    </div>
+    
     <div class="flex justify-between md:justify-end items-center">
       <span class="md:hidden">{{ 'common.price' | t }}</span> {{ product.price | money }}
     </div>
 
     <div class="flex justify-between md:justify-end items-center">
-      <span class="md:hidden">{{ 'common.quantity' | t }}</span> x{{ product.quantity }}
+      <span class="ml-auto flex bg-white text-black justify-center items-center  w-12 h-12 rounded-full">
+        x{{ product.quantity }}
+      </span>
     </div>
 
     <div class="flex justify-between md:justify-end items-center">

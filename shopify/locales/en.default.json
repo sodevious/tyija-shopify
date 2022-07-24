@@ -9,7 +9,7 @@
     "in_cart": "in bAg",
     "sign_in": "loGin",
     "sign_out": "lOgout",
-    "checkout": "Checkout",
+    "checkout": "checKout",
     "remove": "Remove",
     "restore": "resTore",
     "cancel": "Cancel",
@@ -159,7 +159,8 @@
   "cart": {
     "title": "Cart",
     "subtotal": "Subtotal",
-    "empty_cart": "Your cart is empty"
+    "empty_cart": "Your cart is empty",
+    "checkout_disclaimer": "Shipping/Taxes Calculated at Checkout"
   },
   "search": {
     "title": "Search",
