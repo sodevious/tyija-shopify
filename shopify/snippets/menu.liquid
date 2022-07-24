@@ -6,7 +6,7 @@
         @click="nav.handleClick($event, '{{ link.url }}')"
         href="{{ link.url }}"
         class="flex justify-center items-center uppercase text-h2 md:text-h4 py-5 md:py-1"
-        :class="{ 'italic': isCurrent }"
+        :class="{ 'italic': nav.isCurrent }"
         {% if link.url == '/account' %}
           data-barba-prevent
         {% endif %}

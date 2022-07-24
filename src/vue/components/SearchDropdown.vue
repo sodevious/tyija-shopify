@@ -11,16 +11,16 @@ export default {
         },
         initialCollections: {
             type: Object,
-      default() {
-        return {}
-      }
+            default() {
+                return {}
+            }
         }
     },
     data() {
         return {
             inputValue: this.initialSearch,
             collections: this.initialCollections,
-            collectionResults: this.initialResults,
+            collectionResults: [],
             productResults: {}
         }
     },
