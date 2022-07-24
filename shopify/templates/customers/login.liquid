@@ -10,22 +10,24 @@
 
 <div vue id="login_form">
   <account-login
-    v-slot="{ active, show }"
+    v-slot="{ active, show, hash }"
     initial="login"
   >
     <transition-group name="slide-from-left">
       <div
+        v-show="active === 'forgot-password' || hash === '#recover'"
+        key="forgot-password"
+        class="no-js:hidden"
+      >
+        {% render 'account-forgot-password' %}
+      </div>
+
+      <div
+        v-else
         v-show="active === 'login'"
         key="login"
       >
         {% render 'account-login' %}
-      </div>
-
-      <div
-        v-show="active === 'forgot-password'"
-        key="forgot-password"
-      >
-        {% render 'account-forgot-password' %}
       </div>
     </transition-group>
   </account-login>

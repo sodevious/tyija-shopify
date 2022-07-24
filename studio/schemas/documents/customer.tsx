@@ -16,31 +16,6 @@ export default {
             readOnly: true
         },
         {
-            name: 'location',
-            type: 'string',
-            title: 'City',
-        },
-        {
-            name: 'sizes',
-            type: 'string',
-            title: 'My Sizes',
-            options: {
-                list: [
-                    { title: 'Extra Small', value: 'xs' },
-                    { title: 'Small', value: 'sm' },
-                    { title: 'Medium', value: 'md' },
-                    { title: 'Large', value: 'lg' }
-                ],
-                layout: 'radio'
-            }
-        },
-        {
-            title: 'Designers',
-            name: 'designers',
-            type: 'array',
-            of: [{ type: 'string' }]
-        },
-        {
             title: 'Identifying as',
             name: 'gender',
             type: 'array',
@@ -56,6 +31,29 @@ export default {
                     { title: 'Prefer Not To Answer', value: 'no_answer' }
                 ]
             }
+        },
+        {
+            name: 'location',
+            type: 'string',
+            title: 'City',
+        },
+        {
+            title: 'Designers',
+            name: 'designers',
+            type: 'array',
+            of: [{ type: 'string' }]
+        },
+        {
+            title: 'Pieces',
+            name: 'pieces',
+            type: 'array',
+            of: [{ type: 'string' }]
+        },
+        {
+            title: 'Publications',
+            name: 'publications',
+            type: 'array',
+            of: [{ type: 'string' }]
         }
     ]
 }

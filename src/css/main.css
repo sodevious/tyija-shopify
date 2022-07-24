@@ -65,8 +65,7 @@
         @apply bg-transparent;
         @apply text-currentColor;
         @apply my-2; 
-        @apply px-1;
-        @apply py-1;
+        @apply p-2;
         @apply border-b;
         @apply placeholder-currentColor;
         @apply focus:outline-none;
