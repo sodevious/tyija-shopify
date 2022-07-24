@@ -1,10 +1,19 @@
 <template>
-  <button class="hover:text-red" @click="toggleInWishList">
-    <svg enable-background="new 0 0 28.2 25.6" viewBox="0 0 28.2 25.6" xmlns="http://www.w3.org/2000/svg"
-      class="w-8 h-8">
+  <button
+    class="hover:text-red"
+    @click="toggleInWishList"
+  >
+    <svg
+      enable-background="new 0 0 28.2 25.6"
+      viewBox="0 0 28.2 25.6"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-8 h-8"
+    >
       <path
         d="m14.5 23.6-1.6-1.4c-5.7-5.1-9.4-8.4-9.4-12.6 0-3.4 2.7-6 6.1-6 1.9 0 3.8.9 4.9 2.3 1.2-1.4 3-2.3 5-2.3 3.4 0 6 2.6 6 6 0 4.1-3.7 7.5-9.4 12.6z"
-        :fill="isProductAdded ? 'red' : 'none'" stroke="currentColor" />
+        :fill="isProductAdded ? 'red' : 'none'"
+        stroke="currentColor"
+      />
     </svg>
   </button>
 </template>

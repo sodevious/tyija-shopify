@@ -64,7 +64,10 @@ export default {
     <slot />
 
     <template v-if="isZoomed && collectionSize > 3 && carouselContent && !isMobile">
-      <carousel :settings="settings" class="designer-collection">
+      <carousel
+        :settings="settings"
+        class="designer-collection"
+      >
         <slide
           v-for="slide in carouselContent"
           :key="slide"
@@ -74,12 +77,15 @@ export default {
             :src="slide.featured_image"
             :alt="slide.featured_image.alt"
             class="block relative aspect-3/4 z-20 pr-4 w-full h-full object-cover object-center pointer-events-none"
-          />
+          >
         </slide>
       </carousel>
     </template>
     <template v-else>
-      <slot name="initial" :is-zoomed="isZoomed" />
+      <slot
+        name="initial"
+        :is-zoomed="isZoomed"
+      />
     </template>
   </div>
 </template>
