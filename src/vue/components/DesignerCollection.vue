@@ -61,9 +61,9 @@ export default {
     :class="{ zoomed: isZoomed }"
     @click.prevent.once="zoomCollection"
   >
-    <slot />
-
     <template v-if="isZoomed && collectionSize > 3 && carouselContent && !isMobile">
+        <slot :is-zoomed="isZoomed" for-desktop="true" />
+    
       <carousel
         :settings="settings"
         class="designer-collection"
@@ -82,10 +82,7 @@ export default {
       </carousel>
     </template>
     <template v-else>
-      <slot
-        name="initial"
-        :is-zoomed="isZoomed"
-      />
+      <slot :is-zoomed="isZoomed" />
     </template>
   </div>
 </template>

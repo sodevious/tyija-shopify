@@ -47,10 +47,12 @@
       </h1>
 
       <nav class="tyija-nav">
-        <menu-wrapper v-slot="{ navContext }">
+        <div class="md:flex justify-center flex-col flex-1"
+             is="vue:menu-wrapper"
+             v-slot="{ navContext }">
           {% render 'menu' %}
-        </menu-wrapper>
-
+        </div>
+         
         <div class="nav-vertical-wrapper flex-row hidden md:flex max-h-36">
           <theme-switcher></theme-switcher>
 
@@ -61,7 +63,7 @@
           </a>
         </div>
 
-        <div class="nav-vertical-wrapper hidden md:flex flex-initial h-[8rem]" :class="{ 'footer-open': $store.state['overlays'].isFooterOpen }">
+        <div class="nav-vertical-wrapper hidden md:flex flex-initial h-[8rem] border-0" :class="{ 'footer-open': $store.state['overlays'].isFooterOpen }">
           {% comment %} <svg class="w-14 h-16 opacity-100 transition-opacity -scale-x-100 footer-open:opacity-0">
             <use xlink:href="#menu_wing_button"></use>
           </svg> {% endcomment %}

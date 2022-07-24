@@ -1,22 +1,24 @@
 <h3 class="page-title mb-0">Designers</h3>
 
-<div class=" md:py-8" vue>
+<div class="md:py-4" vue>
   {% if collections %}
     {% paginate collections by 16 %}
+      <!-- See DesigtnerCollection.vue -->
       {% for collection in collections %}
         {% if collection.metafields.tyija.is_designer == true %}
-          <designer-collection collection-link='{{ collection.url }}' collection-size='{{ collection.products|size }}'>
-            <h3 class="text-h3 uppercase px-4  md:text-xl zoomed:px-0 zoomed:md:px-4 zoomed:text-base zoomed:md:text-xl zoomed:text-center zoomed:md:text-left zoomed:border-t zoomed:md:border-none ">
-              {{ collection.title | escape }}
-            </h3>
-    
-            <template #initial="slotProps">
-              <div class="designer-collection" :class="[ slotProps.isZoomed ? 'is-zoomed ' : 'pointer-events-none']">
+          <h3 class="designer-collection-title ">
+            {{ collection.title | escape }}
+          </h3>
+
+          <designer-collection 
+            collection-link='{{ collection.url }}' 
+            collection-size='{{ collection.products|size }}'
+            v-slot="{ isZoomed, forDesktop }">
+              <div class="designer-collection" :class="[ isZoomed ? 'is-zoomed' : 'pointer-events-none'  , forDesktop ? 'md:hidden' : '']">
                 {% for product in collection.products %}
-                    {% render 'product-card', product: product, class: "designer-collection-product product-card-mini"  %}
+                  {% render 'product-card', product: product, class: "designer-collection-product product-card-mini" %}
                 {% endfor %}
               </div>
-            </template>
           </designer-collection>
         {% endif %}
       {% endfor %}

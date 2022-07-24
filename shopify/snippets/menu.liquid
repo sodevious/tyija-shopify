@@ -1,6 +1,6 @@
 <!-- See NavItem.vue -->
 {% for link in linklists.menu.links %}
-  <nav-item class="nav-vertical-wrapper no-js:hidden" link="{{ link.url }}" child-context="{{ link.child_current }}" menu-context="{{ link.levels }}" :nav-context="navContext">
+  <nav-item class="no-js:hidden" link="{{ link.url }}" child-context="{{ link.child_current }}" menu-context="{{ link.levels }}" :nav-context="navContext">
     <template v-slot="nav"> 
       <a
         @click="nav.handleClick($event, '{{ link.url }}')"

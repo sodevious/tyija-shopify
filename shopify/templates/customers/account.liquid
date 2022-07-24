@@ -11,43 +11,45 @@
   </div>
 {% endif %}
 
-{% comment %} <section class="border-b">
-  <div class="flex justify-between items-center p-4 md:p-8">
-    <h3 class="text-h3 uppercase">
-      {{ 'customer.account.details' | t }}
-    </h3>
+<!-- See Account/CustomerAccount.vue component -->
+<div vue>
+  <customer-account name="{{ customer.name }}" email="{{ customer.email }}">
+    <!-- fallback -->
+    <section class="border-b">
+      <div class="flex justify-between items-center p-4 md:p-8">
+        <h3 class="text-h3 uppercase">
+          {{ 'customer.account.details' | t }}
+        </h3>
 
-    <a href="{{ routes.account_addresses_url }}" class="text-h5 text-right uppercase"> Edit </a>
-  </div>
-
-  <div class="p-4 md:p-8 max-w-lg">
-    {% if customer.name %}
-      <p class="uppercase my-4">{{ customer.name }}</p>
-    {% endif %}
-
-    {% if customer.email %}
-      <div class="my-4">
-        Email: <br>
-        {{ customer.email }}
+        <a href="{{ routes.account_addresses_url }}" class="text-h5 text-right uppercase"> Edit </a>
       </div>
-    {% endif %}
 
-    {% if customer.phone %}
-      <div class="my-4">
-        Phone: <br>
-        {{ customer.phone }}
+      <div class="p-4 md:p-8 max-w-lg">
+        {% if customer.name %}
+          <p class="uppercase my-4">{{ customer.name }}</p>
+        {% endif %}
+
+        {% if customer.email %}
+          <div class="my-4">
+            Email: <br>
+            {{ customer.email }}
+          </div>
+        {% endif %}
+
+        {% if customer.phone %}
+          <div class="my-4">
+            Phone: <br>
+            {{ customer.phone }}
+          </div>
+        {% endif %}
+
+        {% if customer.default_address %}
+          <div class="my-4">
+            Shipping Address:
+            {{ customer.default_address | format_address }}
+          </div>
+        {% endif %}
       </div>
-    {% endif %}
-
-    {% if customer.default_address %}
-      <div class="my-4">
-        Shipping Address:
-        {{ customer.default_address | format_address }}
-      </div>
-    {% endif %}
-  </div>
-</section> {% endcomment %}
-
-<div vue class="no-js:hidden">
-  <sanity-customer name="{{ customer.name }}" email="{{ customer.email }}"></sanity-customer>
+    </section>
+  </customer-account>
 </div>
