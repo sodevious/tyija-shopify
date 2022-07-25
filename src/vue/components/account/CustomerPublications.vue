@@ -11,34 +11,36 @@
         class="mb-10"
       >
         <div class="mb-7">
-          <!-- <label>{{ input.label }}</label> -->
           <input
             v-model="input.value"
             v-bind="input.attrs"
             class="block w-full border-b"
           >
         </div>
-        <span>#{{ index + 1 }} {{ input.value === '' ? input.initialValue : input.value }}</span>
+        <span>#{{ index + 1 }}</span>
       </div>
-      <button class="text-h5 button-sm md:button" type="submit">
-        saVe
-      </button>
+
+      <SaveButton></SaveButton>
     </form>
   </div>
 </template>
 
 <script>
+import SaveButton from './SaveButton.vue'
+
 export default {
   name: 'CustomerPublications',
   props: {
     publications: Array
   },
   emits: ['save'],
+  components: {
+   SaveButton
+  },
   data () {
     return {
       publicationInputs: [
         {
-          value: '',
           initialValue: '',
           attrs: {
             id: 'publication1',
@@ -48,7 +50,6 @@ export default {
           }
         },
         {
-          value: '',
           initialValue: '',
           attrs: {
             id: 'publication2',
@@ -70,11 +71,6 @@ export default {
     }
   },
   methods: {
-    resetPublicationInputs () {
-      this.publicationInputs.forEach((input) => {
-        input.value = ''
-      })
-    },
     getPublicationInputSanityObject () {
       const publications = this.publicationInputs.map(input => input.value === '' && input.initialValue !== '' ? input.initialValue : input.value)
       return {
@@ -84,7 +80,6 @@ export default {
     handleSubmit () {
       const publicationInputSanityObject = this.getPublicationInputSanityObject()
       this.$emit('save', publicationInputSanityObject)
-    //   this.resetPublicationInputs()
     }
   }
 }

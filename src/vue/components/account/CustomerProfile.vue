@@ -36,9 +36,7 @@
       </div>
     </div>
 
-          <button class="text-h5 button-sm md:button" type="submit">
-        saVe
-      </button>
+    <SaveButton></SaveButton>
   </form>
 </template>
 
@@ -56,36 +54,13 @@ export default {
   data () {
     return {
       profileInputs: [
-        // {
-        //   value: '',
-        //   label: 'Name:',
-        //   attrs: {
-        //     id: 'name',
-        //     name: 'name',
-        //     type: 'text',
-        //     readonly: true,
-        //     disabled: true
-        //   }
-        // },
-        // {
-        //   value: '',
-        //   label: 'Email:',
-        //   attrs: {
-        //     id: 'email',
-        //     name: 'email',
-        //     type: 'text',
-        //     readonly: true
-        //   }
-        // },
         {
           type: 'checkbox',
           name: 'gender',
-          value: '',
           legend: 'Identifying as:',
           options: []
         },
         {
-          value: '',
           label: 'Location:',
           attrs: {
             id: 'location',

@@ -18,11 +18,10 @@
             class="block w-full border-b"
           >
         </div>
-        <span>#{{ index + 1 }} {{ input.value === '' ? input.initialValue : input.value }}</span>
+        <span>#{{ index + 1 }}</span>
       </div>
-      <button class="text-h5 button-sm md:button" type="submit">
-        saVe
-      </button>
+
+      <SaveButton></SaveButton>
     </form>
   </div>
 </template>

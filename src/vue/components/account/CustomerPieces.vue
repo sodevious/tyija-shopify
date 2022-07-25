@@ -20,9 +20,7 @@
         <span>#{{ index + 1 }}</span>
       </div>
 
-       <button class="text-h5 button-sm md:button" type="submit">
-        saVe
-      </button>
+      <SaveButton></SaveButton>
     </form>
   </div>
 </template>
@@ -38,7 +36,6 @@ export default {
     return {
       pieceInputs: [
         {
-        //   value: '',
           initialValue: '',
           attrs: {
             id: 'piece1',
@@ -48,7 +45,6 @@ export default {
           }
         },
         {
-        //   value: '',
           initialValue: '',
           attrs: {
             id: 'piece2',
@@ -58,7 +54,6 @@ export default {
           }
         },
         {
-        //   value: '',
           initialValue: '',
           attrs: {
             id: 'piece3',
@@ -80,11 +75,6 @@ export default {
     }
   },
   methods: {
-    resetPieceInputs () {
-      this.pieceInputs.forEach((input) => {
-        input.value = ''
-      })
-    },
     getPieceInputSanityObject () {
       const pieces = this.pieceInputs.map(input => input.value === '' && input.initialValue !== '' ? input.initialValue : input.value)
       return {
@@ -94,7 +84,6 @@ export default {
     handleSubmit () {
       const pieceInputSanityObject = this.getPieceInputSanityObject()
       this.$emit('save', pieceInputSanityObject)
-    //   this.resetPieceInputs()
     }
   }
 }
