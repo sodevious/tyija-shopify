@@ -22,7 +22,7 @@ module.exports = merge(common, {
     ]
   },
   optimization: {
-    minimize: true,
+    minimize: false,
     minimizer: [
       /**
        * docs: https://webpack.js.org/plugins/terser-webpack-plugin

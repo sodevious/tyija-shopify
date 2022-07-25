@@ -2,21 +2,11 @@
   {{ page.title }}
 </h3>
 
-<div vue class="p-4 md:p-8">
-  <!-- See WishListPage.vue component -->
-  <wishlist-page>
-    <!-- Fallback markup from swym -->
-    <div id="swym-wishlist-render-container"></div>
-    <script type="text/javascript">
-      // <![CDATA[
-      window.SwymCallbacks = window.SwymCallbacks || [];
-      window.SwymCallbacks.push(function(swat) {
-        var wishlistContainerElement = document.querySelector("#swym-wishlist-render-container");
-        var queryParams = swat.utils.getEncodedAsObject(window.location.search);
-        // Contains queryParams["lid"];
-        swat.ui.renderWishlistInContainer(wishlistContainerElement, queryParams);
-      });
-      // ]]>
-    </script>
-  </wishlist-page>
-</div>
+<section vue class="no-js:hidden">
+  <div class="p-4 md:p-8">
+    <!-- See WishListPage.vue component -->
+    <wishlist-page> We're sorry, your wishlist is not available right now. </wishlist-page>
+  </div>
+</section>
+
+<div id="swym-wishlist-render-container" class="js:hidden"></div>

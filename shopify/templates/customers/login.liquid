@@ -13,24 +13,23 @@
     v-slot="{ active, show, hash }"
     initial="login"
   >
-      <div
-        v-show="active === 'forgot-password' || hash === '#recover'"
-        key="forgot-password"
-        class="no-js:hidden"
-      >
-        {% render 'account-forgot-password' %}
-      </div>
+    <div
+      v-show="active === 'forgot-password' || hash === '#recover'"
+      key="forgot-password"
+      class="no-js:hidden"
+    >
+      {% render 'account-forgot-password' %}
+    </div>
 
-      <div
-        v-show="active === 'login' && !hash"
-        key="login"
-      >
-        {% render 'account-login' %}
-      </div>
+    <div
+      v-show="active === 'login' && !hash"
+      key="login"
+    >
+      {% render 'account-login' %}
+    </div>
   </account-login>
 </div>
 
 <div class="js:hidden">
   {% render 'account-login' %}
 </div>
-

@@ -100,8 +100,20 @@ if (vueElements) vueElements.forEach(el => createVueApp().mount(el))
 */
 
 if (__VUE__) {
-    document.documentElement.classList.remove('no-js');
-    document.documentElement.classList.add('js');
+  document.documentElement.classList.remove('no-js');
+  document.documentElement.classList.add('js');
+} else {
+  if (window.location.pathname == '/pages/wishlist') {
+    // <![CDATA[
+    window.SwymCallbacks = window.SwymCallbacks || [];
+    window.SwymCallbacks.push(function(swat) {
+      var wishlistContainerElement = document.querySelector("#swym-wishlist-render-container");
+      var queryParams = swat.utils.getEncodedAsObject(window.location.search);
+      // Contains queryParams["lid"];
+      swat.ui.renderWishlistInContainer(wishlistContainerElement, queryParams);
+    });
+    // ]]>
+  }
 }
 
 
