@@ -80,12 +80,10 @@ const createVueApp = () => {
   app.use(store)
   // app.component(VueCarousel)
 
-  // Enable JS in markup
-  document.documentElement.classList.remove('no-js');
-  document.documentElement.classList.add('js');
 
   return app
 }
+
 
 /**
  * MOUNT VUE
@@ -94,6 +92,17 @@ const createVueApp = () => {
 
 const vueElements = document.querySelectorAll('[vue]')
 if (vueElements) vueElements.forEach(el => createVueApp().mount(el))
+
+
+/**
+ * FALLBACKS
+ * only let js class init if vue succeeds
+*/
+
+if (__VUE__) {
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js');
+}
 
 
 /**

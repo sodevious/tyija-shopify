@@ -59,7 +59,7 @@
     </a>
         
     {% if form.password_needed %}
-      <button class="block mt-16" @click.prevent="show('forgot-password')">
+      <button class="block mt-16 no-js:hidden" @click.prevent="show('forgot-password')">
         {{ 'customer.login_page.forgot_password' | t }}
       </button>
     {% endif %}

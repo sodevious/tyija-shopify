@@ -13,7 +13,6 @@
     v-slot="{ active, show, hash }"
     initial="login"
   >
-    <transition-group name="slide-from-left">
       <div
         v-show="active === 'forgot-password' || hash === '#recover'"
         key="forgot-password"
@@ -23,12 +22,15 @@
       </div>
 
       <div
-        v-else
-        v-show="active === 'login'"
+        v-show="active === 'login' && !hash"
         key="login"
       >
         {% render 'account-login' %}
       </div>
-    </transition-group>
   </account-login>
 </div>
+
+<div class="js:hidden">
+  {% render 'account-login' %}
+</div>
+
