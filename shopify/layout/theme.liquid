@@ -65,9 +65,11 @@
         </div>
 
         <div class="nav-vertical-wrapper hidden md:flex flex-initial h-[8rem] border-0" :class="{ 'footer-open': $store.state['overlays'].isFooterOpen }">
-          {% comment %} <svg class="w-14 h-16 opacity-100 transition-opacity -scale-x-100 footer-open:opacity-0">
-            <use xlink:href="#menu_wing_button"></use>
-          </svg> {% endcomment %}
+          <a href="/collections/all" class="tyija-wing w-full h-full flex justify-center">
+            <svg class="w-14 h-16 transition-opacity fixed z-50 bottom-9 flex">
+              <use xlink:href="#menu_wing_button"></use>
+            </svg>
+          </a>
         </div>
       </nav>
     </div>
@@ -91,7 +93,7 @@
       {% render 'icon-sprite' %}
     </div>
 
-    <script src="{{ 'bundle.js' | asset_url }}?33" defer="defer"></script>
+    <script src="{{ 'bundle.js' | asset_url }}" defer="defer"></script>
 
     {% include 'swymSnippet' %}
   </body>

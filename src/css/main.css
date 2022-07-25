@@ -401,7 +401,6 @@
     @apply md:py-4;
     @apply md:bg-[length:100%_100%];
 
-
     /* for animation */
     @apply invisible;
     @apply opacity-0;
@@ -413,6 +412,15 @@
         @apply opacity-100;
         @apply translate-y-0;
         @apply md:flex;
+    }
+}
+
+.tyija-wing {
+    @apply relative;
+    @apply z-50;
+
+    svg {
+        @apply transition-all;
     }
 }
 

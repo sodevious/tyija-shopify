@@ -5,9 +5,6 @@ import { createApp } from 'vue'
 import { createStore } from 'vuex'
 import { useSanityClient } from 'vue-sanity'
 import anime from 'animejs'
-
-// import VueCarousel from 'vue-carousel';
-
 import barba from '@barba/core';
 import barbaPrefetch from '@barba/prefetch';
 import 'vue3-carousel/dist/carousel.css';
@@ -78,8 +75,6 @@ const createVueApp = () => {
    * extend with additional features
    */
   app.use(store)
-  // app.component(VueCarousel)
-
 
   return app
 }
@@ -171,35 +166,9 @@ const body = document.querySelector('body');
 
 const barbaTransitions = [{
   name: 'default-transition',
-  sync: true,
-
-  async leave (data) {
-    return await new Promise((resolve) => {
-      anime({
-        targets: data.current.container,
-        opacity: .0,
-        duration: 100,
-        easing: 'easeInQuart',
-      })
-
-      setTimeout(() => {
-        resolve()
-      }, 300)
-    })
-  },
-  async enter (data) {
-    return await new Promise((resolve) => {
-      anime({
-        targets: data.current.container,
-        opacity: .0,
-        duration: 100,
-        easing: 'easeOutQuart'
-      })
-
-      setTimeout(() => {
-        resolve()
-      }, 300)
-    })
+  sync: false,
+  leave () {
+    document.querySelector(".tyija-wing svg").classList.toggle("-scale-x-100");
   }
 }]
 
@@ -216,8 +185,7 @@ if (body.hasAttribute('data-barba')) {
     views: [{
       namespace: 'customers/account',
       beforeEnter() {
-        // update the menu based on user navigation
-        console.log('destroying ?')
+        // dont show cache for account
         barba.destroy();
       },
     }]
@@ -231,6 +199,4 @@ if (body.hasAttribute('data-barba')) {
       vueElements.forEach(el => createVueApp().mount(el))
     }
   });
-
-  // console.log(barba.cache)
 }

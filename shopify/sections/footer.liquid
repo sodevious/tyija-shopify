@@ -83,14 +83,6 @@
     </div>
 
     <aside :class="[ isMenuOpen ? 'text-white' : 'light:text-black']" class="absolute">
-      
-      <a href="/collections/all">
-        <svg class="w-14 h-16 left-10 transition-opacity  fixed z-50 bottom-9 flex index:-scale-x-100" 
-          :class="$store.state['overlays'].isFooterOpen ? 'opacity-100' : 'opacity-100'">
-        <use xlink:href="#menu_wing_button"></use>
-      </svg>
-    </a>
-
       <button
         class="fixed z-50 bottom-9 right-10"
         @click="toggleFooter"
@@ -103,7 +95,7 @@
   </template>
 </footer-menu>
 
-<component is="style">
+<component is="style" class="no-js:hidden">
   .tyija-footer {
     background-image: url('{{ section.settings.gradient_light | image_url: width: 1500 }}');
   }

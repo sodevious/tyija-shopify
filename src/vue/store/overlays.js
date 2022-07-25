@@ -4,7 +4,8 @@ const state = {
   isMenuOpen: false,
   isProductZoomed: false,
   isSearchOpen: false,
-  currentMenuItem: ''
+  currentMenuItem: '',
+  isWingClicked: false
 }
 
 const mutations = {
@@ -38,6 +39,9 @@ const mutations = {
     state.isFooterOpen = false
     state.isMenuOpen = false
   },
+  TOGGLE_WING(state) {
+    state.isWingClicked = !state.isWingClicked
+  },
   SET_CURRENT_LINK(state, payload) {
     state.currentMenuItem = payload
   }
@@ -70,6 +74,9 @@ const actions = {
   },
   toggleSearch({ commit }) {
     commit('TOGGLE_SEARCH')
+  },
+  toggleWing({ commit }) {
+    commit('TOGGLE_WING')
   },
   setCurrentLink({ commit }, link) {
     commit('SET_CURRENT_LINK', link)
