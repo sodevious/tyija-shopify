@@ -32,14 +32,21 @@
       <div class="tyija-actions">
         {% render 'actions' %}
       </div> 
-
-      <menu-wrapper v-slot="{ navContext }">
-        {% render 'menu' %}
-      </menu-wrapper>
       
+      <div class="md:flex justify-center flex-col flex-1"
+        is="vue:menu-wrapper"
+        v-slot="{ navContext }">
+        {% render 'menu' %}
+      </div>
+
       {% render 'footer' %}
 
-       <shopping-cart></shopping-cart>
+      <shopping-cart translated-strings='[{
+        "checkout_disclaimer": "{{ 'cart.checkout_disclaimer' | t }}",
+        "empty_cart": "{{ 'cart.empty_cart' | t }}",
+        "checkout": "{{ 'action.checkout' | t }}",
+        "subtotal": "{{ 'cart.subtotal' | t }}"
+      }]'></shopping-cart>
     </div>
 
     {% render 'icon-sprite' %}

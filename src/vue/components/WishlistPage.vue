@@ -1,5 +1,8 @@
 <template>
-  <p v-if="!wishListItems">Loading...</p>
+  <div v-if="!wishListItems" class="w-full h-full flex justify-center items-center">
+    <p>Loading...</p>
+  </div>
+
   <div v-if="wishListItems.length === 0" class="w-full h-full flex justify-center items-center">
     <p>No items in your wishlist yet.</p>
   </div>

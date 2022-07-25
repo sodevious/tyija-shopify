@@ -28,15 +28,17 @@ export default {
     class="tyija-overlay flex-col flex-1 items-evenly z-40 hidden nav-open:block md:hidden md:nav-open:hidden"
   >
     <button
-      class="text-right block w-full pt-8 pr-8 mb-4"
+      class="text-right block w-full pr-8"
       @click="$store.dispatch('overlays/toggleMenu')"
     >
-      <svg class="w-4 h-4 float-right">
+      <svg class="w-4 h-4 h-header float-right">
         <use xlink:href="#close_info" />
       </svg>
     </button>
-
-    <slot nav-context="mobile" />
+    
+    <div class="grid h-full grid-rows-menu">
+      <slot nav-context="mobile" />
+    </div>
   </div>
   <div
     v-else

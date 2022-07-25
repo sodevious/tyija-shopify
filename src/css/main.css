@@ -272,6 +272,7 @@
     @apply right-0;
     @apply top-0;
     @apply left-0;
+    grid-template-rows: var(--layout-header) auto;
     
     @apply md:top-auto;
     @apply md:bg-transparent;
@@ -399,6 +400,7 @@
     @apply bg-contain;
     @apply light:text-black;
     background-size: 7rem;
+    @apply md:py-4;
 
     /* for animation */
     @apply invisible;

@@ -2,10 +2,10 @@
   <footer-menu>
     <template v-slot="{ toggleFooter, isFooterOpen, isMenuOpen }">
       <div 
-        :class="[{ 'is-open': isFooterOpen }, 'tyija-overlay tyija-footer pt-4 pb-6 px-4 md:px-32 lg:px-48 md:flex justify-between']"
+        :class="[{ 'is-open': isFooterOpen }, 'tyija-overlay tyija-footer block md:px-32 lg:px-48 md:flex md:justify-between']"
         style="background-image: url('{{ settings.footer_bg | image_url }}');"
       >
-        <button class="absolute top-0 right-0 pt-8 pr-8 mb-4 text-white md:hidden" 
+        <button class="pr-8 text-white md:hidden" 
                 @click="$store.dispatch('overlays/toggleFooter')">
           <svg class="w-4 h-4">
             <use xlink:href="#close_info"></use>
