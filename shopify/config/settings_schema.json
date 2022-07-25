@@ -30,16 +30,6 @@
     ]
   },
   {
-    "name": "Footer",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "footer_bg",
-        "label": "Background Image"
-      }
-    ]
-  },
-  {
     "name": "t:settings_schema.favicon.name",
     "settings": [
       {

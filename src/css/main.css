@@ -397,10 +397,10 @@
     @apply z-40;
     @apply bg-repeat-x;
     @apply bg-bottom;
-    @apply bg-contain;
     @apply light:text-black;
-    background-size: 7rem;
     @apply md:py-4;
+    @apply md:bg-[length:100%_100%];
+
 
     /* for animation */
     @apply invisible;
@@ -426,8 +426,6 @@
         @apply block;
         @apply text-h5;
         @apply uppercase;
-        /* @apply mt-2; */
-        /* @apply mb-4; */
     }
 
     select,
