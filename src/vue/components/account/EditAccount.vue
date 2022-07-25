@@ -33,7 +33,7 @@ const client = sanityClient({
 })
 
 export default {
-  name: 'CustomerAccount',
+  name: 'EditAccount',
   components: {
     CustomerAccountSection,
     CustomerProfile,
@@ -49,20 +49,22 @@ export default {
     return {
       customer: {},
       accountSections: [
-        { title: 'my information', componentName: 'CustomerProfile', props: { gender: [], location: '' } },
+        { title: 'personal information', componentName: 'CustomerProfile', props: { gender: [], location: '' } },
         { title: 'designers', componentName: 'CustomerDesigners', props: { designers: [] } },
-        { title: 'pieces', componentName: 'CustomerPieces', props: { pieces: [] } },
-        { title: 'publications', componentName: 'CustomerPublications', props: { publications: [] } }
+        { title: 'publications', componentName: 'CustomerPublications', props: { publications: [] } },
+        { title: 'garment watchlists', componentName: 'CustomerPieces', props: { pieces: [] } }
       ]
     }
   },
   async mounted () {
-    this.customer = await client.createIfNotExists({
-      _type: 'customer',
-      _id: this.customerId,
-      name: this.name,
-      email: this.email,
-    })
+    // this.customer = await client.createIfNotExists({
+    //   _type: 'customer',
+    //   _id: this.customerId,
+    //   name: this.name,
+    //   email: this.email,
+    // })
+
+    this.customer = await client.getDocument(this.customerId)
 
     console.log('customer:', this.customer)
 

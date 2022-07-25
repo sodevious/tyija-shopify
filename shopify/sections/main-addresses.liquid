@@ -1,0 +1,33 @@
+<!-- Markup/js from Dawn -->
+<!-- https://shopify.dev/themes/architecture/templates/customers-addresses#standard-form-inputs -->
+<script src="{{ 'customer.js' | asset_url }}" defer></script>
+
+<h2 class="page-title">{{ 'customer.account.title' | t }}</h2>
+
+{% if settings.account_about %}
+    <div class="uppercase border-b p-4 richtext md:text-h3 md:p-8">{{ settings.account_about | richtext }}</div>
+{% endif %}
+
+<div class="flex justify-between items-center p-4 md:p-8">
+    <h3 class="text-h3 uppercase">
+      Edit {{ 'customer.account.details' | t }}
+    </h2>
+  
+    <a href="{{ routes.account_url }}" class="text-h5 text-right  uppercase">
+      Back
+    </a>
+</div>
+  
+<div class="customer addresses p-4 md:p-8 max-w-xl" data-customer-addresses>
+    <ul role="list">
+        {%- for address in customer.addresses -%}
+            {% render 'account-edit-addresses' address: address%}
+        {%- endfor -%}
+    </ul>
+</div>
+
+<script>
+  window.onload = () => {
+    typeof CustomerAddresses !== 'undefined' && new CustomerAddresses();
+  }
+</script>

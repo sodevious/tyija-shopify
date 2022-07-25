@@ -81,7 +81,12 @@ module.exports = {
      * docs: https://github.com/johnagan/clean-webpack-plugin
      */
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['**/*', '!*static*']
+      cleanOnceBeforeBuildPatterns: [
+        '**/*', 
+        '!*static*', 
+        '!*customer.js', 
+        '!*global.js'
+      ]
     }),
     /**
      * docs: https://webpack.js.org/plugins/mini-css-extract-plugin

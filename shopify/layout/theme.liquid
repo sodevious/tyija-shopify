@@ -20,6 +20,7 @@
     {% endif %}
 
     {{ 'bundle.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
 
     <!-- Shopify scripts -->
     {{ content_for_header }}

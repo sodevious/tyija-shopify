@@ -218,11 +218,6 @@
     @apply md:border-r;
 }
 
-
-/* 
- * CONTENT
- */
-
 .richtext p +  p {
     @apply mt-6;
 }
@@ -256,10 +251,6 @@
         @apply flex-col;
         @apply border-b;
         @apply p-4;
-
-        /* &:last-child {
-            @apply border-0;
-        } */
     }
 }
 
@@ -350,7 +341,6 @@
     @apply overflow-hidden;
     @apply md:bottom-6;
     @apply md:pl-4;
-    /* @apply cursor-pointer; */
 
     @apply zoomed:md:bottom-6;
     @apply zoomed:bottom-0;
@@ -424,3 +414,33 @@
     }
 }
 
+
+/*
+ * ACCOUNT
+ */
+
+ .customer.addresses {
+    label {
+        @apply block;
+        @apply text-h5;
+        @apply uppercase;
+        /* @apply mt-2; */
+        /* @apply mb-4; */
+    }
+
+    select,
+    input {
+        @apply pl-0;
+        @apply w-full;
+    }
+
+    input[type=checkbox] {
+        @apply w-6;
+    }
+ }
+
+ .edit-addresses form {
+    @apply grid;
+    @apply grid-cols-2;
+    @apply gap-8;
+ }

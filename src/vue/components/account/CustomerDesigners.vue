@@ -1,5 +1,5 @@
 <template>
-  <div class="py-10">
+  <div class="py-4">
     <span class="block mb-10 uppercase">
       please let us know what your three favorites are!
     </span>

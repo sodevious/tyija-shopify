@@ -1,5 +1,5 @@
 <template>
-  <section class="border-b p-4 md:p-8">
+  <section class="border-t p-4 md:p-8">
     <div class="flex justify-between items-center">
       <h3 class="text-h3 uppercase">
         <slot name="title" />

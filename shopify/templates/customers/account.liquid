@@ -3,28 +3,24 @@
 </h2>
 
 {% if settings.account_about %}
-  <div class="
-      uppercase md:text-h3 border-b p-4 pb-8 md:p-8  leading-150
-      richtext
-    ">
+  <div class="uppercase border-b p-4 pb-8 leading-150 richtext md:p-8 md:text-h3">
     {{ settings.account_about | richtext }}
   </div>
 {% endif %}
 
-<!-- See Account/CustomerAccount.vue component -->
+<!-- See Account/EditAccount.vue component -->
 <div vue>
-  <customer-account name="{{ customer.name }}" email="{{ customer.email }}">
-    <!-- fallback -->
-    <section class="border-b">
+  <edit-account name="{{ customer.name }}" email="{{ customer.email }}">
+    <section>
       <div class="flex justify-between items-center p-4 md:p-8">
         <h3 class="text-h3 uppercase">
           {{ 'customer.account.details' | t }}
         </h3>
 
-        <a href="{{ routes.account_addresses_url }}" class="text-h5 text-right uppercase"> Edit </a>
+        <a href="{{ routes.account_addresses_url }}" class="text-h5 text-right uppercase no-js:hide"> Edit </a>
       </div>
 
-      <div class="p-4 md:p-8 max-w-lg">
+      <div class="px-4 md:px-8 pb-8 max-w-lg">
         {% if customer.name %}
           <p class="uppercase my-4">{{ customer.name }}</p>
         {% endif %}
@@ -51,5 +47,5 @@
         {% endif %}
       </div>
     </section>
-  </customer-account>
+  </edit-account>
 </div>
