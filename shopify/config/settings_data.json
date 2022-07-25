@@ -1,6 +1,16 @@
 {
   "current": {
+    "favicon": "shopify:\/\/shop_images\/Main_Icon_3e235840-0dea-435e-8918-1493f2557a49.png",
     "footer_bg": "shopify:\/\/shop_images\/Gradient_5dd465d6-072d-487a-9df7-97031956ae24.png",
+    "sections": {
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "gradient_light": "shopify:\/\/shop_images\/Gradient_noise.png",
+          "gradient_dark": "shopify:\/\/shop_images\/Gradient_dark.png"
+        }
+      }
+    },
     "content_for_index": [
 
     ]
