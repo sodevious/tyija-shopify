@@ -1,52 +1,52 @@
 <!-- Renderless: see FooterMenu.vue -->
 <footer-menu>
   <template v-slot="{ toggleFooter, isFooterOpen, isMenuOpen }">
-    <div 
-      :class="[{ 'is-open': isFooterOpen }, 'tyija-overlay tyija-footer block md:px-32 lg:px-48 md:flex md:justify-between']"
+    <footer 
+      :class="[{ 'is-open': isFooterOpen }, 'tyija-overlay tyija-footer flex flex-col  md:px-36 md:flex md:justify-between  lg:px-40']"
      
     >
-      <button class="pr-8 text-white md:hidden" 
+      <button class="pr-6 text-white h-header w-full flex items-center justify-end  md:hidden " 
               @click="$store.dispatch('overlays/toggleFooter')">
-        <svg class="w-4 h-4">
+        <svg class="w-5 h-5">
           <use xlink:href="#close_info"></use>
         </svg>
       </button>
 
-      <footer class="grid grid-cols-2 gap-8 pt-10 text-center md:gap-2 md:grid-cols-6 md:text-left text-white md:light:text-black"
+      <ul class="grid grid-cols-2 gap-4 p-4 items-center text-center flex-1 justify-around  md:flex md:items-start md:text-left text-white md:light:text-black"
               data-barba-prevent="all">
-        <div>
+        <li>
           <h4 class="text-md uppercase mb-2 md:text-h4">{{ linklists.info.title }}</h4>
 
           {% for link in linklists.info.links %}
             <a href="{{ link.url }}" class="block text-h5 uppercase">{{ link.title }}</a>
           {% endfor %}
-        </div>
+        </li>
       
-        <div>
+        <li>
           <h4 class="text-md uppercase mb-2 md:text-h4">{{ linklists.customers.title }}</h4>
 
           {% for link in linklists.customers.links %}
             <a href="{{ link.url }}" class="block text-h5 uppercase">{{ link.title }}</a>
           {% endfor %}
-        </div>
+        </li>
 
-        <div>
+        <li>
           <h4 class="text-md uppercase mb-2 md:text-h4">{{ linklists.social.title }}</h4>
 
           {% for link in linklists.social.links %}
             <a href="{{ link.url }}" class="block text-h5 uppercase">{{ link.title }}</a>
           {% endfor %}
-        </div>
+        </li>
 
-        <div>
+        <li>
           <h4 class="text-md uppercase mb-2 md:text-h4">{{ linklists.legal.title }}</h4>
 
           {% for link in linklists.legal.links %}
             <a href="{{ link.url }}" class="block text-h5 uppercase">{{ link.title }}</a>
           {% endfor %}
-        </div>
+        </li>
 
-        <div class="col-span-2 my-4 flex flex-col items-center md:hidden">
+        <li class="col-span-2 flex flex-col items-center  md:hidden">
           <button 
             class="button button-sm my-2 light:bg-white light:mix-blend-screen light:text-black" 
             @click="$store.dispatch('overlays/toggleSearch')">
@@ -61,9 +61,9 @@
           <svg class="w-16 h-16 my-2">
             <use xlink:href="#liked"></use>
           </svg>
-        </div>
+        </li>
         
-        <div class="lg:w-80 col-span-2">
+        <li class="lg:w-80 col-span-2">
           <h4 class="text-md uppercase mb-2 hidden md:text-h4 md:block">Sign Up</h4>
 
           <form class="md:flex">
@@ -74,13 +74,13 @@
             >
             <input type="submit" value="Submit" class="p-2 uppercase text-h4">
           </form>
-        </div>
+        </li>
+      </ul>
 
-        <p class="absolute left-4 bottom-4 uppercase text-h5 md:hidden">
-          &copy; {{ 'common.copyright' | t }}
-        </p>
-      </footer>
-    </div>
+      <p class="p-4 uppercase text-h5 text-white md:hidden">
+        &copy; {{ 'common.copyright' | t }}
+      </p>
+    </footer>
 
     <aside :class="[ isMenuOpen ? 'text-white' : 'light:text-black']" class="absolute">
       <button
@@ -95,7 +95,7 @@
   </template>
 </footer-menu>
 
-<component is="style" class="no-js:hidden">
+<component is="style" class="invisible">
   .tyija-footer {
     background-image: url('{{ section.settings.gradient_light | image_url: width: 1500 }}');
   }

@@ -230,7 +230,7 @@
         @apply py-1;
         @apply px-8;
         @apply border-b;
-        @apply mb-4;
+        /* @apply mb-4; */
         @apply md:text-left;
         @apply md:text-h2;
         @apply md:py-6;
@@ -272,7 +272,7 @@
     @apply right-0;
     @apply top-0;
     @apply left-0;
-    grid-template-rows: var(--layout-header) auto;
+    /* grid-template-rows: var(--layout-header) auto; */
     
     @apply md:top-auto;
     @apply md:bg-transparent;
@@ -412,6 +412,8 @@
         @apply opacity-100;
         @apply translate-y-0;
         @apply md:flex;
+        @apply z-[60];
+        @apply md:z-40;
     }
 }
 

@@ -25,7 +25,7 @@ export default {
 
   <div
     v-if="isMenuOpen"
-    class="tyija-overlay flex-col flex-1 items-evenly z-40 hidden nav-open:block md:hidden md:nav-open:hidden"
+    class="tyija-overlay flex-col flex-1 items-evenly z-[60] hidden  nav-open:block md:hidden md:nav-open:hidden"
   >
     <button
       class="text-right block w-full pr-8"
@@ -36,7 +36,7 @@ export default {
       </svg>
     </button>
     
-    <div class="grid h-full grid-rows-menu">
+    <div class="grid h-full index:grid-rows-menu">
       <slot nav-context="mobile" />
     </div>
   </div>

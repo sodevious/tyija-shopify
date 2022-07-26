@@ -17,14 +17,14 @@
         <li class="w-full flex items-center px-8 {% if forloop.last == false %}border-b{% endif %}">
           <a
             href="{{ link.url }}"
-            class="text-h2  w-full text-center md:text-left md:text-[15vh] uppercase my-2 hover:text-white hover:border-black hover:italic {% if link.current %}italic{% endif %}"
+            class="text-h2  w-full text-center md:text-left md:text-[12vh] uppercase my-2 hover:text-white hover:border-black hover:italic {% if link.current %}italic{% endif %}"
           >
             {{ link.title }}
           </a>
         </li>
       {% endfor %}
 
-      <li class="w-full flex items-center px-8 h-[8rem] border-t no-js:hidden">
+      <li class="w-full flex items-center px-8 h-[8rem] flex-initial border-t no-js:hidden">
         <!-- Placeholder for wing -->
       </li>
     </ul>

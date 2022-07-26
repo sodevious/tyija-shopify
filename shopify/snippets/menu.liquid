@@ -19,7 +19,7 @@
       <template #child>
         <ul class="block text-center accordion-item">
           {% for child_link in link.links %}
-            <li class="text-h4 md:text-h5 uppercase my-4">
+            <li class="text-h4 md:text-h5 uppercase my-2">
               <a href="{{ child_link.url }}">{{ child_link.title }}</a>
             </li>
           {% endfor %}
@@ -32,7 +32,7 @@
         <ul class="block text-center accordion-item">
 
         {% for article in blogs.editorial.articles limit:4 %}
-          <li class="text-h4 md:text-h5 uppercase my-4">
+          <li class="text-h4 md:text-h5 uppercase my-2">
             <a href="{{ article.url }}">{{ article.title }}</a>
           </li>
         {% endfor %}
