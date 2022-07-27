@@ -30,7 +30,7 @@
           <input
             v-model="input.value"
             v-bind="input.attrs"
-            class="border w-full block"
+            class="w-full block"
           >
         </template>
       </div>

@@ -16,21 +16,11 @@
 </template>
 
 <script>
-const sanityClient = require('@sanity/client')
 import CustomerAccountSection from './CustomerAccountSection.vue'
 import CustomerProfile from './CustomerProfile.vue'
 import CustomerDesigners from './CustomerDesigners.vue'
 import CustomerPieces from './CustomerPieces.vue'
 import CustomerPublications from './CustomerPublications.vue'
-
-// ideally this client should be initialized in main.js or somewhere as a plugin and refferenced here and through the app.
-const client = sanityClient({
-  projectId: 'rcrbb2uw',
-  dataset: 'production',
-  apiVersion: '2022-07-19', // use current UTC date - see "specifying API version"!
-  token: 'sk6Q4635EW9XneKbGC804JnsfFLsWx1i5amYmQiG23dD1cl2AT1jtsbnvj4c3cjUlkBoMynRsUEYc2Lm5UcEt3pdpWKH9zGTn6TDXmZWiHePPlpUwpDWqVI0CkTxtPLT4ob3h2MQFefaDLfd6f5F0PpSaJNSRw0RO7kw7ZFBHDwGFOXQuBMi', // or leave blank for unauthenticated usage
-  useCdn: false, // `false` if you want to ensure fresh data
-})
 
 export default {
   name: 'EditAccount',
@@ -57,14 +47,14 @@ export default {
     }
   },
   async mounted () {
-    // this.customer = await client.createIfNotExists({
+    // this.customer = await this.sanity.createIfNotExists({
     //   _type: 'customer',
     //   _id: this.customerId,
     //   name: this.name,
     //   email: this.email,
     // })
 
-    this.customer = await client.getDocument(this.customerId)
+    this.customer = await this.sanity.getDocument(this.customerId)
 
     console.log('customer:', this.customer)
 
@@ -88,7 +78,7 @@ export default {
       })
     },
     async handleSave (e) {
-      this.customer = await client.patch(this.customerId).set(e).commit()
+      this.customer = await this.sanity.patch(this.customerId).set(e).commit()
       this.setSectionPropsFromCustomer()
     }
   }

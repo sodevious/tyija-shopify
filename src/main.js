@@ -3,12 +3,12 @@
  */
 import { createApp } from 'vue'
 import { createStore } from 'vuex'
-import { useSanityClient } from 'vue-sanity'
 import anime from 'animejs'
 import barba from '@barba/core';
 import barbaPrefetch from '@barba/prefetch';
 import 'vue3-carousel/dist/carousel.css';
 
+const sanityClient = require('@sanity/client')
 
 /**
  * STYLES
@@ -40,18 +40,7 @@ const store = createStore({
  */
 
 const createVueApp = () => {
-  const app = createApp({
-    setup() {
-      useSanityClient(
-        {
-          projectId: 'bh42io6v',
-          dataset: 'production',
-          useCdn: process.env.NODE_ENV === 'production',
-        },
-        true
-      )
-    }
-  })
+  const app = createApp()
 
   /**
    * COMPONENTS
@@ -75,6 +64,22 @@ const createVueApp = () => {
    * extend with additional features
    */
   app.use(store)
+
+
+  /**
+   * SANITY CLIENT
+   * https://tyija.sanity.studio
+   */
+
+  const client = sanityClient({
+    projectId: 'bh42io6v',
+    dataset: 'production',
+    apiVersion: '2022-07-19', // use current UTC date - see "specifying API version"!
+    token: 'skyKZIPQJoG4oTHPAAy9t0xXXQTY6Bk6bD4MWUtyZfIehAYVFvbC3MjfrI6kq7dpvlHkcGnz4VdUMnC61OZ1cTg51HP5a0tEF9BDnGHoG4sLtlNv4zYIVwBZLXbH5BDeFuBRRJtSisibX7ilNGVXNvWlgE57sjXrFozB7iLk5IUVjN5FoVQO', // or leave blank for unauthenticated usage
+    useCdn: false, // `false` if you want to ensure fresh data
+  })
+
+  app.config.globalProperties.sanity = client
 
   return app
 }
