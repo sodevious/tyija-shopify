@@ -1,37 +1,37 @@
 <script>
-import { useSanityFetcher } from 'vue-sanity'
 import { SanityBlocks } from 'sanity-blocks-vue-component';
-// import { h, defineComponent } from 'vue';
-import ContentImage from '@/vue/components/ContentImage.vue'
+import ImageWithSplat from './editorial/imageWithSplat.vue';
 
 export default {
-    components: { SanityBlocks },
-    props: {
-        handle: String
-    },
-
-    setup(props) {
-        const serializers = {
-            types: {
-                image: ContentImage,
-            }
-        }
-
-        const { data: blocks } = useSanityFetcher(`*[_type == "article" && handle.current == "${props.handle}"][0].body`)
-        return { blocks, serializers };
+  name: 'BlogPost',
+  components: { SanityBlocks, ImageWithSplat },
+  props: {
+    handle: String
+  },
+  data() {
+    return {
+      postContent: [],
     }
+  },
+
+  async mounted() {
+    const query = `*[_type == "article" && handle.current == "${this.handle}"][0]`
+
+    this.postContent = await this.sanity.fetch(query)
+  },
 }
 </script>
 
-
 <template>
-  <div v-if="blocks">
-    <SanityBlocks
-      :blocks="blocks"
-      :serializers="serializers"
-    />
+  <div v-if="postContent" v-for="section in postContent.page_modules">
+    <ImageWithSplat v-if="section._type == 'article.splat'" :section-data="section" />
+
+    <p v-else>
+      {{ section._type }}
+    </p>
   </div>
   <div v-else>
+    <!-- Fallback for Shopify content -->
     <slot />
   </div>
 </template>

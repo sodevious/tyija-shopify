@@ -2,9 +2,12 @@
   {{ article.title }}
 </h2>
 
-<div class="p-4 md:p-8 my-4 md:my-2 text-h3 richtext no-js:hidden" vue>
+<div class="mb-12 text-h3 richtext no-js:hidden" vue>
   <blog-post handle="{{- article.handle | remove: 'editorial/' -}}" >
     {{ article.content }}
   </blog-post>
 </div>
  
+<div class="js:hidden">
+  {{ article.content }}
+</div>

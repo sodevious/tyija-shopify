@@ -67,6 +67,7 @@
         @apply my-2; 
         @apply p-2;
         @apply border-b;
+        @apply border-r-0;
         @apply placeholder-currentColor;
         @apply focus:outline-none;
     }
