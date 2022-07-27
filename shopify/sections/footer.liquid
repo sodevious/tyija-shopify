@@ -12,7 +12,7 @@
         </svg>
       </button>
 
-      <ul class="grid grid-cols-2 gap-4 p-4 items-center text-center flex-1 justify-around  md:flex md:items-start md:text-left text-white md:light:text-black"
+      <ul class="grid grid-cols-2 gap-4 p-4 items-center text-center flex-1 justify-around  md:flex md:items-start md:text-left text-white md:light:text-gray"
               data-barba-prevent="all">
         <li>
           <h4 class="text-md uppercase mb-2 md:text-h4">{{ linklists.info.title }}</h4>
@@ -48,13 +48,13 @@
 
         <li class="col-span-2 flex flex-col items-center  md:hidden">
           <button 
-            class="button button-sm my-2 light:bg-white light:mix-blend-screen light:text-black" 
+            class="button button-sm my-2 light:bg-white light:mix-blend-screen light:text-gray" 
             @click="$store.dispatch('overlays/toggleSearch')">
             {{ 'action.search' | t }}
           </button>
 
           <a href="{{ routes.account_login_url }}"
-              type="submit" class="button button-sm my-2 light:bg-white light:mix-blend-screen light:text-black">
+              type="submit" class="button button-sm my-2 light:bg-white light:mix-blend-screen light:text-gray">
             {{ 'action.sign_in' | t }}
           </a>
       
@@ -82,7 +82,7 @@
       </p>
     </footer>
 
-    <aside :class="[ isMenuOpen ? 'text-white' : 'light:text-black']" class="absolute">
+    <aside :class="[ isMenuOpen ? 'text-white' : 'light:text-gray']" class="absolute">
       <button
         class="fixed z-50 bottom-9 right-10"
         @click="toggleFooter"

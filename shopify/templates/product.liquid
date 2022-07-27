@@ -65,7 +65,7 @@
                 {% for variant in product.variants %}
                   <a
                     href="{{ variant.url }}"
-                    class="border flex justify-center items-center my-4 mr-4 w-16 h-16 rounded-full  md:w-12 md:h-12 md:text-h5 {% if variant == current_variant %}bg-white text-black light:bg-black light:text-white{% endif %} {% if variant.available == false %}opacity-50{% endif %}"
+                    class="border flex justify-center items-center my-4 mr-4 w-16 h-16 rounded-full  md:w-12 md:h-12 md:text-h5 {% if variant == current_variant %}bg-white text-gray light:bg-black light:text-white{% endif %} {% if variant.available == false %}opacity-50{% endif %}"
                   >
                     {{ variant.title }}
                   </a>

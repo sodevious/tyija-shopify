@@ -44,7 +44,7 @@
         @apply normal-case;
         @apply bg-white;
         @apply text-black;
-        @apply light:bg-black;
+        @apply light:bg-gray;
         @apply light:text-white;
         @apply light:mix-blend-darken;
     }
@@ -127,7 +127,7 @@
     @apply text-white;
     @apply md:min-h-screen;
     @apply light:bg-white;
-    @apply light:text-black;
+    @apply light:text-gray;
     
     transition: background-color 0.20s ease-in-out;
     grid-template-rows: var(--layout-header) auto; 
@@ -153,7 +153,7 @@
     @apply py-5;
     @apply border-b;
     @apply border-white;
-    @apply light:border-black;
+    @apply light:border-gray;
     @apply md:px-10;
     @apply md:py-8;
 }
@@ -397,7 +397,7 @@
     @apply z-40;
     @apply bg-repeat-x;
     @apply bg-bottom;
-    @apply light:text-black;
+    @apply light:text-gray;
     @apply md:py-4;
     @apply md:bg-[length:100%_100%];
 
