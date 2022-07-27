@@ -8,6 +8,7 @@ import annotationLinkEmail from './annotations/linkEmail'
 import annotationLinkExternal from './annotations/linkExternal'
 import annotationLinkInternal from './annotations/linkInternal'
 import annotationProduct from './annotations/product'
+import blockContent from './blockContent'
 
 // Document types
 import article from './documents/article'
@@ -36,6 +37,8 @@ import linkInternal from './objects/linkInternal'
 import heroCollection from './objects/hero/collection'
 import heroHome from './objects/hero/home'
 import heroPage from './objects/hero/page'
+import imageWithText from './objects/imageWithText'
+import articleImageWithSplat from './objects/article/imageWithSplat'
 import moduleAccordion from './objects/module/accordion'
 import moduleCallout from './objects/module/callout'
 import moduleCallToAction from './objects/module/callToAction'
@@ -90,9 +93,12 @@ export default createSchema({
     customProductOptionSize,
     heroCollection,
     heroHome,
+    blockContent,
     heroPage,
     linkExternal,
     linkInternal,
+    imageWithText,
+    articleImageWithSplat,
     moduleAccordion,
     moduleCallout,
     moduleCallToAction,

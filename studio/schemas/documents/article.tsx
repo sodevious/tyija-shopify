@@ -30,13 +30,14 @@ export default {
 
       {
         title: 'Article Modules',
-        name: 'modules1',
+        name: 'page_modules',
         type: 'array',
         of: [
-          { type: 'module.products' },
-          { type: 'body' },
-          // { type: 'imageGallery' },
-          // { type: 'longFormText' },
+          // { type: 'module.products' },
+          { type: 'article.splat' }, // object
+          // { type: 'imageWithText' }, // document 
+          { type: 'blockContent' }, // object
+
         ],
       },
     ]

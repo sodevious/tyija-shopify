@@ -16,27 +16,27 @@ export default {
       validation: (Rule) => Rule.required().max(2),
     },
     // Layout
-    {
-      name: 'layout',
-      title: 'Layout',
-      type: 'string',
-      initialValue: 'card',
-      options: {
-        direction: 'horizontal',
-        layout: 'radio',
-        list: [
-          {
-            title: 'Cards (large)',
-            value: 'card',
-          },
-          {
-            title: 'Pills (small)',
-            value: 'pill',
-          },
-        ],
-      },
-      validation: (Rule) => Rule.required(),
-    },
+    // {
+    //   name: 'layout',
+    //   title: 'Layout',
+    //   type: 'string',
+    //   initialValue: 'card',
+    //   options: {
+    //     direction: 'horizontal',
+    //     layout: 'radio',
+    //     list: [
+    //       {
+    //         title: 'Cards (large)',
+    //         value: 'card',
+    //       },
+    //       {
+    //         title: 'Pills (small)',
+    //         value: 'pill',
+    //       },
+    //     ],
+    //   },
+    //   validation: (Rule) => Rule.required(),
+    // },
   ],
   preview: {
     select: {
