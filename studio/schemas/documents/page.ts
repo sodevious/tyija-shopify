@@ -36,45 +36,13 @@ export default {
       options: {source: 'title'},
       validation: validateSlug,
     },
-    // Color theme
-    {
-      name: 'colorTheme',
-      title: 'Color theme',
-      type: 'reference',
-      to: [{type: 'colorTheme'}],
-      // group: 'theme',
-    },
-    // Show hero
-    {
-      name: 'showHero',
-      title: 'Show hero',
-      type: 'boolean',
-      description: 'If disabled, page title will be displayed instead',
-      initialValue: false,
-      // group: 'editorial',
-    },
-    // Hero
-    {
-      name: 'hero',
-      title: 'Hero',
-      type: 'hero.page',
-      hidden: ({document}) => !document?.showHero,
-      // group: 'editorial',
-    },
-    // Body
     {
       name: 'body',
       title: 'Body',
       type: 'body',
       // group: 'editorial',
     },
-    // SEO
-    {
-      name: 'seo',
-      title: 'SEO',
-      type: 'seo.page',
-      // group: 'seo',
-    },
+
   ],
   preview: {
     select: {

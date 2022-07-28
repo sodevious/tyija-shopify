@@ -20,24 +20,19 @@
  */
 
 import S from '@sanity/desk-tool/structure-builder'
-import {collections} from './desk/collections'
 import {faq} from './desk/faq'
 import {home} from './desk/home'
 import {pages} from './desk/pages'
 import {articles} from './desk/articles'
 import {customers} from './desk/customers'
-// import {products} from './desk/products'
 import {settings} from './desk/settings'
 
 // If you add document types to desk structure manually, you can add them to this array to prevent duplicates in the root pane
 const DOCUMENT_TYPES_IN_STRUCTURE = [
   'article',
-  'collection',
-  'colorTheme',
   'faq',
   'faqCategory',
   'home',
-  'media.tag',
   'page',
   'customer',
   'product',
@@ -50,16 +45,15 @@ export default () => {
     S.list()
       .title('Content')
       .items([
-        pages,
         articles,
-        S.divider(),
-        faq,
         customers,
+        faq,
+        pages,
         S.divider(),
         home,
         settings,
         // Automatically add new document types to the root pane
-        ...S.documentTypeListItems().filter(listItem => !DOCUMENT_TYPES_IN_STRUCTURE.includes(listItem.getId()))
+        // ...S.documentTypeListItems().filter(listItem => !DOCUMENT_TYPES_IN_STRUCTURE.includes(listItem.getId()))
       ])
   )
 }

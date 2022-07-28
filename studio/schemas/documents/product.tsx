@@ -1,27 +1,9 @@
 import {TagIcon} from '@sanity/icons'
 import pluralize from 'pluralize'
 import React from 'react'
-import ShopifyIcon from '../../components/icons/Shopify'
 import ProductHiddenInput from '../../components/inputs/ProductHidden'
 import ShopifyDocumentStatus from '../../components/media/ShopifyDocumentStatus'
 import {getPriceRange} from '../../utils/getPriceRange'
-
-const GROUPS = [
-  {
-    default: true,
-    name: 'editorial',
-    title: 'Editorial',
-  },
-  {
-    name: 'shopifySync',
-    title: 'Shopify sync',
-    icon: ShopifyIcon,
-  },
-  {
-    name: 'seo',
-    title: 'SEO',
-  },
-]
 
 export default {
   // Required to hide 'create new' button in desk structure
@@ -30,14 +12,13 @@ export default {
   title: 'Product',
   type: 'document',
   icon: TagIcon,
-  groups: GROUPS,
   fields: [
     // Product hidden status
     {
       name: 'hidden',
       type: 'string',
       inputComponent: ProductHiddenInput,
-      group: GROUPS.map((group) => group.name),
+      // group: GROUPS.map((group) => group.name),
       hidden: ({parent}) => {
         const isActive = parent?.store?.status === 'active'
         const isDeleted = parent?.store?.isDeleted
@@ -58,35 +39,13 @@ export default {
       type: 'proxyString',
       options: {field: 'store.slug.current'},
     },
-    // Color theme
-    {
-      name: 'colorTheme',
-      title: 'Color theme',
-      type: 'reference',
-      to: [{type: 'colorTheme'}],
-      group: 'editorial',
-    },
-    // Body
-    {
-      name: 'body',
-      title: 'Body',
-      type: 'body',
-      group: 'editorial',
-    },
     // Shopify product
     {
       name: 'store',
       title: 'Shopify',
       type: 'shopifyProduct',
       description: 'Product data from Shopify (read-only)',
-      group: 'shopifySync',
-    },
-    // SEO
-    {
-      name: 'seo',
-      title: 'SEO',
-      type: 'seo.shopify',
-      group: 'seo',
+      // group: 'shopifySync',
     },
   ],
   orderings: [

@@ -60,83 +60,13 @@ export default {
       type: 'proxyString',
       options: {field: 'store.slug.current'},
     },
-    // Color theme
-    {
-      name: 'colorTheme',
-      title: 'Color theme',
-      type: 'reference',
-      to: [{type: 'colorTheme'}],
-      group: 'theme',
-      validation: (Rule) => Rule.required(),
-    },
-    // Vector
-    {
-      name: 'vector',
-      title: 'Vector artwork',
-      type: 'image',
-      description: 'Displayed in collection links using color theme',
-      options: {
-        accept: 'image/svg+xml',
-      },
-      group: 'theme',
-      validation: (Rule) =>
-        Rule.custom((image) => {
-          if (!image) {
-            return true
-          }
-          const pattern = /^image-([a-f\d]+)-(\d+x\d+)-(\w+)$/
-          const format = image.asset._ref.match(pattern)[3]
-          if (format !== 'svg') {
-            return 'Image must be an SVG'
-          }
-          return true
-        }),
-    },
-    // Show hero
-    {
-      name: 'showHero',
-      title: 'Show hero',
-      type: 'boolean',
-      description: 'If disabled, page title will be displayed instead',
-      group: 'editorial',
-    },
-    // Hero
-    {
-      name: 'hero',
-      title: 'Hero',
-      type: 'hero.collection',
-      hidden: ({document}) => !document?.showHero,
-      group: 'editorial',
-    },
-    // Modules
-    {
-      name: 'modules',
-      title: 'Modules',
-      type: 'array',
-      description: 'Editorial modules to associate with this collection',
-      of: [
-        {type: 'module.callout'},
-        {type: 'module.callToAction'},
-        {type: 'module.image'},
-        {type: 'module.instagram'},
-      ],
-      group: 'editorial',
-    },
-    // Shopify collection
     {
       name: 'store',
       title: 'Shopify',
       type: 'shopifyCollection',
       description: 'Collection data from Shopify (read-only)',
       group: 'shopifySync',
-    },
-    // SEO
-    {
-      name: 'seo',
-      title: 'SEO',
-      type: 'seo.shopify',
-      group: 'seo',
-    },
+    }
   ],
   orderings: [
     {
