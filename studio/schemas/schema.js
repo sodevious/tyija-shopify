@@ -8,25 +8,16 @@ import annotationLinkEmail from './annotations/linkEmail'
 import annotationLinkExternal from './annotations/linkExternal'
 import annotationLinkInternal from './annotations/linkInternal'
 import annotationProduct from './annotations/product'
-import blockContent from './blockContent'
 
 // Document types
-import article from './documents/article'
 import collection from './documents/collection'
 import colorTheme from './documents/colorTheme'
-import page from './documents/page'
-import product from './documents/product'
 import productVariant from './documents/productVariant'
-import customer from './documents/customer'
-import faqCategory from './documents/faqCategory'
 
 // Singleton document types
-import home from './singletons/home'
-import settings from './singletons/settings'
 
 // Block content
 import body from './blocks/body'
-import faq from './documents/faq'
 
 // Object types
 import collectionRule from './objects/collectionRule'
@@ -37,8 +28,7 @@ import linkInternal from './objects/linkInternal'
 import heroCollection from './objects/hero/collection'
 import heroHome from './objects/hero/home'
 import heroPage from './objects/hero/page'
-import imageWithText from './objects/imageWithText'
-import articleImageWithSplat from './objects/article/imageWithSplat'
+
 import moduleAccordion from './objects/module/accordion'
 import moduleCallout from './objects/module/callout'
 import moduleCallToAction from './objects/module/callToAction'
@@ -60,13 +50,44 @@ import shopifyCollection from './objects/shopifyCollection'
 import shopifyProduct from './objects/shopifyProduct'
 import shopifyProductVariant from './objects/shopifyProductVariant'
 
-// Build the schemas and export to the Sanity Studio app
+
+// TYiJA DOCUMENTS
+import article from './documents/article'
+import customer from './documents/customer'
+import faq from './documents/faq'
+import faqCategory from './documents/faqCategory'
+import page from './documents/page'
+import product from './documents/product'
+
+// TYiJA SINGLETONS
+import home from './singletons/home'
+import settings from './singletons/settings'
+
+// TYiJA EDITORIAL
+import paragraphRichtext from './objects/article/paragraphRichtext'
+import imageWithText from './objects/article/imageWithText'
+import imageWithSplat from './objects/article/imageWithSplat'
+
 export default createSchema({
-  // We name our schema
   name: 'default',
-  // Then proceed to concatenate our document type
-  // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
+    article,
+    customer,
+    faq,
+    faqCategory,
+    page,
+    product,
+    
+    home,
+    settings,
+
+    imageWithText,
+    imageWithSplat,
+    paragraphRichtext,
+
+
+
+
     // Annotations
     annotationLinkEmail,
     annotationLinkExternal,
@@ -74,18 +95,13 @@ export default createSchema({
     annotationProduct,
     // Document types
     collection,
-    page,
-    product,
+
     productVariant,
-    faq,
     // Singleton document types
-    home,
-    settings,
+
     // Block content
-    customer,
-    article,
     body,
-    faqCategory,
+
     // Objects
     collectionRule,
     colorTheme,
@@ -93,12 +109,10 @@ export default createSchema({
     customProductOptionSize,
     heroCollection,
     heroHome,
-    blockContent,
     heroPage,
     linkExternal,
     linkInternal,
-    imageWithText,
-    articleImageWithSplat,
+
     moduleAccordion,
     moduleCallout,
     moduleCallToAction,

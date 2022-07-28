@@ -21,26 +21,17 @@ export default {
         type: 'string',
         title: 'Post Summary/Subtitle'
       },
-      // {
-      //   name: 'body',
-      //   title: 'Body',
-      //   type: 'body',
-      //   // group: 'editorial',
-      // },
-
       {
         title: 'Article Modules',
         name: 'page_modules',
         type: 'array',
         of: [
-          // { type: 'module.products' },
-          { type: 'article.splat' }, // object
-          // { type: 'imageWithText' }, // document 
-          { type: 'blockContent' }, // object
-
+          // must be objects
+          { type: 'imageWithSplat' }, // object
+          { type: 'paragraphRichtext' }, // object
+          { type: 'imageWithText',
+         }, // object 
         ],
       },
     ]
   }
-
-  

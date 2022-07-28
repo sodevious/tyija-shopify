@@ -239,6 +239,39 @@
     }
 }
 
+.article-body {
+    p {
+      @apply p-4;
+      @apply md:px-8;
+      @apply md:py-10;
+    }
+
+    p a {
+        @apply text-yellow;
+    }
+}
+
+.article-image-full {
+    @apply w-full;
+    @apply mb-8;
+}
+
+.article-image-rectangle,
+.article-image-oval {
+    @apply mx-20;
+    @apply my-16;
+
+    img {
+        @apply border-white;
+        @apply border;
+    }
+}
+
+.article-image-oval img {
+    @apply rounded-[50%];
+}
+
+
 /*
  * NAV
  */

@@ -2,7 +2,7 @@ import { ImageIcon } from '@sanity/icons';
 
 export default {
   title: 'Image with Text',
-  name: 'imageWithText',
+  name: 'imageAndParagraph',
   type: 'document',
   icon: ImageIcon,
   fields: [

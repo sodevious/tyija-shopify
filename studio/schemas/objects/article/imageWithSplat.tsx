@@ -1,7 +1,7 @@
 import {ImageIcon} from '@sanity/icons'
 
 export default {
-  name: 'article.splat',
+  name: 'imageWithSplat',
   title: 'Image with Splat',
   type: 'object',
   icon: ImageIcon,
@@ -17,7 +17,12 @@ export default {
       type: 'reference',
       to: [{type: 'product'}],
       weak: true,
-      validation: (Rule) => Rule.required()
+      options: {
+        disableNew: true,
+      },
+      description: 'Optional',
+      // validation: (Rule) => Rule.required(),
+      isHighlighted: true, // <-- make this field easily accessible
     }
   ],
   preview: {
