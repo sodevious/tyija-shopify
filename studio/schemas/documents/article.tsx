@@ -8,30 +8,30 @@ export default {
       {
         name: 'title',
         type: 'string',
-        title: 'Post Title'
+        title: 'Title'
       },
       {
         name: 'handle',
         type: 'slug',
         options: {source: 'title'},
+        description: "It's important to keep the handle URL in sync with the one in Shopify. If you change the handle URL, the article will not be published in Shopify.",
+
         validation: validateSlug,
       },
       {
         name: 'summary_html',
         type: 'string',
-        title: 'Post Summary/Subtitle'
+        title: 'Article Summary/Subtitle'
       },
       {
         title: 'Article Modules',
         name: 'page_modules',
         type: 'array',
         of: [
-          // must be objects
-          { type: 'imageWithSplat' }, // object
-          { type: 'paragraphRichtext' }, // object
-          { type: 'imageWithText',
-         }, // object 
-        ],
-      },
+          { type: 'imageWithSplat' },
+          { type: 'paragraphRichtext' },
+          { type: 'imageWithText' }
+        ]
+      }
     ]
   }

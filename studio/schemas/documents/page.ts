@@ -6,21 +6,6 @@ export default {
   title: 'Page',
   type: 'document',
   icon: DocumentIcon,
-  // groups: [
-  //   {
-  //     name: 'theme',
-  //     title: 'Theme',
-  //   },
-  //   {
-  //     default: true,
-  //     name: 'editorial',
-  //     title: 'Editorial',
-  //   },
-  //   {
-  //     name: 'seo',
-  //     title: 'SEO',
-  //   },
-  // ],
   fields: [
     // Title
     {
@@ -37,11 +22,15 @@ export default {
       validation: validateSlug,
     },
     {
-      name: 'body',
-      title: 'Body',
-      type: 'body',
-      // group: 'editorial',
-    },
+      title: 'Article Modules',
+      name: 'page_modules',
+      type: 'array',
+      of: [
+        { type: 'imageWithSplat' },
+        { type: 'paragraphRichtext' },
+        { type: 'imageWithText' }
+      ]
+    }
 
   ],
   preview: {
@@ -60,3 +49,6 @@ export default {
     },
   },
 }
+
+
+
