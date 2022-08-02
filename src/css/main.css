@@ -337,6 +337,13 @@
     }
 }
 
+.article-footnote {
+    @apply text-sm;
+
+    p {
+        @apply py-0;
+    }
+}
 
 /*
  * NAV

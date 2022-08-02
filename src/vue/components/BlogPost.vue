@@ -3,6 +3,7 @@ import { SanityBlocks } from 'sanity-blocks-vue-component';
 import ImageWithSplat from './editorial/ImageWithSplat.vue';
 import ImageWithText from './editorial/ImageWithText.vue';
 import Blockquote from './editorial/Blockquote.vue';
+import Footnote from './editorial/Footnote.vue';
 
 export default {
   name: 'BlogPost',
@@ -16,6 +17,12 @@ export default {
       serializers: {
         styles: {
           blockquote: Blockquote,
+        },
+        marks: {
+          sup: 'sup',
+        },
+        types: {
+          footnote: Footnote
         }
       }
     }
@@ -44,7 +51,7 @@ export default {
       }
     }`
     this.postContent = await this.sanity.fetch(query)
-    console.log(this.postContent.credits)
+    console.log(this.postContent)
   },
 }
 </script>
