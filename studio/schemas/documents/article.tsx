@@ -15,7 +15,6 @@ export default {
         type: 'slug',
         options: {source: 'title'},
         description: "It's important to keep the handle URL in sync with the one in Shopify. If you change the handle URL, the article will not be published in Shopify.",
-
         validation: validateSlug,
       },
       {

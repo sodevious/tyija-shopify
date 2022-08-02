@@ -1,5 +1,5 @@
-import {DocumentIcon} from '@sanity/icons'
-import {validateSlug} from '../../utils/validateSlug'
+import { DocumentIcon } from '@sanity/icons'
+import { validateSlug } from '../../utils/validateSlug'
 
 export default {
   name: 'page',
@@ -16,9 +16,10 @@ export default {
     },
     // Slug
     {
-      name: 'slug',
+      name: 'handle',
       type: 'slug',
-      options: {source: 'title'},
+      options: { source: 'title' },
+      description: "It's important to keep the handle URL in sync with the one in Shopify. If you change the handle URL, the article will not be published in Shopify.",
       validation: validateSlug,
     },
     {
@@ -26,7 +27,11 @@ export default {
       name: 'page_modules',
       type: 'array',
       of: [
-        { type: 'imageWithSplat' },
+        // { type: 'imageWithSplat' },
+        { type: 'picture' },
+        {
+          type: 'horizontalRule'
+        },
         { type: 'paragraphRichtext' },
         { type: 'imageWithText' }
       ]
@@ -36,11 +41,10 @@ export default {
   preview: {
     select: {
       active: 'active',
-      seoImage: 'seo.image',
       title: 'title',
     },
     prepare(selection) {
-      const {seoImage, title} = selection
+      const { seoImage, title } = selection
 
       return {
         media: seoImage,

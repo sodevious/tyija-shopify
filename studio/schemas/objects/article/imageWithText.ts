@@ -1,7 +1,7 @@
 import { ImageIcon, SplitVerticalIcon } from '@sanity/icons';
 
 export default {
-  title: 'Image with Text',
+  title: 'Image & Text Column',
   name: 'imageWithText',
   type: 'object',
   icon: SplitVerticalIcon,

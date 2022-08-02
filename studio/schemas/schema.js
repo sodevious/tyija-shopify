@@ -28,6 +28,8 @@ import home from './singletons/home'
 import settings from './singletons/settings'
 
 // TYiJA EDITORIAL
+import horizontalRule from './objects/article/horizontalRule'
+import picture from './objects/article/picture'
 import paragraphRichtext from './objects/article/paragraphRichtext'
 import imageWithText from './objects/article/imageWithText'
 import imageWithSplat from './objects/article/imageWithSplat'
@@ -47,9 +49,11 @@ export default createSchema({
     settings,
 
     body,
+    picture,
     imageWithText,
     imageWithSplat,
     paragraphRichtext,
+    horizontalRule,
 
     placeholderString,
     productOption,
