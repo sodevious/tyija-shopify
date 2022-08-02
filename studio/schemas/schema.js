@@ -33,6 +33,7 @@ import picture from './objects/article/picture'
 import paragraphRichtext from './objects/article/paragraphRichtext'
 import imageWithText from './objects/article/imageWithText'
 import imageWithSplat from './objects/article/imageWithSplat'
+import pageCredits from './objects/article/pageCredits'
 
 export default createSchema({
   name: 'default',
@@ -54,6 +55,7 @@ export default createSchema({
     imageWithSplat,
     paragraphRichtext,
     horizontalRule,
+    pageCredits,
 
     placeholderString,
     productOption,

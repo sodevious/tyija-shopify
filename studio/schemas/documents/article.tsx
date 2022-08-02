@@ -31,6 +31,11 @@ export default {
           { type: 'paragraphRichtext' },
           { type: 'imageWithText' }
         ]
-      }
+      },
+      {
+        name: 'credits',
+        type: 'pageCredits',
+        title: 'Article Credits'
+      },
     ]
   }
