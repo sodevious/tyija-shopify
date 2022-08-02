@@ -15,8 +15,8 @@ export default {
         name: 'credit_modules',
         type: 'array',
         of: [
-          { type: 'paragraphRichtext' },
+          { type: 'paragraphRichtext' }
         ]
-      },
+      }
   ]
 }

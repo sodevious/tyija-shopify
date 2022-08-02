@@ -318,6 +318,25 @@
     @apply rounded-[50%];
 }
 
+.article-credits {
+    @apply border-t;
+    @apply md:border-0;
+    @apply text-sm;
+    @apply p-4;
+    @apply md:flex;
+    @apply md:px-8;
+
+    p {
+        @apply py-2;
+        @apply lg:py-0;
+        @apply px-0;
+    }
+
+    p + p {
+        @apply m-0;
+    }
+}
+
 
 /*
  * NAV
