@@ -2,6 +2,7 @@
 import { SanityBlocks } from 'sanity-blocks-vue-component';
 import ImageWithSplat from './editorial/ImageWithSplat.vue';
 import ImageWithText from './editorial/ImageWithText.vue';
+import Blockquote from './editorial/Blockquote.vue';
 
 export default {
   name: 'BlogPost',
@@ -12,32 +13,37 @@ export default {
   data() {
     return {
       postContent: [],
+      serializers: {
+        styles: {
+          blockquote: Blockquote,
+        }
+      }
     }
   },
   async mounted() {
     const query = `*[_type == "article" && handle.current == "${this.handle}"][0] { 
-      'page_modules': page_modules[]{  
-        ...,
-        _type == 'imageWithSplat' => {
+        'page_modules': page_modules[]{  
           ...,
-          "productSlug": product -> store.slug.current
-        },
-        _type == 'imageWithText' => {
-          body[]{
-          ...,
-          _type == 'imageWithStyle' => {
+          _type == 'imageWithSplat' => {
             ...,
-            imageWithSplat {
+            "productSlug": product -> store.slug.current
+          },
+          _type == 'imageWithText' => {
+            body[]{
+            ...,
+            _type == 'imageWithStyle' => {
               ...,
-              "productSlug": product -> store.slug.current
+              imageWithSplat {
+                ...,
+                "productSlug": product -> store.slug.current
+              }
             }
           }
         }
       }
-  }
-}`
+    }`
     this.postContent = await this.sanity.fetch(query)
-console.log(this.postContent)
+    console.log(this.postContent)
   },
 }
 </script>
@@ -46,7 +52,7 @@ console.log(this.postContent)
   <template v-if="postContent" v-for="section in postContent.page_modules">
     <ImageWithSplat v-if="section._type == 'imageWithSplat'" :section-data="section" />
     <ImageWithText v-else-if="section._type == 'imageWithText'" :section-data="section" />
-    <SanityBlocks v-else-if="section._type == 'paragraphRichtext'" :blocks="section.body" />
+    <SanityBlocks v-else-if="section._type == 'paragraphRichtext'" :blocks="section.body" :serializers="serializers" />
     <p v-else>
       {{ section._type }}
     </p>

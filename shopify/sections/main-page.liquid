@@ -1,5 +1,13 @@
-<h3 class="page-title">{{ page.title }}</h3>
+<h2 class="page-title">
+  {{ page.title }}
+</h2>
 
-<div class="p-4 md:p-8 my-4 md:my-2 richtext">
-  {{ page.content }}
+<div class="page-body mb-12 richtext no-js:hidden" vue>
+  <page-content handle="{{- page.handle }}" >
+    {{ page.content }}
+  </page-content>
 </div>
+ 
+<article class="page-body richtext js:hidden p-4 md:p-8">
+  {{ page.content }}
+</article>

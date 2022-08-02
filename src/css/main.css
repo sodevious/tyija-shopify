@@ -219,10 +219,6 @@
     @apply md:border-r;
 }
 
-.richtext p +  p {
-    @apply mt-6;
-}
-
 @layer components {
     .page-title {
         @apply block;
@@ -239,15 +235,66 @@
     }
 }
 
+/*
+ * PAGES/ARTICLES
+ */
+
+.richtext {
+    h1 {
+        @apply text-h1;
+        @apply md:p-8;
+    }
+    
+    h2 {
+        @apply text-h2;
+        @apply md:p-8;
+    }   
+     
+    h3 {
+        @apply text-h3;
+        @apply md:p-8;
+    }
+
+    p +  p {
+        @apply mt-6;
+    }
+}
+
+.page-body,
 .article-body {
     p {
       @apply p-4;
-      @apply md:px-8;
-      @apply md:py-10;
+      @apply md:p-8;
     }
 
     p a {
         @apply text-yellow;
+    }
+
+    ol, 
+    ul, 
+    li {
+        @apply mx-6;
+        @apply md:mx-8;
+    }
+
+    ol {
+        @apply list-decimal;
+        @apply my-4;
+        @apply md:my-8;
+    }
+
+    ul {
+        @apply list-disc;
+        @apply my-4;
+        @apply md:my-8;
+    }
+
+    blockquote {
+        @apply p-4;
+        @apply md:p-8;
+        @apply mx-8;
+        @apply md:mx-16;
     }
 }
 

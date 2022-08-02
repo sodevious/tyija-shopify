@@ -2,10 +2,7 @@
   {{ blog.title }}
 </h2>
 
-<div class="container" vue>
-
-  {% comment %} {% raw %}{{ $store.state['content'].activeBlog }}{% endraw %} {% endcomment %}
-  
+<div class="container" vue>  
   {% paginate blog.articles by 8 %}
     {% for article in blog.articles %}
       <a href="{{ article.url }}" class="w-full block relative border-b p-4 md:p-8" @click.prevent.stop.once="$store.dispatch('content/setBlog', '{{ article.handle }}')">
