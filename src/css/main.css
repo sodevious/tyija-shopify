@@ -450,6 +450,8 @@
 
 .product-card {
     @apply relative;
+    @apply flex;
+    @apply flex-col;
 }
 
 .product-card:hover {

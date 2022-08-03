@@ -29,11 +29,11 @@
 
       <p class="text-h3 text-center my-12 uppercase  md:text-left {% if current_variant.compare_at_price %}text-red{% endif %}">
         {% if current_variant.available %}
-          {{ product.price | money_without_trailing_zeros }}
+          {{ product.price | money_with_currency }}
 
           {% if current_variant.compare_at_price %}
             <del class="text-lg">
-              {{ current_variant.compare_at_price | money }}
+              {{ current_variant.compare_at_price | money_with_currency }}
             </del>
 
             <span class="bg-red-500 text-white text-sm tracking-wider uppercase px-2 py-1">

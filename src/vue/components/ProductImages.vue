@@ -33,7 +33,8 @@ export default {
         settings: {
             itemsToShow: 1,
             snapAlign: 'center',
-            wrapAround: true
+            wrapAround: true,
+            dir: 'rtl'
         }
     }),
     computed: {
