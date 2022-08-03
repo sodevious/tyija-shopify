@@ -35,6 +35,7 @@ import imageWithText from './objects/article/imageWithText'
 import imageWithSplat from './objects/article/imageWithSplat'
 import pageCredits from './objects/article/pageCredits'
 import videoEmbed from './objects/article/videoEmbed'
+import carousel from './objects/article/carousel'
 
 export default createSchema({
   name: 'default',
@@ -51,6 +52,7 @@ export default createSchema({
     settings,
 
     body,
+    carousel,
     picture,
     imageWithText,
     imageWithSplat,

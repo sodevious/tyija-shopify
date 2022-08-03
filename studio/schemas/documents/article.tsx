@@ -31,7 +31,8 @@ export default {
           { type: 'paragraphRichtext' },
           { type: 'videoEmbed'},
           { type: 'picture'},
-          { type: 'imageWithText' }
+          { type: 'imageWithText' },
+          { type: 'carousel' }
         ]
       },
       {

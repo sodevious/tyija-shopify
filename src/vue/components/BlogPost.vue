@@ -2,14 +2,22 @@
 import { SanityBlocks } from 'sanity-blocks-vue-component';
 import ImageWithSplat from './editorial/ImageWithSplat.vue';
 import ImageWithText from './editorial/ImageWithText.vue';
-import Blockquote from './editorial/Blockquote.vue';
-import Footnote from './editorial/Footnote.vue';
 import Image from './editorial/Image.vue';
 import VideoEmbed from './editorial/VideoEmbed.vue';
+import ArticleCarousel from './editorial/ArticleCarousel.vue';
+import Blockquote from './editorial/Blockquote.vue';
+import Footnote from './editorial/Footnote.vue';
 
 export default {
   name: 'BlogPost',
-  components: { SanityBlocks, ImageWithSplat, ImageWithText, VideoEmbed, Image },
+  components: { 
+    SanityBlocks, 
+    ImageWithSplat, 
+    ImageWithText, 
+    Image,
+    VideoEmbed, 
+    ArticleCarousel, 
+  },
   props: {
     handle: String
   },
@@ -64,6 +72,7 @@ export default {
     <ImageWithText v-else-if="section._type == 'imageWithText'" :section-data="section" />
     <Image v-else-if="section._type == 'picture'" :section-data="section" />
     <VideoEmbed v-else-if="section._type == 'videoEmbed'" :video="section" />
+    <ArticleCarousel v-else-if="section._type == 'carousel'" :section-data="section" />
     <SanityBlocks v-else-if="section._type == 'paragraphRichtext'" :blocks="section.body" :serializers="serializers" />
     <p v-else>
       {{ section._type }}

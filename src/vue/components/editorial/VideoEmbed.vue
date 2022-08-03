@@ -16,9 +16,8 @@ export default {
         fetch('https://noembed.com/embed?url=' + this.video.url)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
                 this.markup = data.html
-                this.ratio = data.width / data.height
+                this.ratio = `${data.width} / ${data.height}`
             })
     }
 }

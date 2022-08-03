@@ -348,9 +348,25 @@
 }
 
 .article-video { 
+    @apply w-full;
+    @apply h-full;
+    
     iframe {
         @apply w-full;
         @apply h-full;
+    }
+}
+
+.article-carousel {
+    ol,
+    li {
+        @apply m-0;
+        @apply p-0;
+    }
+
+    iframe,
+    img {
+        @apply pointer-events-none;
     }
 }
 
