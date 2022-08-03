@@ -1,17 +1,28 @@
 <script>
-import { useSanityFetcher } from 'vue-sanity'
-import { ref } from 'vue'
-
 export default {
-  setup(props, { slots }) {
+  data() {
+    return {
+      faqCategory: [],
+      openFaq: ''
+    }
+  },
+  methods: {
+    openCategory(handle) {
+      this.openFaq = handle
+    }
+  },
+  async mounted() {
+    const query = '*[_type == "faqCategory"]';
 
-    const { data: faqCategory } = useSanityFetcher('*[_type == "faqCategory"]')
-    const openFaq = ref()
-
-    return () => slots.default({
-      faqCategory: faqCategory.value,
-      openFaq
-    })
-  }
-}
+    this.faqCategory = await this.sanity.fetch(query)
+    console.log(this.faqCategory)
+  },
+  render() {
+    return this.$slots.default({
+      faqCategory: this.faqCategory,
+      openCategory: this.openCategory,
+      openFaq: this.openFaq
+    });
+  },
+};
 </script>

@@ -42,6 +42,7 @@
         @apply text-center;
         @apply leading-none;
         @apply normal-case;
+        @apply appearance-none;
         @apply bg-white;
         @apply text-black;
         @apply light:bg-gray;

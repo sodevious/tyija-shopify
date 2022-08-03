@@ -12,8 +12,8 @@
         </svg>
       </button>
 
-      <ul class="grid grid-cols-2 gap-4 p-4 items-center text-center flex-1 justify-around  md:flex md:items-start md:text-left text-white md:light:text-gray"
-              data-barba-prevent="all">
+      <ul class="grid grid-cols-2 gap-4 p-4 items-center text-center flex-1 justify-around  md:flex md:items-start md:text-left text-white md:light:text-gray md:index:text-black index:text-black"
+          data-barba-prevent="all">
         <li>
           <h4 class="text-md uppercase mb-2 md:text-h4">{{ linklists.info.title }}</h4>
 
@@ -54,13 +54,15 @@
           </button>
 
           <a href="{{ routes.account_login_url }}"
-              type="submit" class="button button-sm my-2 light:bg-white light:mix-blend-screen light:text-gray">
+              type="submit" class="button button-sm my-2 light:bg-white light:mix-blend-screen light:text-gray index:text-black">
             {{ 'action.sign_in' | t }}
           </a>
       
-          <svg class="w-16 h-16 my-2">
-            <use xlink:href="#liked"></use>
-          </svg>
+          <a href="/pages/wishlist/">
+            <svg class="w-16 h-16 my-2">
+              <use xlink:href="#liked"></use>
+            </svg>
+          </a>
         </li>
         
         <li class="lg:w-80 col-span-2">

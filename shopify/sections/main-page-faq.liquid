@@ -3,17 +3,17 @@
 </h2>
 
 <div class="pb-16 richtext no-js:hidden" vue>
-  <frequently-asked-questions v-slot="{ faqCategory, openFaq }">
+  <frequently-asked-questions v-slot="{ openCategory, faqCategory, openFaq }">
     <section 
       v-for="category in faqCategory" 
-      class="px-8 py-4 mb-4 border-b cursor-pointer" 
+      class="border-b cursor-pointer" 
       :id="category.slug.current" 
       :key="category.slug.current" 
-      @click="openFaq.value = category.slug.current">
+      @click="openCategory(category.slug.current)">
 
-      <h3 v-text="category.title" class="uppercase text-h3 mb-4"></h3>
+      <h3 v-text="category.title" class="uppercase text-h3"></h3>
 
-      <div class="mt-4" v-if="openFaq.value == category.slug.current" v-for="faq in category.questions">
+      <div class="pt-4 px-4 md:px-8" v-if="openFaq == category.slug.current" v-for="faq in category.questions">
        <h4 v-text="faq.question" class="uppercase text-h4 mb-4"></h4>
         <p v-text="faq.answer" class="mb-4 md:mb-8"></p>
       </div>
