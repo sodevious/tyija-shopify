@@ -30,6 +30,7 @@ export default {
           { type: 'imageWithSplat' },
           { type: 'paragraphRichtext' },
           { type: 'videoEmbed'},
+          { type: 'picture'},
           { type: 'imageWithText' }
         ]
       },

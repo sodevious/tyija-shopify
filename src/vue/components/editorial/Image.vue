@@ -1,5 +1,5 @@
 <template>
-    <section class="relative">
+    <section>
         <img :src="urlFor(sectionData.image).width(800).quality(80)" :srcset="responsiveSrcset(sectionData.image)"
             sizes="(max-width: 640px) 540, (max-width: 960px) 800, (max-width: 1536px) 1600, 1600" />
     </section>
@@ -9,7 +9,7 @@
 import imageUrlBuilder from '@sanity/image-url'
 
 export default {
-    name: "ImageWithSplat",
+    name: "Image",
     props: {
         sectionData: Object,
         default: () => {

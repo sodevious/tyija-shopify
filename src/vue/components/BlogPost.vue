@@ -4,11 +4,12 @@ import ImageWithSplat from './editorial/ImageWithSplat.vue';
 import ImageWithText from './editorial/ImageWithText.vue';
 import Blockquote from './editorial/Blockquote.vue';
 import Footnote from './editorial/Footnote.vue';
+import Image from './editorial/Image.vue';
 import VideoEmbed from './editorial/VideoEmbed.vue';
 
 export default {
   name: 'BlogPost',
-  components: { SanityBlocks, ImageWithSplat, ImageWithText, VideoEmbed },
+  components: { SanityBlocks, ImageWithSplat, ImageWithText, VideoEmbed, Image },
   props: {
     handle: String
   },
@@ -61,6 +62,7 @@ export default {
   <template v-if="postContent" v-for="section in postContent.page_modules">
     <ImageWithSplat v-if="section._type == 'imageWithSplat'" :section-data="section" />
     <ImageWithText v-else-if="section._type == 'imageWithText'" :section-data="section" />
+    <Image v-else-if="section._type == 'picture'" :section-data="section" />
     <VideoEmbed v-else-if="section._type == 'videoEmbed'" :video="section" />
     <SanityBlocks v-else-if="section._type == 'paragraphRichtext'" :blocks="section.body" :serializers="serializers" />
     <p v-else>

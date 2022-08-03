@@ -2,7 +2,7 @@ import {ImageIcon} from '@sanity/icons'
 
 export default {
   name: 'imageWithSplat',
-  title: 'Image with Splat',
+  title: 'Product Splat',
   type: 'object',
   icon: ImageIcon,
   fields: [
@@ -35,7 +35,7 @@ export default {
 
       return {
         media: image,
-        title: 'Image with Splat',
+        title: 'Product Splat',
         subtitle: subtitle
       }
     }

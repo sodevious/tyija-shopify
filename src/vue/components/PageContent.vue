@@ -1,11 +1,11 @@
 <script>
 import { SanityBlocks } from 'sanity-blocks-vue-component';
-import Picture from './editorial/Picture.vue';
+import Image from './editorial/Image.vue';
 import ImageWithText from './editorial/ImageWithText.vue';
 
 export default {
     name: 'PageContent',
-    components: { SanityBlocks, ImageWithText, Picture },
+    components: { SanityBlocks, ImageWithText, Image },
     props: {
         handle: String
     },
@@ -25,7 +25,7 @@ export default {
 <template>
     <template v-if="pageBody" v-for="section in pageBody.page_modules">
         <ImageWithText v-if="section._type == 'imageWithText'" :section-data="section" />
-        <Picture v-else-if="section._type == 'picture'" :section-data="section" />
+        <Image v-else-if="section._type == 'picture'" :section-data="section" />
         <SanityBlocks v-else-if="section._type == 'paragraphRichtext'" :blocks="section.body" />
         <p v-else>
             {{ section._type }}
