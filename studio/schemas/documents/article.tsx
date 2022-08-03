@@ -29,6 +29,7 @@ export default {
         of: [
           { type: 'imageWithSplat' },
           { type: 'paragraphRichtext' },
+          { type: 'videoEmbed'},
           { type: 'imageWithText' }
         ]
       },

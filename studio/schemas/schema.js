@@ -34,6 +34,7 @@ import paragraphRichtext from './objects/article/paragraphRichtext'
 import imageWithText from './objects/article/imageWithText'
 import imageWithSplat from './objects/article/imageWithSplat'
 import pageCredits from './objects/article/pageCredits'
+import videoEmbed from './objects/article/videoEmbed'
 
 export default createSchema({
   name: 'default',
@@ -57,6 +58,7 @@ export default createSchema({
     horizontalRule,
     pageCredits,
 
+    videoEmbed,
     placeholderString,
     productOption,
     productWithVariant,
