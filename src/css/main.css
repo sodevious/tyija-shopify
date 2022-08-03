@@ -45,6 +45,7 @@
         @apply bg-white;
         @apply text-black;
         @apply light:bg-gray;
+        @apply index:bg-black;
         @apply light:text-white;
         @apply light:mix-blend-darken;
     }
@@ -110,7 +111,7 @@
 */
 
 .tyija-home {
-    grid-template-rows: var(--layout-header) auto;
+    grid-template-rows: var(--layout-header) calc(100vh - var(--layout-header));
 
     @apply grid; 
     @apply z-30;
@@ -166,8 +167,8 @@
     @apply flex;
     @apply justify-center;
     @apply items-center;
-    @apply border-b;
-    @apply md:border-none;
+    /* @apply border-b; */
+    /* @apply md:border-none; */
 }
 
 .tyija-actions {
@@ -242,16 +243,19 @@
 .richtext {
     h1 {
         @apply text-h1;
+        @apply p-4;
         @apply md:p-8;
     }
     
     h2 {
         @apply text-h2;
+        @apply p-4;
         @apply md:p-8;
     }   
      
     h3 {
         @apply text-h3;
+        @apply p-4;
         @apply md:p-8;
     }
 

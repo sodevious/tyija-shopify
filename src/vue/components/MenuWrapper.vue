@@ -18,7 +18,7 @@ export default {
     class="px-4 block absolute h-header top-0 bottom-0 left-0 z-40 md:hidden"
     @click="toggleMenu"
   >
-    <svg class="w-4 h-4 light:text-gray">
+    <svg class="w-4 h-4 light:text-gray index:text-black">
       <use xlink:href="#menu" />
     </svg>
   </button>
