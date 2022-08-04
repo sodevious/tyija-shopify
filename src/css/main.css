@@ -69,7 +69,7 @@
         @apply my-2; 
         @apply p-2;
         @apply border-b;
-        @apply border-r-0;
+        /* @apply border-r-0; */
         @apply placeholder-currentColor;
         @apply focus:outline-none;
     }
@@ -451,8 +451,8 @@
 
 .product-card {
     @apply relative;
-    @apply flex;
-    @apply flex-col;
+    /* @apply flex;
+    @apply flex-col; */
 }
 
 .product-card:hover {
@@ -468,6 +468,18 @@
     }
 }
 
+.product-card-link {
+    @apply block;
+    @apply relative;
+    @apply h-full;
+    @apply z-20;
+    @apply h-20;
+
+    @supports (aspect-ratio: 3/4) {
+        @apply aspect-3/4;
+        @apply h-auto;
+    }
+}
 
 /*
  * DESIGNER COLLECTION
