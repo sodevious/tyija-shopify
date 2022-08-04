@@ -11,10 +11,10 @@
 <div vue id="login_form">
   <account-login
     v-slot="{ active, show, hash }"
-    initial="login"
+    initialå="login"
   >
     <div
-      v-show="active === 'forgot-password' || hash === '#recover'"
+      v-if="active === 'forgot-password' || hash === '#recover'"
       key="forgot-password"
       class="no-js:hidden"
     >
@@ -22,7 +22,7 @@
     </div>
 
     <div
-      v-show="active === 'login' && !hash"
+      v-else
       key="login"
     >
       {% render 'account-login' %}
