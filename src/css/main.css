@@ -300,7 +300,8 @@
 }
 
 .article-image-full {
-    @apply w-full;
+    /* @apply w-full; */
+    @apply mx-auto;
     @apply mb-8;
 }
 

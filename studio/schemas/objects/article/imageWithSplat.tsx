@@ -9,7 +9,7 @@ export default {
     {
       name: 'image',
       title: 'Image',
-      type: 'image',
+      type: 'picture',
       validation: (Rule) => Rule.required()
     },
     {
@@ -21,14 +21,13 @@ export default {
         disableNew: true,
       },
       description: 'Optional',
-      // validation: (Rule) => Rule.required(),
       isHighlighted: true, // <-- make this field easily accessible
     }
   ],
   preview: {
     select: {
       subtitle: 'product.store.title',
-      image: 'image'
+      image: 'image.image',
     },
     prepare(selection) {
       const { subtitle, image } = selection

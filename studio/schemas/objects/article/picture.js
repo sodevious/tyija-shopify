@@ -11,20 +11,35 @@ export default {
       title: 'Image',
       type: 'image',
       validation: (Rule) => Rule.required()
+    },
+    {
+      title: 'Width',
+      name: 'imageWidth',
+      type: 'string',
+      initialValue: 'full',
+      options: {
+        isHighlighted: true,
+        list: [
+          { title: 'Full Width', value: 'full' },
+          { title: '2/3 Width', value: '2/3' },
+          { title: '1/2 Width', value: '1/2' }
+        ]
+      }
     }
   ],
   preview: {
     select: {
-      // subtitle: 'product.store.title',
+      width: 'imageWidth',
       image: 'image'
     },
     prepare(selection) {
-      const { subtitle, image } = selection
+      const { width, image } = selection
 
+      console.log(image)
       return {
-        media: image,
         title: 'Image',
-        subtitle: subtitle
+        subtitle: 'Width: ' + width,
+        media: image
       }
     }
   }

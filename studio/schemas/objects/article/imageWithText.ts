@@ -1,7 +1,7 @@
 import { ImageIcon, SplitVerticalIcon } from '@sanity/icons';
 
 export default {
-  title: 'Image & Text Column',
+  title: 'Image & Text Columns',
   name: 'imageWithText',
   type: 'object',
   icon: SplitVerticalIcon,
@@ -11,14 +11,20 @@ export default {
       name: 'body',
       description: 'Arrange them in the order you want them displayed',
       type: 'array',
-      of: [{
+      of: [
+      {
+        name: 'image',
+        title: 'Image',
+        type: 'picture',
+      },
+      {
         name: 'paragraphRichtext',
         title: 'Paragraph',
         type: 'paragraphRichtext',
       },
       {
         name: 'imageWithStyle',
-        title: 'Image',
+        title: 'Product Splat',
         type: 'object',
         icon: ImageIcon,
         fields: [
@@ -63,15 +69,8 @@ export default {
       ]
     }
   ],
-
   preview: {
-    select: {
-      // subtitle: 'headerText',
-      // subtitle: 'layout'
-
-    },
     prepare(selection) {
-
       return {
         title: 'Image with Paragraph',
       }

@@ -1,11 +1,13 @@
 <template>
-    <section class="relative" :class="'article-image-' + layout">
+    <section class="relative" :class="['article-image-' + layout, 'w-' + (sectionData.image.imageWidth || sectionData.imageWidth)]">
         <Image :section-data="sectionData" />
 
         <a :href="'/products/' + sectionData.productSlug" 
             v-if="sectionData.product" 
             class="absolute z-20 bottom-8 cursor-pointer text-yellow"
-            :class="[layout == 'full' ? 'left-8' : 'w-full']" 
+            :class="[layout == 'full' ? 'left-8' : '']" 
+            @mouseover="splatHover = true"
+            @mouseleave="splatHover = false"
             @mouseenter="toggleSplat">
             <svg class="w-20 h-20 mx-auto">
                 <use xlink:href="#splat"></use>
@@ -61,7 +63,6 @@ export default {
     methods: {
         toggleSplat() {
             this.sidebarOpen = true;
-            this.splatHover = true;
 
             setTimeout(() => {
                 if (this.sidebarHover == false && this.splatHover == false) {
@@ -99,7 +100,5 @@ export default {
 .fade-slide-enter-from,
 .fade-slide-leave-to {
     opacity: 0;
-    /* right: -100%; */
-    /* filter: blur(4px); */
 }
 </style>

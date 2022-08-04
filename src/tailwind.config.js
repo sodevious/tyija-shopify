@@ -12,6 +12,7 @@ module.exports = {
     path.resolve(__dirname, '**/*.{js,vue}'),
     path.resolve(__dirname, '../shopify/**/*.liquid')
   ],
+  safelist: ['w-2/3', 'w-1/2'],
   theme: {
     colors: {
       black: '#000000',
