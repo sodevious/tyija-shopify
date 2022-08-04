@@ -600,6 +600,10 @@
     @apply gap-8;
  }
 
+ .contact-form {
+    @apply md:flex;
+ }
+
  .shopify-challenge__container {
     @apply md:h-screen;
     @apply flex;

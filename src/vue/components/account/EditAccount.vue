@@ -47,7 +47,6 @@ export default {
     }
   },
   async mounted () {
-
     this.customer = await this.sanity.createIfNotExists({
       _type: 'customer',
       _id: this.customerId,
