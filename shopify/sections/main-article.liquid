@@ -2,8 +2,8 @@
   {{ article.title }}
 </h2>
 
-<div class="article-body mb-12 text-h3 no-js:hidden" vue>
-  <blog-post handle="{{- article.handle | remove: 'editorial/' -}}" >
+<div class="article-body mb-12 text-h3 no-js:hidden relative" vue>
+  <blog-post handle="{{- article.handle | remove: 'editorial/' -}}">
     {{ article.content }}
   </blog-post>
 </div>
@@ -11,3 +11,4 @@
 <article class="article-body text-h3 richtext js:hidden p-4 md:p-8">
   {{ article.content }}
 </article>
+

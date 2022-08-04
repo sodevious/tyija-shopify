@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-      postContent: [],
+      postContent: null,
       serializers: {
         styles: {
           blockquote: Blockquote,
@@ -67,7 +67,7 @@ export default {
 </script>
 
 <template>
-  <template v-if="postContent" v-for="section in postContent.page_modules">
+  <template v-if="postContent !== null" v-for="section in postContent.page_modules">
     <ImageWithSplat v-if="section._type == 'imageWithSplat'" :section-data="section" />
     <ImageWithText v-else-if="section._type == 'imageWithText'" :section-data="section" />
     <Image v-else-if="section._type == 'picture'" :section-data="section" />
@@ -84,7 +84,7 @@ export default {
     <slot />
   </section>
 
-  <aside v-if="postContent.credits" class="article-credits">
+  <aside v-if="postContent !== null && postContent.credits" class="article-credits">
     <h3 class="uppercase md:text-h3 xl:mx-8">{{ postContent.credits.title }}</h3>
 
     <div class="sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:px-8 py-2 flex-1">
@@ -93,3 +93,4 @@ export default {
     </div>
   </aside>
 </template>
+
