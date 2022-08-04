@@ -69,7 +69,6 @@
         @apply my-2; 
         @apply p-2;
         @apply border-b;
-        /* @apply border-r-0; */
         @apply placeholder-currentColor;
         @apply focus:outline-none;
     }
@@ -168,8 +167,6 @@
     @apply flex;
     @apply justify-center;
     @apply items-center;
-    /* @apply border-b; */
-    /* @apply md:border-none; */
 }
 
 .tyija-actions {
@@ -229,7 +226,6 @@
         @apply py-1;
         @apply px-8;
         @apply border-b;
-        /* @apply mb-4; */
         @apply md:text-left;
         @apply md:text-h2;
         @apply md:py-6;
@@ -409,7 +405,6 @@
     @apply right-0;
     @apply top-0;
     @apply left-0;
-    /* grid-template-rows: var(--layout-header) auto; */
     
     @apply md:top-auto;
     @apply md:bg-transparent;
@@ -451,8 +446,6 @@
 
 .product-card {
     @apply relative;
-    /* @apply flex;
-    @apply flex-col; */
 }
 
 .product-card:hover {
@@ -473,7 +466,8 @@
     @apply relative;
     @apply h-full;
     @apply z-20;
-    @apply h-20;
+    @apply h-96;
+    @apply md:h-[30rem];
 
     @supports (aspect-ratio: 3/4) {
         @apply aspect-3/4;
@@ -604,4 +598,19 @@
     @apply grid;
     @apply grid-cols-2;
     @apply gap-8;
+ }
+
+ .shopify-challenge__container {
+    @apply md:h-screen;
+    @apply flex;
+    @apply flex-col;
+    @apply justify-center;
+
+    .g-recaptcha {
+        @apply my-6;
+    }
+ }
+
+ .shopify-challenge__button {
+    @apply button;
  }

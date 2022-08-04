@@ -47,14 +47,13 @@ export default {
     }
   },
   async mounted () {
-    // this.customer = await this.sanity.createIfNotExists({
-    //   _type: 'customer',
-    //   _id: this.customerId,
-    //   name: this.name,
-    //   email: this.email,
-    // })
 
-    this.customer = await this.sanity.getDocument(this.customerId)
+    this.customer = await this.sanity.createIfNotExists({
+      _type: 'customer',
+      _id: this.customerId,
+      name: this.name,
+      email: this.email
+    })
 
     console.log('customer:', this.customer)
 
@@ -63,7 +62,7 @@ export default {
   },
   computed: {
     customerId () {
-      return this.email.replace('@', '_')
+      return this.email.replace('@', '_').replace('+', '_')
     }
   },
   methods: {
