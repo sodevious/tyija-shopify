@@ -15,6 +15,12 @@ const mutations = {
     state.isFooterOpen = false
     state.isSearchOpen = false
   },
+  CLOSE_MENU(state) {
+    state.isMenuOpen = false
+    state.isCartOpen = false
+    state.isFooterOpen = false
+    state.isSearchOpen = false
+  },
   TOGGLE_FOOTER(state) {
     state.isFooterOpen = !state.isFooterOpen
     state.isCartOpen = false
@@ -51,6 +57,10 @@ const actions = {
   toggleMenu({ commit }) {
     commit('TOGGLE_MENU')
     document.body.classList.toggle('nav-open')
+  },
+  closeMenu({ commit }) {
+    commit('CLOSE_MENU')
+    document.body.classList.remove('nav-open')
   },
   toggleFooter({ commit }) {
     commit('TOGGLE_FOOTER')

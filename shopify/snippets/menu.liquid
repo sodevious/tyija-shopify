@@ -21,7 +21,7 @@
         <ul class="block text-center accordion-item">
           {% for child_link in link.links %}
             <li class="text-h4 md:text-h5 uppercase my-2">
-              <a href="{{ child_link.url }}" @click="$store.dispatch('overlays/toggleMenu')">{{ child_link.title }}</a>
+              <a href="{{ child_link.url }}" @click="$store.dispatch('overlays/closeMenu')">{{ child_link.title }}</a>
             </li>
           {% endfor %}
         </ul>
@@ -34,7 +34,7 @@
 
         {% for article in blogs.editorial.articles limit:4 %}
           <li class="text-h4 md:text-h5 uppercase my-2">
-            <a href="{{ article.url }}" @click="$store.dispatch('overlays/toggleMenu')">{{ article.title }}</a>
+            <a href="{{ article.url }}" @click="$store.dispatch('overlays/closeMenu')">{{ article.title }}</a>
           </li>
         {% endfor %}
       </ul>
