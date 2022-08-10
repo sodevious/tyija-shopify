@@ -67,29 +67,62 @@ export default {
 </script>
 
 <template>
-  <template v-if="postContent !== null" v-for="section in postContent.page_modules">
-    <ImageWithSplat v-if="section._type == 'imageWithSplat'" :section-data="section" />
-    <ImageWithText v-else-if="section._type == 'imageWithText'" :section-data="section" />
-    <Image v-else-if="section._type == 'picture'" :section-data="section" />
-    <VideoEmbed v-else-if="section._type == 'videoEmbed'" :video="section" />
-    <ArticleCarousel v-else-if="section._type == 'carousel'" :section-data="section" />
-    <SanityBlocks v-else-if="section._type == 'paragraphRichtext'" :blocks="section.body" :serializers="serializers" />
+  <template
+    v-for="section in postContent.page_modules"
+    v-if="postContent !== null"
+  >
+    <ImageWithSplat
+      v-if="section._type == 'imageWithSplat'"
+      :section-data="section"
+    />
+    <ImageWithText
+      v-else-if="section._type == 'imageWithText'"
+      :section-data="section"
+    />
+    <Image
+      v-else-if="section._type == 'picture'"
+      :section-data="section"
+    />
+    <VideoEmbed
+      v-else-if="section._type == 'videoEmbed'"
+      :video="section"
+    />
+    <ArticleCarousel
+      v-else-if="section._type == 'carousel'"
+      :section-data="section"
+    />
+    <SanityBlocks
+      v-else-if="section._type == 'paragraphRichtext'"
+      :blocks="section.body"
+      :serializers="serializers"
+    />
     <p v-else>
       {{ section._type }}
     </p>
   </template>
 
-  <section v-else class="p-4 md:p-8">
+  <section
+    v-else
+    class="p-4 md:p-8"
+  >
     <!-- Fallback for Shopify content -->
     <slot />
   </section>
 
-  <aside v-if="postContent !== null && postContent.credits" class="article-credits">
-    <h3 class="uppercase md:text-h3 xl:mx-8">{{ postContent.credits.title }}</h3>
+  <aside
+    v-if="postContent !== null && postContent.credits"
+    class="article-credits"
+  >
+    <h3 class="uppercase md:text-h3 xl:mx-8">
+      {{ postContent.credits.title }}
+    </h3>
 
     <div class="sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:px-8 py-2 flex-1">
-      <SanityBlocks v-for="credit in postContent.credits.credit_modules" :blocks="credit.body"
-        :serializers="serializers" />
+      <SanityBlocks
+        v-for="credit in postContent.credits.credit_modules"
+        :blocks="credit.body"
+        :serializers="serializers"
+      />
     </div>
   </aside>
 </template>

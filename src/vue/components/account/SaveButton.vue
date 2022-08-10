@@ -1,11 +1,20 @@
 <template>
-    <div class="flex items-center">
-        <button class="text-h5 button-sm md:button mr-4" @click="handleSave" type="submit">
-            saVe
-        </button>
+  <div class="flex items-center">
+    <button
+      class="text-h5 button-sm md:button mr-4"
+      type="submit"
+      @click="handleSave"
+    >
+      saVe
+    </button>
 
-        <p v-show="saving" class="uppercase">saved</p>
-    </div>
+    <p
+      v-show="saving"
+      class="uppercase"
+    >
+      saved
+    </p>
+  </div>
 </template>
 
 <script>

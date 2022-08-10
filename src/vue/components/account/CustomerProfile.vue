@@ -1,14 +1,19 @@
 <template>
-  <form action="javascript:" class="max-w-md" @submit="handleSubmit">
+  <form
+    action="javascript:"
+    class="max-w-md"
+    @submit="handleSubmit"
+  >
     <div class="mb-8">
       <div
         v-for="(input, index) in profileInputs"
         :key="index"
-        class="field my-3">
+        class="field my-3"
+      >
         <!-- render checkbox input and its options -->
         <template v-if="input.type === 'checkbox'">
           <fieldset>
-            <legend >{{ input.legend }}</legend>
+            <legend>{{ input.legend }}</legend>
             <div
               v-for="(option, index) in input.options"
               :key="index"
@@ -20,7 +25,10 @@
                 v-bind="option.attrs"
                 @change="(e) => option.attrs.checked = e.target.checked"
               >
-              <label :for="option.attrs.id" class="ml-2">{{ option.title }}</label>
+              <label
+                :for="option.attrs.id"
+                class="ml-2"
+              >{{ option.title }}</label>
             </div>
           </fieldset>
         </template>
@@ -36,7 +44,7 @@
       </div>
     </div>
 
-    <SaveButton></SaveButton>
+    <SaveButton />
   </form>
 </template>
 
@@ -70,25 +78,6 @@ export default {
         },
       ]
     }
-  },
-  mounted () {
-    // set gender checkbox input options from sanity schema
-    this.profileInputs.forEach((input) => {
-      if (input.type === 'checkbox' && input.name === 'gender') {
-        const genderSanitySchemaOptions = customerSchema.fields.find(field => field.name === 'gender').options.list
-
-        // console.log(genderSanitySchemaOptions)
-        genderSanitySchemaOptions.forEach((option, index) => {
-          input.options[index] = {
-            value: option.value,
-            title: option.title,
-            attrs: {
-              id: `genderOption${index}`
-            }
-          }
-        })
-      }
-    })
   },
   watch: {
     name (newValue) {
@@ -130,6 +119,25 @@ export default {
         return input
       })
     }    
+  },
+  mounted () {
+    // set gender checkbox input options from sanity schema
+    this.profileInputs.forEach((input) => {
+      if (input.type === 'checkbox' && input.name === 'gender') {
+        const genderSanitySchemaOptions = customerSchema.fields.find(field => field.name === 'gender').options.list
+
+        // console.log(genderSanitySchemaOptions)
+        genderSanitySchemaOptions.forEach((option, index) => {
+          input.options[index] = {
+            value: option.value,
+            title: option.title,
+            attrs: {
+              id: `genderOption${index}`
+            }
+          }
+        })
+      }
+    })
   },
   methods: {
     getProfileInputSanityObject () {

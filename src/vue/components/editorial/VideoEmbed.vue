@@ -1,5 +1,8 @@
 <template>
-    <section v-html="markup" class="article-video"></section>
+  <section
+    class="article-video"
+    v-html="markup"
+  />
 </template>
 
 <script>

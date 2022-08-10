@@ -29,7 +29,10 @@
       </div>
 
       <div class="flex justify-between flex-col">
-        <p class="uppercase" v-if="product.vendor">
+        <p
+          v-if="product.vendor"
+          class="uppercase"
+        >
           {{ product.vendor }}
         </p>
 
@@ -76,16 +79,16 @@
 export default {
   name: 'ShoppingCart',
   props: ['translatedStrings'],
-  async mounted() {
-    // Initial cart load
-    await this.$store.dispatch('cart/loadCart')
-  },
   computed: {
     shopifyTranslations() {
       const parseTranslations = JSON.parse(this.translatedStrings)
 
       return parseTranslations[0]
     }
+  },
+  async mounted() {
+    // Initial cart load
+    await this.$store.dispatch('cart/loadCart')
   }
 
 }

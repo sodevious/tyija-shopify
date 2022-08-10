@@ -23,16 +23,31 @@ export default {
 </script>
 
 <template>
-    <template v-if="pageBody" v-for="section in pageBody.page_modules">
-        <ImageWithText v-if="section._type == 'imageWithText'" :section-data="section" />
-        <Image v-else-if="section._type == 'picture'" :section-data="section" />
-        <SanityBlocks v-else-if="section._type == 'paragraphRichtext'" :blocks="section.body" />
-        <p v-else>
-            {{ section._type }}
-        </p>
-    </template>
-    <section v-else class="p-4 md:p-8">
-        <!-- Fallback for Shopify content -->
-        <slot />
-    </section>
+  <template
+    v-for="section in pageBody.page_modules"
+    v-if="pageBody"
+  >
+    <ImageWithText
+      v-if="section._type == 'imageWithText'"
+      :section-data="section"
+    />
+    <Image
+      v-else-if="section._type == 'picture'"
+      :section-data="section"
+    />
+    <SanityBlocks
+      v-else-if="section._type == 'paragraphRichtext'"
+      :blocks="section.body"
+    />
+    <p v-else>
+      {{ section._type }}
+    </p>
+  </template>
+  <section
+    v-else
+    class="p-4 md:p-8"
+  >
+    <!-- Fallback for Shopify content -->
+    <slot />
+  </section>
 </template>

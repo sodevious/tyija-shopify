@@ -4,7 +4,11 @@
       please let us know what your three most wanted are!
     </span>
 
-    <form action="javascript:" class="w-[400px]" @submit="handleSubmit">
+    <form
+      action="javascript:"
+      class="w-[400px]"
+      @submit="handleSubmit"
+    >
       <div
         v-for="(input, index) in pieceInputs"
         :key="index"
@@ -20,7 +24,7 @@
         <span>#{{ index + 1 }}</span>
       </div>
 
-      <SaveButton></SaveButton>
+      <SaveButton />
     </form>
   </div>
 </template>

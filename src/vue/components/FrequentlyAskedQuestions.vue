@@ -6,16 +6,16 @@ export default {
       openFaq: ''
     }
   },
-  methods: {
-    openCategory(handle) {
-      this.openFaq = handle
-    }
-  },
   async mounted() {
     const query = '*[_type == "faqCategory"]';
 
     this.faqCategory = await this.sanity.fetch(query)
     console.log(this.faqCategory)
+  },
+  methods: {
+    openCategory(handle) {
+      this.openFaq = handle
+    }
   },
   render() {
     return this.$slots.default({

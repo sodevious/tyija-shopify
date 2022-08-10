@@ -10,7 +10,11 @@
     </template>
 
     <template #content>
-      <component :is="section.componentName" v-bind="section.props" @save="handleSave"/>
+      <component
+        :is="section.componentName"
+        v-bind="section.props"
+        @save="handleSave"
+      />
     </template>
   </CustomerAccountSection>
 </template>
@@ -46,6 +50,11 @@ export default {
       ]
     }
   },
+  computed: {
+    customerId () {
+      return this.email.replace('@', '_').replace('+', '_')
+    }
+  },
   async mounted () {
     this.customer = await this.sanity.createIfNotExists({
       _type: 'customer',
@@ -58,11 +67,6 @@ export default {
 
     // set prop data for each section after the customer data is set/updated
     this.setSectionPropsFromCustomer()
-  },
-  computed: {
-    customerId () {
-      return this.email.replace('@', '_').replace('+', '_')
-    }
   },
   methods: {
     setSectionPropsFromCustomer () {

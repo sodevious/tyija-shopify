@@ -4,7 +4,11 @@
       please let us know what your two favorites are!
     </span>
 
-    <form action="javascript:" class="w-[400px]" @submit="handleSubmit">
+    <form
+      action="javascript:"
+      class="w-[400px]"
+      @submit="handleSubmit"
+    >
       <div
         v-for="(input, index) in publicationInputs"
         :key="index"
@@ -20,7 +24,7 @@
         <span>#{{ index + 1 }}</span>
       </div>
 
-      <SaveButton></SaveButton>
+      <SaveButton />
     </form>
   </div>
 </template>
@@ -30,13 +34,13 @@ import SaveButton from './SaveButton.vue'
 
 export default {
   name: 'CustomerPublications',
+  components: {
+   SaveButton
+  },
   props: {
     publications: Array
   },
   emits: ['save'],
-  components: {
-   SaveButton
-  },
   data () {
     return {
       publicationInputs: [

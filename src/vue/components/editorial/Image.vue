@@ -1,10 +1,14 @@
 <template>
-    <section :class="'w-' + sectionData.imageWidth || sectionData.image.imageWidth" class="mx-auto">
-        <img 
-            :src="urlFor(sectionData.image.image || sectionData.image).width(800).quality(80)" 
-            :srcset="responsiveSrcset(sectionData.image.image || sectionData.image)"
-            sizes="(max-width: 640px) 540, (max-width: 960px) 800, (max-width: 1536px) 1600, 1600" />
-    </section>
+  <section
+    :class="'w-' + sectionData.imageWidth || sectionData.image.imageWidth"
+    class="mx-auto"
+  >
+    <img 
+      :src="urlFor(sectionData.image.image || sectionData.image).width(800).quality(80)" 
+      :srcset="responsiveSrcset(sectionData.image.image || sectionData.image)"
+      sizes="(max-width: 640px) 540, (max-width: 960px) 800, (max-width: 1536px) 1600, 1600"
+    >
+  </section>
 </template>
 
 <script>

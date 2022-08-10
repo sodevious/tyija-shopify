@@ -5,12 +5,18 @@
         <slot name="title" />
       </h3>
 
-      <button class="text-h5 text-right uppercase" @click="toggle">
+      <button
+        class="text-h5 text-right uppercase"
+        @click="toggle"
+      >
         {{ isEditing ? 'close' : 'edit' }}
       </button>
     </div>
 
-    <div class="mt-4" v-show="isEditing">
+    <div
+      v-show="isEditing"
+      class="mt-4"
+    >
       <slot name="content" />
     </div>
   </section>
