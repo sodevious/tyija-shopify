@@ -44,16 +44,31 @@
           ${{ $store.getters['cart/formattedPrice'](product.final_line_price) }}
         </p>
 
-        <input
-          type="number"
-          class="bg-transparent border text-center p-1 text-sm"
-          :value="product.quantity"
-          @change="async ($event) => {
-            await $store.dispatch('cart/updateItem', {
-              [product.key]: $event.target.value
-            })
-          }"
-        >
+        <div class="border justify-between items-center flex py-1">
+          <button
+            class="appearance-none px-2"
+            @click="async () => {
+              await $store.dispatch('cart/updateItem', {
+                [product.key]: product.quantity - 1
+              })
+            }"
+          >
+            -
+          </button>
+          <span class="text-sm items-center flex">
+            {{ product.quantity }}
+          </span>
+          <button
+            class="appearance-none px-2"
+            @click="async () => {
+              await $store.dispatch('cart/updateItem', {
+                [product.key]: product.quantity + 1
+              })
+            }"
+          >
+            +
+          </button>
+        </div>
       </div>
     </div>
 
