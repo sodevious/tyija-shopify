@@ -4,12 +4,10 @@
     :class="['article-image-' + layout, 'w-' + (sectionData.image.imageWidth || sectionData.imageWidth)]"
   >
     <SingleImage :section-data="sectionData" />
-
     <a
       v-if="sectionData.product" 
       :href="'/products/' + sectionData.productSlug" 
-      class="absolute z-20 bottom-8 cursor-pointer text-yellow"
-      :class="[layout == 'full' ? 'left-8' : '']" 
+      :class="['absolute z-20 bottom-8 cursor-pointer text-yellow', sectionData.position]"
       @mouseover="splatHover = true"
       @mouseleave="splatHover = false"
       @mouseenter="toggleSplat"

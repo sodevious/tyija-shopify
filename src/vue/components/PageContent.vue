@@ -28,7 +28,6 @@ export default {
       v-for="section in pageBody.page_modules"
       :key="section._key"
     >
-      {{ section }}
       <ImageWithText
         v-if="section._type == 'imageWithText'"
         :section-data="section"
