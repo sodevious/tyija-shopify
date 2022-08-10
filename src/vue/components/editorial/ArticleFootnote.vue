@@ -8,7 +8,7 @@
 import { SanityBlocks } from 'sanity-blocks-vue-component';
 
 export default {
-    name: "Footnote",
+    name: "ArticleFootnote",
     components: { SanityBlocks },
     props: ['footnote'],
 }

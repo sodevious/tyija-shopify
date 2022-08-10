@@ -8,13 +8,13 @@ const state = {
 }
 
 const getters = {
-  formattedPrice (state) {
+  formattedPrice () {
     return (price) => {
       // update for prices like 14.50
       return String(price / 100) + '.00'
     }
   },
-  itemOptionsWithValues (state) {
+  itemOptionsWithValues () {
     return (item) => {
       const { options_with_values } = item
 

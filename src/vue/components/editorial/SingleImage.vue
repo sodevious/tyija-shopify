@@ -15,7 +15,7 @@
 import imageUrlBuilder from '@sanity/image-url'
 
 export default {
-    name: "Image",
+    name: "SingleImage",
     props: {
         sectionData: Object,
         default: () => {

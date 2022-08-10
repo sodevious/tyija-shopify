@@ -20,7 +20,10 @@ export default {
 
 <template>
   <section class="md:grid grid-cols-2 items-center">
-    <div v-for="subSection in sectionData.body">
+    <div
+      v-for="subSection in sectionData.body"
+      :key="subSection._id"
+    >
       <SanityBlocks
         v-if="subSection._type == 'paragraphRichtext'"
         class="p-4"

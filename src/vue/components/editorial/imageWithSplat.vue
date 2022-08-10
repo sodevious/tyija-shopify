@@ -3,7 +3,7 @@
     class="relative"
     :class="['article-image-' + layout, 'w-' + (sectionData.image.imageWidth || sectionData.imageWidth)]"
   >
-    <Image :section-data="sectionData" />
+    <SingleImage :section-data="sectionData" />
 
     <a
       v-if="sectionData.product" 
@@ -47,13 +47,13 @@
 </template>
 
 <script>
-import Image from './Image.vue';
+import SingleImage from './SingleImage.vue';
 import MiniProduct from './MiniProduct.vue';
 
 export default {
     name: "ImageWithSplat",
     components: {
-        Image,
+        SingleImage,
         MiniProduct
     },
     props: {
