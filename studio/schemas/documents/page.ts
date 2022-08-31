@@ -27,11 +27,8 @@ export default {
       name: 'page_modules',
       type: 'array',
       of: [
-        // { type: 'imageWithSplat' },
         { type: 'picture' },
-        {
-          type: 'horizontalRule'
-        },
+        { type: 'horizontalRule' },
         { type: 'paragraphRichtext' },
         { type: 'imageWithText' }
       ]

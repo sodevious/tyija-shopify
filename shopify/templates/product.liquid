@@ -50,39 +50,39 @@
       </div>
 
       <!-- See ProductButton.vue, MainCart.vue component & cart.js store module -->
-      {% if current_variant.available %}
+
+      {% form 'product', product %}
+        {% if current_variant.title != 'Default Title' %}
+          <h4 class="uppercase text-h4">{{ product.options }}</h4>
+
+          <div class="flex">
+            {% for variant in product.variants %}
+              <a
+                href="{{ variant.url }}"
+                title="{% if variant.available %}{{ variant.title }}{% else %}{{ 'common.sold_out' | t }}{% endif %}"
+                class="border flex justify-center items-center my-4 mr-4 w-16 h-16 rounded-full  md:w-12 md:h-12 md:text-h5 {% if variant == current_variant %}bg-white text-gray light:bg-gray light:text-white{% endif %} {% if variant.available == false %}opacity-40{% endif %}"
+              >
+                {{ variant.title }}
+              </a>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" class="hidden">
+        <input type="text" name="quantity" min="1" value="1" class="hidden">
+        
         <product-button 
           :variant-id="{{ current_variant.id }}" 
           add-to-cart="{{ 'action.add_to_cart' | t }}"
+          available="{{ current_variant.available }}"
           in-cart="{{ 'action.in_cart' | t }}">
-        
-          <!-- Fallback markup -->
-          {% form 'product', product %}
-            {% if current_variant.title != 'Default Title' %}
-              <h4 class="uppercase text-h4">{{ product.options }}</h4>
-
-              <div class="flex">
-                {% for variant in product.variants %}
-                  <a
-                    href="{{ variant.url }}"
-                    class="border flex justify-center items-center my-4 mr-4 w-16 h-16 rounded-full  md:w-12 md:h-12 md:text-h5 {% if variant == current_variant %}bg-white text-gray light:bg-black light:text-white{% endif %} {% if variant.available == false %}opacity-50{% endif %}"
-                  >
-                    {{ variant.title }}
-                  </a>
-                {% endfor %}
-              </div>
-            {% endif %}
-
-            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" class="hidden">
-            <input type="text" name="quantity" min="1" value="1" class="hidden">
-
-            {% if current_variant.available %}
-              <input type="submit" value="{{ 'action.add_to_cart' | t }}" class="button my-8 text-h3 mx-auto block cursor-pointer md:mx-0">
-            {% endif %}
-          {% endform %}
-
+          {% if current_variant.available %}
+            <input type="submit" value="{{ 'action.add_to_cart' | t }}" class="button my-8 text-h3 mx-auto block cursor-pointer md:mx-0">
+          {% endif %}
         </product-button>
-      {% endif %}
+      {% endform %}
+
+
 
       <product-recommendations 
         initial-product="{{ product.id }}" 
