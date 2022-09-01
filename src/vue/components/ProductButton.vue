@@ -16,7 +16,7 @@ export default {
       type: Number,
       required: true
     },
-    addToCart: {
+    addToCartLabel: {
       type: String,
       default: 'add tO bag'
     },
@@ -35,7 +35,7 @@ export default {
     },
     text () {
       if (this.isAvailable) {
-        return this.isInBag ? this.inCart : this.addToCart 
+        return this.isInBag ? this.inCart : this.addToCartLabel 
       } else {
         return this.isInBag ? this.inCart : 'Out of stock'
       }

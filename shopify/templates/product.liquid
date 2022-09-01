@@ -1,8 +1,8 @@
 {% assign current_variant = product.selected_or_first_available_variant %}
 {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
 
-<div class="lg:grid grid-cols-product md:min-h-screen relative" vue>
-  <div class="cursor-pointer" @click="$store.dispatch('overlays/toggleZoom')">
+<div class="lg:grid grid-cols-product  relative " vue>
+  <div class="cursor-pointer product-column" @click="$store.dispatch('overlays/toggleZoom')">
     <div class="product-media">
       {% if product.images.size > 1 %}
         {% for image in product.images %}
@@ -19,7 +19,7 @@
     {{ featured_image | image_url: width: 1500 | image_tag, preload: true }}
   </product-images>
 
-  <div class="p-4 py-10 lg:border-l z-30 relative  md:px-10 md:pt-20 zoomed:pointer-events-none">
+  <div class="p-4 py-10 lg:border-l z-30 relative  product-column md:px-10 md:pt-20 zoomed:pointer-events-none">
     <div class="product-detail-wrapper md:sticky top-28">
       <h3 class="text-h3 uppercase text-center my-4  md:text-left">
         <span class="block">{{ product.vendor }}</span>
@@ -73,7 +73,7 @@
         
         <product-button 
           :variant-id="{{ current_variant.id }}" 
-          add-to-cart="{{ 'action.add_to_cart' | t }}"
+          add-to-cart-label="{{ 'action.add_to_cart' | t }}"
           available="{{ current_variant.available }}"
           in-cart="{{ 'action.in_cart' | t }}">
           {% if current_variant.available %}
@@ -81,8 +81,6 @@
           {% endif %}
         </product-button>
       {% endform %}
-
-
 
       <product-recommendations 
         initial-product="{{ product.id }}" 
