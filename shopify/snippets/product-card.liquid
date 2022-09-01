@@ -1,5 +1,5 @@
-<div class="{{ class | default: '' }} {% if product.available == false %}opacity-40{% endif %}" style="{{ style | default: '' }}">
-  <a href="{{ product.url | within: collection }}" class="product-card-link" title="{% if product.available %}{{ product.title }}{% else %}Out of Stock{% endif %}">
+<div class="{{ class | default: '' }} " style="{{ style | default: '' }}">
+  <a href="{{ product.url | within: collection }}" class="bg-white product-card-link" title="{% if product.available %}{{ product.title }}{% else %}Out of Stock{% endif %}">
     <img
       sizes="
         (min-width: 768px) 450px,
@@ -12,7 +12,7 @@
       src="{{ product.featured_image.src | img_url: '630x' }}"
       alt="{{ product.featured_image.alt | escape }}"
       loading="lazy"
-      class="w-full h-full object-cover object-center"
+      class="w-full h-full object-cover object-center {% if product.available == false %}opacity-40{% endif %}"
     />
   </a>
 

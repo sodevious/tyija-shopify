@@ -61,7 +61,7 @@ export default {
     :class="{ zoomed: isZoomed }"
     @click.prevent.once="zoomCollection"
   >
-    <template v-if="isZoomed && collectionSize > 3 && carouselContent && !isMobile">
+    <template v-if="isZoomed && carouselContent && !isMobile">
       <slot
         :is-zoomed="isZoomed"
         for-desktop="true"

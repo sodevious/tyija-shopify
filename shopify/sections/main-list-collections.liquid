@@ -5,16 +5,16 @@
     {% paginate collections by 16 %}
       <!-- See DesigtnerCollection.vue -->
       {% for collection in collections %}
-        {% if collection.metafields.tyija.is_designer == true %}
+        {% if collection.metafields.tyija.is_designer == true and collection.all_products_count > 0 %}
           <h3 class="designer-collection-title ">
             {{ collection.title | escape }}
           </h3>
 
           <designer-collection 
             collection-link='{{ collection.url }}' 
-            collection-size='{{ collection.products|size }}'
+            collection-size='{{ collection.products | size }}'
             v-slot="{ isZoomed, forDesktop }">
-              <div class="designer-collection" :class="[ isZoomed ? 'is-zoomed' : 'pointer-events-none'  , forDesktop ? 'md:hidden' : '']">
+              <div class="designer-collection" :class="[ isZoomed ? 'is-zoomed' : 'pointer-events-none cursor-pointer'  , forDesktop ? 'md:hidden' : '']">
                 {% for product in collection.products %}
                   {% render 'product-card', product: product, class: "designer-collection-product product-card-mini" %}
                 {% endfor %}
