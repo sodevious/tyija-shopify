@@ -1,7 +1,7 @@
 {% assign current_variant = product.selected_or_first_available_variant %}
 {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
 
-<div class="lg:grid grid-cols-product  relative " vue>
+<div class="lg:grid grid-cols-product relative">
   <div class="cursor-pointer product-column" @click="$store.dispatch('overlays/toggleZoom')">
     <div class="product-media">
       {% if product.images.size > 1 %}
@@ -20,7 +20,7 @@
   </product-images>
 
   <div class="p-4 py-10 lg:border-l z-30 relative  product-column md:px-10 md:pt-20 zoomed:pointer-events-none">
-    <div class="product-detail-wrapper md:sticky top-28">
+    <div class="product-detail-wrapper md:sticky mb-8 top-28">
       <h3 class="text-h3 uppercase text-center my-4  md:text-left">
         <span class="block">{{ product.vendor }}</span>
 
@@ -46,7 +46,7 @@
       </p>
 
       <div class="product-description my-10">
-        {{ product.description }}
+        {{ product.description | strip_html}}
       </div>
 
       <!-- See ProductButton.vue, MainCart.vue component & cart.js store module -->
