@@ -41,14 +41,15 @@
           href="{{ routes.root_url }}"
           data-barba-prevent
         >
-          <svg class="w-16 h-6  md:w-20">
+             <svg role="img" class="w-16 h-6 md:w-20">
+            <title>TYiJA</title>
             <use xlink:href="#logo"></use>
           </svg>
         </a>
       </h1>
 
       <nav class="tyija-nav">
-        <div class="md:flex justify-center flex-col flex-1"
+        <div style="opacity: 0;" class="js:bg-opacity-100 md:flex justify-center flex-col flex-1"
              is="vue:menu-wrapper"
              v-slot="{ navContext }">
           {% render 'menu' %}

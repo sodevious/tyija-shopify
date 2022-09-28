@@ -28,12 +28,12 @@
   <body class="bg-white text-black {{ request.page_type }}">
     {{ content_for_layout }}
 
-    <div vue class="no-js:hidden">
+    <div vue>
       <div class="tyija-actions">
         {% render 'actions' %}
       </div> 
       
-      <div class="md:flex justify-center flex-col flex-1"
+      <div style="opacity: 0;" class="js:bg-opacity-100 md:flex justify-center flex-col flex-1"
         is="vue:menu-wrapper"
         v-slot="{ navContext }">
         {% render 'menu' %}
