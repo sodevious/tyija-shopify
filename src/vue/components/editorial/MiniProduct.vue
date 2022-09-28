@@ -26,7 +26,7 @@
 import ProductButton from '../ProductButton.vue';
 
 export default {
-    name: "ImageWithSplat",
+    name: "MiniProduct",
     components: {
         ProductButton,
     },
