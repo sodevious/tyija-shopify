@@ -32,10 +32,12 @@ export default {
         Slide,
     },
     props: {
-        sectionData: Object,
-        default: () => {
-            return {}
+      sectionData: {
+        type: Object,
+        default: function() {
+          return {}
         }
+      }
     }
 }
 </script>

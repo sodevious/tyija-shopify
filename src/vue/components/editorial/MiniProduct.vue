@@ -30,7 +30,12 @@ export default {
     components: {
         ProductButton,
     },
-    props: ['productHandle'],
+    props: {
+        productHandle: {
+            type: String,
+            default: "",
+        }
+    },
     data() {
         return {
             product: {}

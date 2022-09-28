@@ -8,7 +8,14 @@
 <script>
 export default {
     name: "VideoEmbed",
-    props: ['video'],
+    props: {
+        video: {
+        type: Object,
+        default: function() {
+          return {}
+        }
+        },
+    },
     data() {
         return {
             markup: null,

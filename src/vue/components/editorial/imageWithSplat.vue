@@ -21,7 +21,7 @@
   <Transition name="fade-slide">
     <aside
       v-if="sidebarOpen == true"
-      class="fixed md:absolute article-aside w-full md:w-1/4 md:border-l right-0 top-0 bottom-0 z-[60] bg-black light:bg-white"
+      class="fixed md:absolute article-aside w-full md:w-1/4 md:border-l right-0 top-0 bottom-0 z-[50] bg-black light:bg-white"
       @mouseenter="sidebarHover = true" 
       @mouseout="closeSidebar"
     >
@@ -33,7 +33,7 @@
           <use xlink:href="#close_info" />
         </svg>
       </button>
-      <div class="sticky top-12">
+      <div class="sticky top-12 z-10">
         <svg class="w-12 h-12 my-8 mx-auto text-yellow">
           <use xlink:href="#splat" />
         </svg>
@@ -55,14 +55,16 @@ export default {
         MiniProduct
     },
     props: {
-        sectionData: Object,
-        layout: {
-            type: String,
-            default: "full"
-        },
-        default: () => {
-            return {}
+      sectionData: {
+        type: Object,
+        default: function() {
+          return {}
         }
+      },
+      layout: {
+        type: String,
+        default: "full"
+      }
     },
     data() {
         return {

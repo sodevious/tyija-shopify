@@ -17,10 +17,12 @@ import imageUrlBuilder from '@sanity/image-url'
 export default {
     name: "SingleImage",
     props: {
-        sectionData: Object,
-        default: () => {
-            return {}
+      sectionData: {
+        type: Object,
+        default: function() {
+          return {}
         }
+      }
     },
     methods: {
         urlFor(source) {

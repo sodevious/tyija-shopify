@@ -10,6 +10,13 @@ import { SanityBlocks } from 'sanity-blocks-vue-component';
 export default {
     name: "ArticleFootnote",
     components: { SanityBlocks },
-    props: ['footnote'],
+    props: {
+    footnote: {
+        type: Object,
+        default: function() {
+          return {}
+        }
+      }
+    }
 }
 </script>

@@ -36,8 +36,14 @@ export default {
     CustomerPublications
   },
   props: {
-    name: String,
-    email: String
+    name: {
+        type: String,
+        default: "",
+    },
+    email: {
+        type: String,
+        default: "",
+    },
   },
   data () {
     return {

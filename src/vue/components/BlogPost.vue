@@ -102,8 +102,6 @@ export default {
       </p>
     </template>
 
-
-
     <aside
       v-if="postContent !== null && postContent.credits"
       class="article-credits"
@@ -116,6 +114,7 @@ export default {
         <SanityBlocks
           v-for="credit in postContent.credits.credit_modules"
           :blocks="credit.body"
+          :key="credit._key"
           :serializers="serializers"
         />
 
