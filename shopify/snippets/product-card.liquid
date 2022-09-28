@@ -32,7 +32,9 @@
     <div vue class="product-like absolute top-0 z-10 ">
       <!-- See WishListButton.vue component -->
       <wishlist-button
-        raw-product-data='{{ product | json | escape }}'
+        product-handle='{{- product.handle -}}'
+        product-id='{{- product.selected_or_first_available_variant.id -}}'
+        product-image='{{- product.featured_image -}}'
         product-link="{{ shop.secure_url }}{{ product.url | within: collection | escape }}"
       ></wishlist-button>
     </div>
