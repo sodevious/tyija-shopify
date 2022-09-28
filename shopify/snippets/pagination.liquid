@@ -1,4 +1,4 @@
-{% assign pagination_link = 'p-4 text-h4 uppercase flex justify-center items-center' %}
+{% assign pagination_link = 'p-4 text-h4 uppercase flex justify-center items-center h-14' %}
 {% assign pagination_disabled = 'opacity-50 cursor-not-allowed' %}
 
 {% if paginate.pages > 1 %}
@@ -14,17 +14,17 @@
       {% if part.is_link %}
         <a
           href="{{ part.url }}"
-          class="{{ pagination_link }}"
+          class="{{ pagination_link }} w-14"
         >
           {{ part.title }}
         </a>
       {% else %}
         {% if part.title == paginate.current_page %}
-          <div class="{{ pagination_link }} bg-black text-white">
+          <div class="{{ pagination_link }} bg-white light:bg-gray rounded-full w-14 text-gray light:text-white">
             {{ part.title }}
           </div>
         {% else %}
-          <div class="{{ pagination_link }}">
+          <div class="{{ pagination_link }} w-14">
             {{ part.title }}
           </div>
         {% endif %}
