@@ -47,8 +47,10 @@
         @apply text-black;
         @apply light:bg-gray;
         @apply index:bg-black;
+        @apply index:hover:text-black;
+        @apply index:hover:bg-white;
         @apply light:text-white;
-        @apply light:mix-blend-darken;
+        /* @apply light:mix-blend-darken; */
     }
 
     .button.button-sm {
@@ -104,6 +106,11 @@
     .h-header {
         height: var(--layout-header);
     }
+
+    .text-bold-hack {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        @apply font-bold;
+    }
 }
 
 /* 
@@ -112,7 +119,7 @@
 
 .tyija-home {
     grid-template-rows: var(--layout-header) calc(100vh - var(--layout-header));
-
+    @apply pl-8;
     @apply grid; 
     @apply z-30;
 }
@@ -472,14 +479,16 @@
 }
 
 .product-card:hover {
-   @apply pt-10;
+    .product-card-link { 
+        @apply rounded-[30rem];
+    }
 
     .product-like {
         @apply z-50;
     }
 
     img  {
-        border-radius: 50%;
+        @apply rounded-[30rem];
         @apply overflow-hidden; 
     }
 }
@@ -575,6 +584,7 @@
     @apply translate-y-8;
     @apply transition-all;
 
+    
     &.is-open {
         @apply visible;
         @apply opacity-100;
@@ -582,7 +592,18 @@
         @apply md:flex;
         @apply z-[60];
         @apply md:z-40;
+        @apply text-white;
     }
+}
+
+.tyija-footer-label {
+    @apply uppercase;
+    @apply text-md;
+    @apply mb-2;
+    @apply hidden;
+    @apply text-bold-hack;
+    @apply md:text-h5;
+    @apply md:block;
 }
 
 .tyija-wing {
@@ -625,6 +646,7 @@
 
  .contact-form {
     @apply md:flex;
+    @apply items-center;
  }
 
  .shopify-challenge__container {

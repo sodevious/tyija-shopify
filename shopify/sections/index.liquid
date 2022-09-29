@@ -2,7 +2,7 @@
   <header class="flex items-center px-16 md:px-8 relative border-b border-black">
     <a
       href="{{ routes.root_url }}"
-      class="flex mx-auto w-full justify-center left-0 right-0 md:mx-0 md:justify-start"
+      class="flex mx-auto w-full justify-center left-0 right-0 md:mx-0 md:justify-start hover:text-white"
       data-barba-prevent
     >
       <svg class="w-16 h-6 md:w-20">
@@ -32,9 +32,9 @@
 </main>
 
 <aside vue>
-  <a href="/collections/all" class="tyija-wing" @click="$store.commit('overlays/TOGGLE_WING')">
+  <a href="/collections/all" class="tyija-wing hover:text-white footer-open:text-white" @click="$store.commit('overlays/TOGGLE_WING')">
     <svg class="w-14 h-16 left-10 transition-all  fixed z-50 bottom-9 flex" 
-      :class="$store.state['overlays'].isWingClicked ? 'scale-x-100' : '-scale-x-100'">
+      :class="$store.state['overlays'].isWingClicked ? '-scale-x-100' : 'scale-x-100'">
       <use xlink:href="#menu_wing_button"></use>
     </svg>
   </a>

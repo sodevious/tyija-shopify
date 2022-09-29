@@ -2,7 +2,7 @@
 <footer-menu>
   <template v-slot="{ toggleFooter, isFooterOpen, isMenuOpen }">
     <footer 
-      :class="[{ 'is-open': isFooterOpen }, 'tyija-overlay tyija-footer flex flex-col  md:px-36 md:flex md:justify-between  lg:px-40']"
+      :class="[{ 'is-open': isFooterOpen }, 'tyija-overlay tyija-footer md:h-[8rem] flex flex-col  md:px-36 md:flex md:justify-between  lg:px-40']"
      
     >
       <button class="pr-6 text-white h-header w-full flex items-center justify-end  md:hidden " 
@@ -12,37 +12,37 @@
         </svg>
       </button>
 
-      <ul class="grid grid-cols-2 gap-4 p-4 items-center text-center flex-1 justify-around  md:flex md:items-start md:text-left text-white md:light:text-gray  index:text-white md:index:text-black"
+      <ul class="grid grid-cols-2 gap-4  p-4 items-center text-center  md:h-[8rem] flex-1 justify-around  md:flex md:items-start md:text-left    index:text-white "
           data-barba-prevent="all">
         <li>
-          <h4 class="text-md uppercase mb-2 md:text-h4">{{ linklists.info.title }}</h4>
+          <h4 class="tyija-footer-label">{{ linklists.info.title }}</h4>
 
           {% for link in linklists.info.links %}
-            <a href="{{ link.url }}" class="block text-h5 uppercase">{{ link.title }}</a>
+            <a href="{{ link.url }}" class="block text-h5">{{ link.title }}</a>
           {% endfor %}
         </li>
       
         <li>
-          <h4 class="text-md uppercase mb-2 md:text-h4">{{ linklists.customers.title }}</h4>
+          <h4 class="tyija-footer-label">{{ linklists.customers.title }}</h4>
 
           {% for link in linklists.customers.links %}
-            <a href="{{ link.url }}" class="block text-h5 uppercase">{{ link.title }}</a>
+            <a href="{{ link.url }}" class="block text-h5">{{ link.title }}</a>
           {% endfor %}
         </li>
 
         <li>
-          <h4 class="text-md uppercase mb-2 md:text-h4">{{ linklists.social.title }}</h4>
+          <h4 class="tyija-footer-label">{{ linklists.social.title }}</h4>
 
           {% for link in linklists.social.links %}
-            <a href="{{ link.url }}" class="block text-h5 uppercase">{{ link.title }}</a>
+            <a href="{{ link.url }}" class="block text-h5">{{ link.title }}</a>
           {% endfor %}
         </li>
 
         <li>
-          <h4 class="text-md uppercase mb-2 md:text-h4">{{ linklists.legal.title }}</h4>
+          <h4 class="tyija-footer-label">{{ linklists.legal.title }}</h4>
 
           {% for link in linklists.legal.links %}
-            <a href="{{ link.url }}" class="block text-h5 uppercase">{{ link.title }}</a>
+            <a href="{{ link.url }}" class="block text-h5">{{ link.title }}</a>
           {% endfor %}
         </li>
 
@@ -65,8 +65,8 @@
           </a>
         </li>
         
-        <li class="lg:w-80 col-span-2">
-          <h4 class="text-md uppercase mb-2 hidden md:text-h4 md:block">Sign Up</h4>
+        <li class="col-span-2 md:w-[40%]">
+          <h4 class="tyija-footer-label">Sign Up</h4>
 
           {% form 'customer' %}
             <label for="email" class="sr-only">Email</label>
@@ -76,7 +76,7 @@
               placeholder="you@email.com"
               name="contact[email]" />
          
-            <input type="submit" value="Submit" class="p-2 uppercase text-h4">
+            <input type="submit" value="suBmit" class="button button-sm   bg-blend-normal index:bg-white index:text-black index:hover:bg-black index:hover:text-white footer-open:bg-white footer-open:text-black">
           {% endform %}
         </li>
       </ul>
@@ -86,7 +86,7 @@
       </p>
     </footer>
 
-    <aside :class="[ isMenuOpen ? 'text-white' : 'light:text-gray index:text-black']" class="absolute">
+    <aside :class="[ isMenuOpen ? 'text-white hover:text-black' : 'light:text-gray index:text-black hover:index:text-white footer-open:text-white']" class="absolute">
       <button
         class="fixed z-50 bottom-9 right-10"
         @click="toggleFooter"
