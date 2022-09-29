@@ -4,7 +4,5 @@
       "type": "main-page-contact"
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["main"]
 }

@@ -1,10 +1,8 @@
 {
-    "sections": {
-      "main": {
-        "type": "wishlist"
-      }
-    },
-    "order": [
-      "main"
-    ]
-  }
+  "sections": {
+    "main": {
+      "type": "wishlist"
+    }
+  },
+  "order": ["main"]
+}
