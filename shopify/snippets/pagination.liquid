@@ -1,4 +1,4 @@
-{% assign pagination_link = 'p-4 text-h4 uppercase flex justify-center items-center h-14' %}
+{% assign pagination_link = 'p-4 text-h4 uppercase flex justify-center items-center h-14 text-white light:text-gray' %}
 {% assign pagination_disabled = 'opacity-50 cursor-not-allowed' %}
 
 {% if paginate.pages > 1 %}
@@ -7,7 +7,10 @@
       href="{{ paginate.previous.url }}"
       class="{{ pagination_link }} {% if paginate.previous == null %}{{ pagination_disabled }}{% endif %}"
     >
-      Back
+      <svg class="w-6 h-6">
+        <title>Back</title>
+        <use xlink:href="#arrow-left"></use>
+    </svg>
     </a>
 
     {% for part in paginate.parts %}
@@ -35,7 +38,10 @@
       href="{{ paginate.next.url }}"
       class="{{ pagination_link }} {% if paginate.next == null %}{{ pagination_disabled }}{% endif %}"
     >
-      Forward
+      <svg class="w-6 h-6 rotate-180">
+        <title>Forward</title>
+        <use xlink:href="#arrow-left"></use>
+    </svg>
     </a>
   </nav>
 {% endif %}

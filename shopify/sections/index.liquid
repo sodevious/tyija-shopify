@@ -32,7 +32,7 @@
 </main>
 
 <aside vue>
-  <a href="/collections/all" class="tyija-wing hover:text-white footer-open:text-white" @click="$store.commit('overlays/TOGGLE_WING')">
+  <a href="/collections/all" class="tyija-wing hover:text-white footer-open:text-white hidden md:block" @click="$store.commit('overlays/TOGGLE_WING')">
     <svg class="w-14 h-16 left-10 transition-all  fixed z-50 bottom-9 flex" 
       :class="$store.state['overlays'].isWingClicked ? '-scale-x-100' : 'scale-x-100'">
       <use xlink:href="#menu_wing_button"></use>

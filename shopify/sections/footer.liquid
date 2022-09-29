@@ -3,9 +3,8 @@
   <template v-slot="{ toggleFooter, isFooterOpen, isMenuOpen }">
     <footer 
       :class="[{ 'is-open': isFooterOpen }, 'tyija-overlay tyija-footer md:h-[8rem] flex flex-col  md:px-36 md:flex md:justify-between  lg:px-40']"
-     
     >
-      <button class="pr-6 text-white h-header w-full flex items-center justify-end  md:hidden " 
+      <button class="pr-6 text-white h-header w-full flex items-center justify-end md:hidden" 
               @click="$store.dispatch('overlays/toggleFooter')">
         <svg class="w-5 h-5">
           <use xlink:href="#close_info"></use>
