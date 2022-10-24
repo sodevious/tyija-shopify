@@ -5,7 +5,6 @@ import ImageWithText from './editorial/ImageWithText.vue';
 import SingleImage from './editorial/SingleImage.vue';
 import VideoEmbed from './editorial/VideoEmbed.vue';
 import ArticleCarousel from './editorial/ArticleCarousel.vue';
-import ArticleBlockquote from './editorial/ArticleBlockquote.vue';
 import ArticleFootnote from './editorial/ArticleFootnote.vue';
 
 export default {
@@ -26,7 +25,12 @@ export default {
       postContent: null,
       serializers: {
         styles: {
-          blockquote: ArticleBlockquote,
+          h1: 'h1',
+          h2: 'h2',
+          h3: 'h3',
+          h4: 'h4',
+          h6: 'h5',
+          blockquote: 'blockquote',
         },
         marks: {
           sup: 'sup',
@@ -102,25 +106,7 @@ export default {
       </p>
     </template>
 
-    <aside
-      v-if="postContent !== null && postContent.credits"
-      class="article-credits"
-    >
-      <h3 class="uppercase md:text-h3 xl:mx-8">
-        {{ postContent.credits.title }}
-      </h3>
-
-      <div class="sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:px-8 py-2 flex-1">
-        <SanityBlocks
-          v-for="credit in postContent.credits.credit_modules"
-          :blocks="credit.body"
-          :key="credit._key"
-          :serializers="serializers"
-        />
-
-        {{ postContent.credits.credit_modules }}
-      </div>
-    </aside>
+ 
   </template>
   <section
     v-else
