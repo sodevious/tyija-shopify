@@ -106,7 +106,25 @@ export default {
       </p>
     </template>
 
- 
+    <aside
+      v-if="postContent !== null && postContent.credits"
+      class="article-credits"
+    >
+      <h3 class="uppercase md:text-h3 xl:mx-8">
+        {{ postContent.credits.title }}
+      </h3>
+
+      <div class="flex-1 gap-8 py-2 sm:grid sm:grid-cols-2 lg:grid-cols-4 md:px-8">
+        <SanityBlocks
+          v-for="credit in postContent.credits.credit_modules"
+          :blocks="credit.body"
+          :key="credit._key"
+          :serializers="serializers"
+        />
+
+        {{ postContent.credits.credit_modules }}
+      </div>
+    </aside>
   </template>
   <section
     v-else
